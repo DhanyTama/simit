@@ -64,16 +64,42 @@ $currentPage = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : '
                     </div>
                 </a>
             </li>
+            <!-- <li class="sidebar-skin-item">
+                <div class="sidebar-skin-picker">
+                    <div class="sidebar-skin-title">
+                        <i class="material-icons">palette</i>
+                        <span>Pilihan Skin</span>
+                    </div>
+                    <div class="sidebar-skin-grid">
+                        <button type="button" class="skin-btn active" data-skin="default" title="Default (Red / Blue)">
+                            <span class="skin-preview-dot skin-dot-default"></span>
+                            <span class="skin-name">Default</span>
+                        </button>
+                        <button type="button" class="skin-btn" data-skin="cappuccino" title="Cappuccino (Warm Coffee / Caramel)">
+                            <span class="skin-preview-dot skin-dot-cappuccino"></span>
+                            <span class="skin-name">Cappuccino</span>
+                        </button>
+                        <button type="button" class="skin-btn" data-skin="everforest" title="Everforest (Sage Green)">
+                            <span class="skin-preview-dot skin-dot-everforest"></span>
+                            <span class="skin-name">Everforest</span>
+                        </button>
+                        <button type="button" class="skin-btn" data-skin="tokyo" title="Tokyo Night (Cyberpunk)">
+                            <span class="skin-preview-dot skin-dot-tokyo"></span>
+                            <span class="skin-name">Tokyo</span>
+                        </button>
+                    </div>
+                </div>
+            </li> -->
         </ul>
     </div>
     <!-- #Menu -->
     <!-- Footer -->
     <div class="legal">
         <div class="copyright">
-            &copy; 2017 - 2020 <a href="javascript:void(0);"> - RSU. ANWAR MEDIKA</a>
+            &copy; 2026 <a href="javascript:void(0);"> - RSU. ANWAR MEDIKA</a>
         </div>
         <div class="version">
-            <b>Version: </b> 1.0.5
+            <b>Version: </b> 2.0.0
         </div>
     </div>
     <!-- #Footer -->

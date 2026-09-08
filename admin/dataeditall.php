@@ -50,10 +50,10 @@
                                             </td>
                                             <td><?php echo date ('d F Y',strtotime ($datax['tglselesai']));echo" ["; echo $datax['jamselesai']; echo"]";?></td>
                                             <td><?php echo $datax['ipclient'];?></td>
-                                            <td align="center">
-                                                <a href="index.php?page=alldata"><button type="button" class="btn btn-default waves-effect">
+                                            <td align="center" style="vertical-align: middle;">
+                                                <a href="index.php?page=alldata" class="btn btn-default waves-effect btn-table-back" title="Kembali">
                                                     <i class="material-icons">reply_all</i>
-                                                </button></a>       
+                                                </a>       
                                             </td>
                                         </tr>
                                     <?php   
@@ -231,11 +231,21 @@
                                             <label class="form-label">Jam Selesai</label>
                                         </div>
                                     </div>
-                                    <div class="form-line">
-                                        <button type="submit" class="btn btn-link waves-effect">SAVE</button>
-                                        <a href="index.php?page=alldata"><button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button></a>
-                                    </div>
-                                 </form>   
+                                     <div class="row clearfix">
+                                         <div class="col-md-12">
+                                             <div class="form-action-bar">
+                                                 <button type="submit" class="btn btn-primary waves-effect">
+                                                     <i class="material-icons">save</i> SAVE
+                                                 </button>
+                                                 <a href="index.php?page=alldata">
+                                                     <button type="button" class="btn btn-danger waves-effect">
+                                                         <i class="material-icons">close</i> CLOSE
+                                                     </button>
+                                                 </a>
+                                             </div>
+                                         </div>
+                                     </div>
+                                  </form>   
                                 </div>
                             </div>
                         </div>

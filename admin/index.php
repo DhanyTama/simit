@@ -1,15 +1,16 @@
-<?php 
+<?php
 session_start();
-if (empty($_SESSION['username'])){
-    header('location:../index.php');    
+if (empty($_SESSION['username'])) {
+    header('location:../index.php');
 } else {
     include "../conn.php";
     $tanggal = date("Y-m-d");
 }
 $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark');
+$current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'], ['default', 'cappuccino', 'everforest', 'tokyo'])) ? $_COOKIE['simit_skin'] : 'default';
 ?>
 <!DOCTYPE html>
-<html class="<?php echo $is_dark ? 'dark-mode' : ''; ?>">
+<html class="<?php echo ($is_dark ? 'dark-mode ' : '') . 'skin-' . $current_skin; ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -40,7 +41,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
 
     <!-- Wait Me Css -->
     <link href="../plugins/waitme/waitMe.css" rel="stylesheet" />
-    
+
     <!-- Colorpicker Css -->
     <link href="../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet">
 
@@ -58,7 +59,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
 
     <!-- noUISlider Css -->
     <link href="../plugins/nouislider/nouislider.min.css" rel="stylesheet">
-    
+
     <!-- JQuery DataTable Css -->
     <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 
@@ -70,9 +71,8 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../css/themes/all-themes.css" rel="stylesheet" />
-    
-    <!-- Dark Mode Css -->
-    <link href="../css/dark-mode.css?v=<?php echo filemtime(__DIR__ . '/../css/dark-mode.css'); ?>" rel="stylesheet">
+
+
     <script>
         (function() {
             var cookieMatch = document.cookie.match(/(?:^|;\s*)simit_theme=([^;]*)/);
@@ -86,38 +86,69 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
                     document.cookie = "simit_theme=light; path=/; max-age=31536000; SameSite=Lax";
                 }
             }
+            var skinMatch = document.cookie.match(/(?:^|;\s*)simit_skin=([^;]*)/);
+            var s = localStorage.getItem('simit_skin') || (skinMatch ? skinMatch[1] : 'default');
+            ['default', 'cappuccino', 'everforest', 'tokyo'].forEach(function(sk) {
+                document.documentElement.classList.remove('skin-' + sk);
+            });
+            if (['default', 'cappuccino', 'everforest', 'tokyo'].indexOf(s) !== -1) {
+                document.documentElement.classList.add('skin-' + s);
+            } else {
+                document.documentElement.classList.add('skin-default');
+            }
         })();
     </script>
-    
+
     <!-- Modern UI Overrides -->
     <style>
         /* Body Background - Darker to make white cards pop */
-        body, section.content { background-color: #e4e9f0 !important; font-family: 'Open Sans', sans-serif; }
-        html.dark-mode body, html.dark-mode section.content, body.dark-mode, body.dark-mode section.content, .dark-mode body, .dark-mode section.content {
+        body,
+        section.content {
+            background-color: #e4e9f0 !important;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        html.dark-mode body,
+        html.dark-mode section.content,
+        body.dark-mode,
+        body.dark-mode section.content,
+        .dark-mode body,
+        .dark-mode section.content {
             background-color: #0b1329 !important;
             color: #cbd5e1 !important;
         }
-        
+
         /* Navbar Modernization */
         .theme-red .navbar {
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
             border-bottom: none !important;
         }
-        .navbar-brand { font-weight: 700 !important; letter-spacing: 0.5px; }
-        
+
+        .navbar-brand {
+            font-weight: 700 !important;
+            letter-spacing: 0.5px;
+        }
+
         /* Sidebar Styling */
-        .sidebar { box-shadow: 4px 0 20px rgba(0,0,0,0.08) !important; border-right: none !important; }
+        .sidebar {
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08) !important;
+            border-right: none !important;
+        }
+
         .sidebar .user-info {
             padding: 20px 15px 12px 15px;
         }
-        
+
         /* Modern Cards */
         .card {
             border-radius: 18px !important;
             border: none !important;
             overflow: hidden !important;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
             margin-bottom: 25px !important;
+        }
+
+        body:not(.dark-mode) .card {
             background-color: #ffffff !important;
         }
 
@@ -126,7 +157,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             border-radius: 18px !important;
             border: none !important;
             overflow: hidden !important;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
             display: flex !important;
             align-items: center !important;
@@ -138,21 +169,27 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             color: #ffffff !important;
             cursor: pointer !important;
         }
+
         .info-box:hover {
             transform: translateY(-4px) !important;
         }
+
         .info-box.bg-pink:hover {
             box-shadow: 0 12px 28px rgba(244, 63, 94, 0.36) !important;
         }
+
         .info-box.bg-cyan:hover {
             box-shadow: 0 12px 28px rgba(14, 165, 233, 0.36) !important;
         }
+
         .info-box.bg-light-green:hover {
             box-shadow: 0 12px 28px rgba(16, 185, 129, 0.36) !important;
         }
+
         .info-box.bg-orange:hover {
             box-shadow: 0 12px 28px rgba(245, 158, 11, 0.36) !important;
         }
+
         .info-box::after {
             content: '' !important;
             position: absolute !important;
@@ -167,12 +204,14 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             pointer-events: none !important;
             transition: transform 0.3s ease, background 0.3s ease !important;
         }
+
         .info-box:hover::after {
             transform: scale(1.15) !important;
             background: rgba(255, 255, 255, 0.18) !important;
             width: 85px !important;
             height: 85px !important;
         }
+
         /* Disable old AdminBSB ugly dark expanding bar */
         .info-box.hover-expand-effect:after,
         .info-box.hover-expand-effect:hover:after {
@@ -180,18 +219,23 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             width: 0 !important;
             content: none !important;
         }
+
         .info-box.bg-pink {
             background: linear-gradient(135deg, #F43F5E 0%, #BE123C 100%) !important;
         }
+
         .info-box.bg-cyan {
             background: linear-gradient(135deg, #0EA5E9 0%, #0369A1 100%) !important;
         }
+
         .info-box.bg-light-green {
             background: linear-gradient(135deg, #10B981 0%, #047857 100%) !important;
         }
+
         .info-box.bg-orange {
             background: linear-gradient(135deg, #F59E0B 0%, #B45309 100%) !important;
         }
+
         .info-box .icon {
             width: 46px !important;
             height: 46px !important;
@@ -208,15 +252,18 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             border: none !important;
             transition: transform 0.25s ease, background 0.25s ease !important;
         }
+
         .info-box:hover .icon {
             transform: scale(1.08) !important;
             background: rgba(255, 255, 255, 0.32) !important;
         }
+
         .info-box .icon i.material-icons {
             font-size: 24px !important;
             line-height: 1 !important;
             color: #ffffff !important;
         }
+
         .info-box .content {
             flex: 1 !important;
             display: flex !important;
@@ -225,6 +272,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             padding: 0 !important;
             overflow: visible !important;
         }
+
         .info-box .content .text {
             font-size: 11px !important;
             font-weight: 700 !important;
@@ -238,6 +286,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             overflow: visible !important;
             text-overflow: unset !important;
         }
+
         .info-box .content .number {
             font-size: 26px !important;
             font-weight: 800 !important;
@@ -246,24 +295,26 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             margin: 0 !important;
             letter-spacing: -0.5px !important;
         }
-        
+
         /* Card Headers */
         .card .header {
             border-bottom: 1px solid #f1f5f9 !important;
             padding: 18px 24px 14px 24px !important;
             background-color: transparent !important;
         }
+
         .card .header h2 {
             font-weight: 800 !important;
             color: #2c3e50 !important;
             font-size: 18px !important;
             letter-spacing: 0.5px;
         }
-        
+
         /* Modern Tables & Clean Header */
         .card .body {
             padding: 18px 16px !important;
         }
+
         .table-responsive {
             border: none !important;
             padding: 0 !important;
@@ -271,6 +322,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             overflow-x: auto !important;
             width: 100% !important;
         }
+
         .table {
             border: none !important;
             margin-bottom: 0 !important;
@@ -278,8 +330,9 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             border-spacing: 0 !important;
             width: 100% !important;
         }
-        .table > thead > tr > th,
-        table.dataTable thead > tr > th {
+
+        .table>thead>tr>th,
+        table.dataTable thead>tr>th {
             background-color: #f1f5f9 !important;
             color: #334155 !important;
             font-weight: 700 !important;
@@ -298,10 +351,10 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
         }
 
         /* First column (No) width and alignment */
-        .table > thead > tr > th:first-child,
-        table.dataTable thead > tr > th:first-child,
-        .table > tbody > tr > td:first-child,
-        table.dataTable tbody > tr > td:first-child {
+        .table>thead>tr>th:first-child,
+        table.dataTable thead>tr>th:first-child,
+        .table>tbody>tr>td:first-child,
+        table.dataTable tbody>tr>td:first-child {
             width: 38px !important;
             min-width: 38px !important;
             max-width: 44px !important;
@@ -328,6 +381,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             opacity: 0.45 !important;
             margin-top: 0 !important;
         }
+
         table.dataTable thead .sorting_asc:after,
         table.dataTable thead .sorting_desc:after {
             color: #0284c7 !important;
@@ -336,14 +390,15 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
         }
 
         /* Action column ("Aksi") - remove sorting arrows and set proper width */
-        .table > thead > tr > th:last-child:after,
-        table.dataTable thead > tr > th:last-child:after,
+        .table>thead>tr>th:last-child:after,
+        table.dataTable thead>tr>th:last-child:after,
         table.dataTable thead th.no-sort-col:after,
         table.dataTable thead th.no-sort:after {
             display: none !important;
         }
-        .table > thead > tr > th:last-child,
-        table.dataTable thead > tr > th:last-child,
+
+        .table>thead>tr>th:last-child,
+        table.dataTable thead>tr>th:last-child,
         table.dataTable thead th.no-sort-col,
         table.dataTable thead th.no-sort {
             width: 106px !important;
@@ -354,8 +409,9 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             cursor: default !important;
             white-space: nowrap !important;
         }
-        .table > tbody > tr > td:last-child,
-        table.dataTable tbody > tr > td:last-child {
+
+        .table>tbody>tr>td:last-child,
+        table.dataTable tbody>tr>td:last-child {
             width: 106px !important;
             min-width: 106px !important;
             max-width: 110px !important;
@@ -365,8 +421,8 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
         }
 
         /* Table Body cells */
-        .table > tbody > tr > td,
-        table.dataTable tbody > tr > td {
+        .table>tbody>tr>td,
+        table.dataTable tbody>tr>td {
             padding: 9px 8px !important;
             vertical-align: middle !important;
             border-top: 1px solid #f1f5f9 !important;
@@ -377,29 +433,33 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             font-size: 12.5px !important;
             line-height: 1.4 !important;
         }
-        .table-striped > tbody > tr:nth-of-type(odd) {
+
+        .table-striped>tbody>tr:nth-of-type(odd) {
             background-color: #fafbfc !important;
         }
-        .table-hover > tbody > tr:hover,
-        .table > tbody > tr:hover {
+
+        .table-hover>tbody>tr:hover,
+        .table>tbody>tr:hover {
             background-color: #f0f7ff !important;
             transition: background-color 0.15s ease;
         }
+
         .table-bordered {
             border: none !important;
         }
 
         /* Centered labels and table cells */
-        .table > thead > tr > th.text-center,
-        table.dataTable thead > tr > th.text-center,
-        .table > tbody > tr > td.text-center,
-        table.dataTable tbody > tr > td.text-center,
-        .table > tbody > tr > td[align="center"],
-        table.dataTable tbody > tr > td[align="center"],
+        .table>thead>tr>th.text-center,
+        table.dataTable thead>tr>th.text-center,
+        .table>tbody>tr>td.text-center,
+        table.dataTable tbody>tr>td.text-center,
+        .table>tbody>tr>td[align="center"],
+        table.dataTable tbody>tr>td[align="center"],
         .table td:has(> .label),
         .table td:has(> span.label) {
             text-align: center !important;
         }
+
         .table td .label,
         .table td span.label {
             display: inline-block !important;
@@ -418,6 +478,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             margin: 0 !important;
             padding: 0 !important;
         }
+
         .table .action-btn-group a,
         .table .icon-button-demo a {
             display: inline-flex !important;
@@ -429,6 +490,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             padding: 0 !important;
             line-height: 1 !important;
         }
+
         .table .action-btn-group .btn,
         .table .action-btn-group a .btn,
         .table .icon-button-demo .btn,
@@ -446,19 +508,21 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             justify-content: center !important;
             vertical-align: middle !important;
             border-radius: 6px !important;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.12) !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12) !important;
             transition: transform 0.2s ease, box-shadow 0.2s ease !important;
             line-height: 1 !important;
             overflow: hidden !important;
         }
+
         .table .action-btn-group .btn:hover,
         .table .action-btn-group a .btn:hover,
         .table .icon-button-demo .btn:hover,
         .table .icon-button-demo a .btn:hover {
             transform: translateY(-2px) !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
         }
-        /* Reset AdminBSB's built-in top: 3px on button icons */
+
+        /* Reset AdminBSB's built-in top: 3px on table action icons */
         .table .action-btn-group .btn i,
         .table .action-btn-group .btn i.material-icons,
         .table .action-btn-group a .btn i,
@@ -466,9 +530,50 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
         .table .icon-button-demo .btn i,
         .table .icon-button-demo .btn i.material-icons,
         .table .icon-button-demo a .btn i,
-        .table .icon-button-demo a .btn i.material-icons,
-        .btn:not(.btn-link) i.material-icons:only-child,
-        .btn:not(.btn-link) > i:only-child {
+        .table .icon-button-demo a .btn i.material-icons {
+            position: static !important;
+            top: 0 !important;
+            left: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            font-size: 15px !important;
+            line-height: 1 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #ffffff !important;
+            transform: none !important;
+        }
+
+        /* Universal Button Reset & Horizontal Alignment */
+        .btn {
+            display: inline-flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            vertical-align: middle !important;
+            white-space: nowrap !important;
+            line-height: 1 !important;
+        }
+
+        /* Standalone buttons styling */
+        .btn:not(.dropdown-toggle) {
+            border-radius: 8px !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
+            font-weight: 600 !important;
+            transition: all 0.25s ease !important;
+        }
+
+        .btn:not(.dropdown-toggle):hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18) !important;
+        }
+
+        /* Reset AdminBSB's top: 3px and span top: -2px on ALL button icons */
+        .btn i,
+        .btn i.material-icons,
+        .btn span {
             position: static !important;
             top: 0 !important;
             left: 0 !important;
@@ -476,66 +581,104 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             bottom: auto !important;
             margin: 0 !important;
             padding: 0 !important;
-            font-size: 16px !important;
-            line-height: 16px !important;
-            height: 16px !important;
-            width: 16px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            vertical-align: middle !important;
-            color: #ffffff !important;
+            line-height: 1 !important;
             transform: none !important;
         }
-        
-        /* Buttons - Only standalone buttons, exclude dropdown toggle */
-        .btn:not(.dropdown-toggle) {
-            border-radius: 8px !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
-            font-weight: 600 !important;
-            transition: all 0.25s ease;
+
+        .btn i,
+        .btn i.material-icons {
+            font-size: 18px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
         }
-        .btn:not(.dropdown-toggle):hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15) !important;
+
+        .btn-circle,
+        .btn-xs {
+            border-radius: 6px !important;
         }
-        .btn-circle, .btn-xs { border-radius: 6px !important; }
 
         /* Form Labels */
-        .form-group > label.form-label,
-        .form-group > label {
+        .form-group>label.form-label,
+        .form-group>label {
             display: inline-block !important;
             font-weight: 600 !important;
             font-size: 13px !important;
-            color: #333 !important;
             margin-bottom: 6px !important;
             position: static !important;
         }
+
+        body:not(.dark-mode) .form-group>label.form-label,
+        body:not(.dark-mode) .form-group>label {
+            color: #334155 !important;
+        }
+
         .form-group .form-line {
             border-bottom: none !important;
         }
+
         .form-group .form-line:after {
             display: none !important;
         }
 
-        /* Form Inputs & Textareas with Clear Visible Borders */
+        /* Form Inputs, Textareas & Native Selects */
         input.form-control:not(.input-sm),
         .form-group input.form-control:not(.input-sm),
         .form-group .form-line input.form-control:not(.input-sm),
         textarea.form-control,
         .form-group textarea.form-control,
         .form-group .form-line textarea.form-control,
-        select.form-control:not(.show-tick) {
-            border: 1.5px solid #ced4da !important;
+        select.form-control,
+        select.form-control.show-tick,
+        .form-group select,
+        .form-group .form-line select {
             border-radius: 8px !important;
             padding: 10px 14px !important;
             height: 42px !important;
             font-size: 14px !important;
-            color: #333 !important;
-            background-color: #ffffff !important;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.03) !important;
             box-sizing: border-box !important;
             transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+        }
+
+        /* Native Select Specific Appearance & Chevron Arrow */
+        select.form-control,
+        select.form-control.show-tick,
+        .form-group select,
+        .form-group .form-line select {
+            appearance: none !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            padding: 8px 36px 8px 14px !important;
+            line-height: 24px !important;
+            cursor: pointer !important;
+            outline: none !important;
+        }
+
+        body:not(.dark-mode) input.form-control:not(.input-sm),
+        body:not(.dark-mode) .form-group input.form-control:not(.input-sm),
+        body:not(.dark-mode) .form-group .form-line input.form-control:not(.input-sm),
+        body:not(.dark-mode) textarea.form-control,
+        body:not(.dark-mode) .form-group textarea.form-control,
+        body:not(.dark-mode) .form-group .form-line textarea.form-control {
+            border: 1.5px solid #ced4da !important;
+            color: #334155 !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+        }
+
+        body:not(.dark-mode) select.form-control,
+        body:not(.dark-mode) select.form-control.show-tick,
+        body:not(.dark-mode) .form-group select,
+        body:not(.dark-mode) .form-group .form-line select {
+            border: 1.5px solid #ced4da !important;
+            color: #334155 !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 14px center !important;
+            background-size: 14px 14px !important;
         }
 
         textarea.form-control,
@@ -547,21 +690,31 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             padding: 12px 14px !important;
         }
 
-        input.form-control:not(.input-sm):hover,
-        textarea.form-control:hover {
+        body:not(.dark-mode) input.form-control:not(.input-sm):hover,
+        body:not(.dark-mode) textarea.form-control:hover,
+        body:not(.dark-mode) select.form-control:hover,
+        body:not(.dark-mode) .form-group select:hover {
             border-color: #94a3b8 !important;
         }
 
-        input.form-control:not(.input-sm):focus,
-        textarea.form-control:focus {
+        body:not(.dark-mode) input.form-control:not(.input-sm):focus,
+        body:not(.dark-mode) textarea.form-control:focus,
+        body:not(.dark-mode) select.form-control:focus,
+        body:not(.dark-mode) .form-group select:focus {
             border-color: #2196F3 !important;
             box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.18) !important;
             outline: none !important;
             background-color: #ffffff !important;
         }
 
-        input.form-control::placeholder,
-        textarea.form-control::placeholder {
+        body:not(.dark-mode) select option {
+            background-color: #ffffff !important;
+            color: #334155 !important;
+            padding: 8px 12px !important;
+        }
+
+        body:not(.dark-mode) input.form-control::placeholder,
+        body:not(.dark-mode) textarea.form-control::placeholder {
             color: #9ca3af !important;
             opacity: 1 !important;
         }
@@ -578,18 +731,17 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             height: auto !important;
             min-height: 0 !important;
             margin-bottom: 0 !important;
-        }
-        .bootstrap-select > .btn.dropdown-toggle {
-            border: 1px solid #d0d7de !important;
             border-radius: 8px !important;
-            background-color: #fff !important;
+        }
+
+        .bootstrap-select>.btn.dropdown-toggle {
+            border-radius: 8px !important;
             box-shadow: none !important;
             padding: 9px 14px !important;
-            height: 40px !important;
-            line-height: 20px !important;
+            height: 42px !important;
+            line-height: 22px !important;
             font-size: 14px !important;
             font-weight: 400 !important;
-            color: #333 !important;
             transform: none !important;
             width: 100% !important;
             display: flex !important;
@@ -597,42 +749,68 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             justify-content: space-between !important;
             transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
         }
-        .bootstrap-select > .btn.dropdown-toggle:hover,
-        .bootstrap-select > .btn.dropdown-toggle:focus,
-        .bootstrap-select.open > .btn.dropdown-toggle {
+
+        body:not(.dark-mode) .bootstrap-select>.btn.dropdown-toggle {
+            border: 1.5px solid #ced4da !important;
+            background-color: #ffffff !important;
+            color: #334155 !important;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+        }
+
+        body:not(.dark-mode) .bootstrap-select>.btn.dropdown-toggle:hover {
+            border-color: #94a3b8 !important;
+        }
+
+        body:not(.dark-mode) .bootstrap-select>.btn.dropdown-toggle:focus,
+        body:not(.dark-mode) .bootstrap-select.open>.btn.dropdown-toggle {
             border-color: #2196F3 !important;
-            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.12) !important;
-            background-color: #fff !important;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.18) !important;
+            background-color: #ffffff !important;
             transform: none !important;
             outline: none !important;
         }
-        .bootstrap-select > .btn.dropdown-toggle .filter-option {
+
+        body:not(.dark-mode) .bootstrap-select>.btn.dropdown-toggle .filter-option {
             margin-top: 0 !important;
             font-size: 14px !important;
-            color: #333 !important;
-            line-height: 20px !important;
+            color: #334155 !important;
+            line-height: 22px !important;
             text-align: left !important;
         }
-        .bootstrap-select > .btn.dropdown-toggle .bs-caret {
+
+        .bootstrap-select>.btn.dropdown-toggle .bs-caret {
             margin-left: auto !important;
         }
-        .bootstrap-select > .btn.dropdown-toggle .bs-caret .caret {
-            border-top: 5px solid #666 !important;
+
+        .bootstrap-select>.btn.dropdown-toggle .bs-caret .caret {
+            border-top: 5px solid #64748b !important;
             border-right: 5px solid transparent !important;
             border-left: 5px solid transparent !important;
             position: static !important;
             margin: 0 !important;
+            transition: transform 0.2s ease !important;
         }
-        /* Hanya div.dropdown-menu luar yang diberi border dan shadow */
-        .bootstrap-select > .dropdown-menu {
-            border-radius: 8px !important;
-            border: 1px solid #d0d7de !important;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
-            padding: 4px 0 !important;
-            margin-top: 4px !important;
-            background-color: #fff !important;
+
+        .bootstrap-select.open>.btn.dropdown-toggle .bs-caret .caret {
+            border-top: none !important;
+            border-bottom: 5px solid #2196F3 !important;
+            border-right: 5px solid transparent !important;
+            border-left: 5px solid transparent !important;
         }
-        /* Hapus border dan padding pada list internal agar tidak berlapis/double */
+
+        .bootstrap-select>.dropdown-menu {
+            border-radius: 12px !important;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12) !important;
+            padding: 6px !important;
+            margin-top: 5px !important;
+            border: 1px solid #e2e8f0 !important;
+        }
+
+        body:not(.dark-mode) .bootstrap-select>.dropdown-menu {
+            border: 1px solid #e2e8f0 !important;
+            background-color: #ffffff !important;
+        }
+
         .bootstrap-select .dropdown-menu.inner,
         .bootstrap-select ul.dropdown-menu.inner,
         .bootstrap-select .dropdown-menu ul {
@@ -643,32 +821,45 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             margin: 0 !important;
             background: transparent !important;
         }
+
         .bootstrap-select .dropdown-menu li {
             border: none !important;
             box-shadow: none !important;
+            margin: 2px 0 !important;
         }
+
         .bootstrap-select .dropdown-menu li a {
-            padding: 9px 16px !important;
-            font-size: 13px !important;
-            color: #444 !important;
-            transition: background-color 0.15s ease !important;
+            padding: 9px 14px !important;
+            font-size: 13.5px !important;
+            border-radius: 8px !important;
+            transition: all 0.15s ease !important;
             border: none !important;
         }
-        .bootstrap-select .dropdown-menu li.selected a,
-        .bootstrap-select .dropdown-menu li.active a {
-            background-color: #f0f4f8 !important;
-            color: #1976D2 !important;
+
+        body:not(.dark-mode) .bootstrap-select .dropdown-menu li a {
+            color: #334155 !important;
+        }
+
+        body:not(.dark-mode) .bootstrap-select .dropdown-menu li.selected a,
+        body:not(.dark-mode) .bootstrap-select .dropdown-menu li.active a {
+            background-color: #e0f2fe !important;
+            color: #0284c7 !important;
             font-weight: 600 !important;
+            border-radius: 8px !important;
         }
-        .bootstrap-select .dropdown-menu li a:hover {
-            background-color: #f5f5f5 !important;
-            color: #222 !important;
+
+        body:not(.dark-mode) .bootstrap-select .dropdown-menu li a:hover {
+            background-color: #f1f5f9 !important;
+            color: #0f172a !important;
+            border-radius: 8px !important;
         }
+
         .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
-            color: #1976D2 !important;
+            color: #0284c7 !important;
         }
+
         /* Sembunyikan tooltip pop-up hitam pada tombol dropdown select */
-        .bootstrap-select + .tooltip,
+        .bootstrap-select+.tooltip,
         .bootstrap-select .tooltip {
             display: none !important;
         }
@@ -678,10 +869,14 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             display: inline-flex !important;
             align-items: center !important;
             font-weight: 600 !important;
-            color: #555 !important;
             font-size: 13px !important;
             gap: 6px !important;
         }
+
+        body:not(.dark-mode) .dataTables_length label {
+            color: #555 !important;
+        }
+
         div.dataTables_wrapper div.dataTables_length select,
         .dataTables_length select.form-control,
         .dataTables_length select {
@@ -691,33 +886,47 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             line-height: normal !important;
             box-sizing: border-box !important;
             border-radius: 6px !important;
-            border: 1px solid #ccc !important;
             box-shadow: none !important;
             display: inline-block !important;
             width: auto !important;
             min-width: 65px !important;
             vertical-align: middle !important;
+        }
+
+        body:not(.dark-mode) div.dataTables_wrapper div.dataTables_length select,
+        body:not(.dark-mode) .dataTables_length select.form-control,
+        body:not(.dark-mode) .dataTables_length select {
+            border: 1px solid #ccc !important;
             background-color: #fff !important;
             color: #333 !important;
         }
+
         .dataTables_filter label {
             display: inline-flex !important;
             align-items: center !important;
             font-weight: 600 !important;
-            color: #555 !important;
             font-size: 13px !important;
             gap: 8px !important;
         }
+
+        body:not(.dark-mode) .dataTables_filter label {
+            color: #555 !important;
+        }
+
         .dataTables_filter input.form-control,
         .dataTables_wrapper .dataTables_filter input {
             height: 34px !important;
             padding: 4px 10px !important;
             font-size: 13px !important;
             border-radius: 6px !important;
-            border: 1px solid #ccc !important;
             box-shadow: none !important;
             display: inline-block !important;
             margin-left: 0 !important;
+        }
+
+        body:not(.dark-mode) .dataTables_filter input.form-control,
+        body:not(.dark-mode) .dataTables_wrapper .dataTables_filter input {
+            border: 1px solid #ccc !important;
             background-color: #fff !important;
             color: #333 !important;
         }
@@ -729,11 +938,12 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             padding: 6px 14px !important;
             font-size: 12px !important;
             font-weight: 600 !important;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08) !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
             margin-right: 4px !important;
         }
-        .pagination > li > a, 
-        .pagination > li > span {
+
+        .pagination>li>a,
+        .pagination>li>span {
             border-radius: 6px !important;
             margin: 0 2px !important;
             font-size: 13px !important;
@@ -745,10 +955,136 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             border-radius: 16px !important;
             overflow: hidden !important;
             border: none !important;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2) !important;
         }
-        
+
+        /* Default Button Styling in Light Mode */
+        body:not(.dark-mode) .btn-default {
+            background-color: #f1f5f9 !important;
+            border: 1px solid #cbd5e1 !important;
+            color: #475569 !important;
+        }
+
+        body:not(.dark-mode) .btn-default i,
+        body:not(.dark-mode) .btn-default i.material-icons {
+            color: #475569 !important;
+        }
+
+        body:not(.dark-mode) .btn-default:hover,
+        body:not(.dark-mode) .btn-default:focus {
+            background-color: #e2e8f0 !important;
+            border-color: #94a3b8 !important;
+            color: #1e293b !important;
+        }
+
+        body:not(.dark-mode) .btn-default:hover i,
+        body:not(.dark-mode) .btn-default:hover i.material-icons {
+            color: #1e293b !important;
+        }
+
+        /* Global Table Vertical Centering */
+        .table > thead > tr > th,
+        .table > tbody > tr > th,
+        .table > tfoot > tr > th,
+        .table > thead > tr > td,
+        .table > tbody > tr > td,
+        .table > tfoot > tr > td,
+        .table-bordered > thead > tr > th,
+        .table-bordered > tbody > tr > td {
+            vertical-align: middle !important;
+        }
+
+        /* Form Action Bar */
+        .form-action-bar {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 12px !important;
+            margin-top: 25px !important;
+            padding-top: 20px !important;
+            border-top: 1px solid #e2e8f0 !important;
+        }
+
+        .form-action-bar .btn,
+        .modal-footer .btn {
+            height: 38px !important;
+            padding: 0 18px !important;
+            font-size: 13px !important;
+            letter-spacing: 0.5px !important;
+            border-radius: 8px !important;
+        }
+
+        /* Table Action Return / Reply Button */
+        .btn-table-back,
+        .table td a.btn-table-back,
+        .table td .btn-table-back,
+        .table td a .btn.btn-default,
+        .table td .btn.btn-default {
+            border-radius: 8px !important;
+            width: 34px !important;
+            height: 34px !important;
+            min-width: 34px !important;
+            max-width: 34px !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            vertical-align: middle !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+            transition: all 0.2s ease !important;
+            text-decoration: none !important;
+        }
+
+        .btn-table-back i,
+        .btn-table-back i.material-icons,
+        .table td a.btn-table-back i,
+        .table td .btn.btn-default i {
+            position: static !important;
+            top: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            font-size: 18px !important;
+            line-height: 1 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        body:not(.dark-mode) .btn-table-back,
+        body:not(.dark-mode) .table td a.btn-table-back,
+        body:not(.dark-mode) .table td .btn.btn-default,
+        body:not(.dark-mode) .table td a .btn.btn-default {
+            background-color: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+        }
+
+        body:not(.dark-mode) .btn-table-back i,
+        body:not(.dark-mode) .btn-table-back i.material-icons,
+        body:not(.dark-mode) .table td a.btn-table-back i,
+        body:not(.dark-mode) .table td .btn.btn-default i {
+            color: #475569 !important;
+        }
+
+        body:not(.dark-mode) .btn-table-back:hover,
+        body:not(.dark-mode) .table td a.btn-table-back:hover,
+        body:not(.dark-mode) .table td .btn.btn-default:hover,
+        body:not(.dark-mode) .table td a .btn.btn-default:hover {
+            background-color: #f1f5f9 !important;
+            border-color: #94a3b8 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        body:not(.dark-mode) .btn-table-back:hover i,
+        body:not(.dark-mode) .table td a.btn-table-back:hover i,
+        body:not(.dark-mode) .table td .btn.btn-default:hover i {
+            color: #0f172a !important;
+        }
     </style>
+
+    <!-- Dark Mode Css (Loaded after style block to ensure complete priority) -->
+    <link href="../css/dark-mode.css?v=<?php echo filemtime(__DIR__ . '/../css/dark-mode.css'); ?>" rel="stylesheet">
 </head>
 
 <body class="theme-red <?php echo $is_dark ? 'dark-mode' : ''; ?>">
@@ -757,7 +1093,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             document.body.classList.add('dark-mode');
         }
     </script>
-    
+
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
@@ -783,9 +1119,9 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->
-					<li><a href="index.php?page=404"><i class="material-icons">home</i> <span class="icon-name"></span></a></li>
-					<li><a href="index.php?page=data"><i class="material-icons">add_circle</i> <span class="icon-name"></span></a></li>
-					<li><a href="index.php?page=alldata"><i class="material-icons">view_list</i> <span class="icon-name"></span></a></li>
+                    <li><a href="index.php?page=404"><i class="material-icons">home</i> <span class="icon-name"></span></a></li>
+                    <li><a href="index.php?page=data"><i class="material-icons">add_circle</i> <span class="icon-name"></span></a></li>
+                    <li><a href="index.php?page=alldata"><i class="material-icons">view_list</i> <span class="icon-name"></span></a></li>
                     <!-- Theme Toggle Button -->
                     <li>
                         <a href="javascript:void(0);" id="btn-theme-toggle" class="btn-theme-toggle" title="Ganti Mode Gelap / Terang">
@@ -793,9 +1129,9 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
                             <span class="icon-name"></span>
                         </a>
                     </li>
-					<li><a href="../logout.php" title="Keluar / Logout"><i class="material-icons">input</i> <span class="icon-name"></span></a></li>
+                    <li><a href="../logout.php" title="Keluar / Logout"><i class="material-icons">input</i> <span class="icon-name"></span></a></li>
                     <!-- #END# Call Search -->
-                   
+
                 </ul>
             </div>
         </div>
@@ -805,79 +1141,81 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
         <!-- Left Sidebar -->
         <?php include 'sidebar.php'; ?>
         <!-- #END# Left Sidebar -->
-        
+
     </section>
 
     <section class="content">
         <div class="container-fluid">
-            
 
-            
+
+
             <!-- CPU Usage -->
             <div class="row clearfix">
                 <?php
-                	if(isset($_GET['page'])){
-                		$page=$_GET['page'];
-                		$file="$page.php";
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                    $file = "$page.php";
 
-                		if (!file_exists($file)){
-                			include("chartjsadmin.php");
-                		}else{
-                			include("$page.php");
+                    if (!file_exists($file)) {
+                        include("chartjsadmin.php");
+                    } else {
+                        include("$page.php");
+                    }
+                } else {
+                    include("chartjsadmin.php");
+                }
 
-                		}
-
-                	}else{
-                		include("chartjsadmin.php");
-                	}
-					  
-				?>   
+                ?>
             </div>
             <!-- #END# CPU Usage -->
-             <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+            <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title" id="defaultModalLabel">MAINTENANCE/REQUEST/TROUBLE - IT</h4>
                         </div>
-						<form id="form_validation" method="POST" action="psimpandata.php">
-                        <div class="modal-body">
-							<div class="form-group form-float">
-								<div class="form-line">
-									<input type="text" class="form-control" name="pelapor" id="pelapor" required>
-									<label class="form-label">Nama Pelapor</label>
-								</div>
-							</div>
-												
-							<div class="row clearfix">
-								<div class="col-md-12">
-									<select class="form-control show-tick" name="depart" id="depart" required>
-										<option value="">-- Pilih Departemen --</option>
-										<?php
-											$in=mysqli_query($connect, "select id_kriteria,nama from kriteria order by nama");
-											while($row1=mysqli_fetch_array($in)){?>
-											<option value="<?php echo $row1['nama'];?>"><?php echo $row1['nama'];?></option><?php
-											}
-										?>
-									</select>
-								</div>
-							</div>
-							<br>
-							<div class="form-group form-float">
-								<div class="form-line">
-									<textarea name="description" id="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
-									<label class="form-label">Description</label>
-								</div>
-							</div>
-												
-												
-							
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-link waves-effect">SAVE</button>
-                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
-                        </div>
-						</form>
+                        <form id="form_validation" method="POST" action="psimpandata.php">
+                            <div class="modal-body">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="pelapor" id="pelapor" required>
+                                        <label class="form-label">Nama Pelapor</label>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-md-12">
+                                        <select class="form-control show-tick" name="depart" id="depart" required>
+                                            <option value="">-- Pilih Departemen --</option>
+                                            <?php
+                                            $in = mysqli_query($connect, "select id_kriteria,nama from kriteria order by nama");
+                                            while ($row1 = mysqli_fetch_array($in)) { ?>
+                                                <option value="<?php echo $row1['nama']; ?>"><?php echo $row1['nama']; ?></option><?php
+                                                                                                                            }
+                                                                                                                                ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea name="description" id="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
+                                        <label class="form-label">Description</label>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">
+                                    <i class="material-icons">close</i> CLOSE
+                                </button>
+                                <button type="submit" class="btn btn-primary waves-effect">
+                                    <i class="material-icons">save</i> SAVE
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -898,19 +1236,19 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
 
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>
-    
+
     <!-- Bootstrap Notify Plugin Js -->
     <script src="../plugins/bootstrap-notify/bootstrap-notify.js"></script>
-    
-     <!-- Jquery Spinner Plugin Js -->
+
+    <!-- Jquery Spinner Plugin Js -->
     <script src="../plugins/jquery-spinner/js/jquery.spinner.js"></script>
-    
+
     <!-- Bootstrap Tags Input Plugin Js -->
     <script src="../plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
-    
+
     <!-- noUISlider Plugin Js -->
     <script src="../plugins/nouislider/nouislider.js"></script>
-    
+
     <!-- Jquery DataTable Plugin Js -->
     <script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
     <script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
@@ -921,10 +1259,10 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
     <script src="../plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-    
+
     <!-- Sparkline Chart Plugin Js -->
     <script src="../plugins/jquery-sparkline/jquery.sparkline.js"></script>
-    
+
     <!-- Jquery CountTo Plugin Js -->
     <script src="../plugins/jquery-countto/jquery.countTo.js"></script>
 
@@ -934,7 +1272,7 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
 
     <!-- ChartJs -->
     <script src="../plugins/chartjs/Chart.bundle.js"></script>
-    
+
     <!-- Flot Charts Plugin Js -->
     <script src="../plugins/flot-charts/jquery.flot.js"></script>
     <script src="../plugins/flot-charts/jquery.flot.resize.js"></script>
@@ -961,10 +1299,10 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
     <script src="../plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 
     <!-- Custom Js -->
-    
+
     <script src="../js/admin.js"></script>
     <script src="../js/pages/forms/basic-form-elements.js"></script>
-    <script src="../js/pages/tables/jquery-datatable.js"></script> 
+    <script src="../js/pages/tables/jquery-datatable.js"></script>
     <script src="../js/pages/index.js"></script>
     <script src="../js/pages/ui/modals.js"></script>
     <script src="../js/pages/forms/advanced-form-elements.js"></script>
@@ -974,54 +1312,56 @@ $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark'
     <script src="../js/demo.js"></script>
 
     <script>
-    $(function () {
-        if (typeof initDashboardLineChart === 'function') {
-            initDashboardLineChart();
-        }
-        if (typeof initDetailCharts === 'function') {
-            initDetailCharts();
-        }
-        function cleanSelectTooltips() {
-            $('.bootstrap-select button.dropdown-toggle').each(function () {
-                $(this).removeAttr('title').removeAttr('data-original-title');
-            });
-        }
-        function cleanTableHeaders() {
-            $('table.dataTable thead th').each(function () {
-                var txt = $.trim($(this).text()).toLowerCase();
-                if (txt === 'aksi' || txt === 'action') {
-                    $(this).addClass('no-sort-col');
-                }
-            });
-        }
-        cleanSelectTooltips();
-        cleanTableHeaders();
-        $(document).on('loaded.bs.select changed.bs.select rendered.bs.select', cleanSelectTooltips);
-        $('select').on('change', cleanSelectTooltips);
-        $(document).on('init.dt draw.dt', cleanTableHeaders);
+        $(function() {
+            if (typeof initDashboardLineChart === 'function') {
+                initDashboardLineChart();
+            }
+            if (typeof initDetailCharts === 'function') {
+                initDetailCharts();
+            }
 
-        // Accordion effect: Hanya 1 detail collapse yang terbuka bergantian dalam tabel
-        $(document).off('show.bs.collapse.tableAccordion').on('show.bs.collapse.tableAccordion', '.table .collapse', function () {
-            var $table = $(this).closest('.table');
-            $table.find('.collapse.in').not(this).collapse('hide');
-        });
+            function cleanSelectTooltips() {
+                $('.bootstrap-select button.dropdown-toggle').each(function() {
+                    $(this).removeAttr('title').removeAttr('data-original-title');
+                });
+            }
 
-        // Transisi loading alldata jika ada
-        if ($('#loading-alldata').length) {
-            setTimeout(function () {
-                $('#loading-alldata').fadeOut(200, function () {
-                    $(this).remove();
-                    $('#table-wrapper-alldata').fadeIn(200, function () {
-                        $('.js-basic-example').each(function () {
-                            if ($.fn.dataTable.isDataTable(this)) {
-                                $(this).DataTable().columns.adjust().responsive.recalc();
-                            }
+            function cleanTableHeaders() {
+                $('table.dataTable thead th').each(function() {
+                    var txt = $.trim($(this).text()).toLowerCase();
+                    if (txt === 'aksi' || txt === 'action') {
+                        $(this).addClass('no-sort-col');
+                    }
+                });
+            }
+            cleanSelectTooltips();
+            cleanTableHeaders();
+            $(document).on('loaded.bs.select changed.bs.select rendered.bs.select', cleanSelectTooltips);
+            $('select').on('change', cleanSelectTooltips);
+            $(document).on('init.dt draw.dt', cleanTableHeaders);
+
+            // Accordion effect: Hanya 1 detail collapse yang terbuka bergantian dalam tabel
+            $(document).off('show.bs.collapse.tableAccordion').on('show.bs.collapse.tableAccordion', '.table .collapse', function() {
+                var $table = $(this).closest('.table');
+                $table.find('.collapse.in').not(this).collapse('hide');
+            });
+
+            // Transisi loading alldata jika ada
+            if ($('#loading-alldata').length) {
+                setTimeout(function() {
+                    $('#loading-alldata').fadeOut(200, function() {
+                        $(this).remove();
+                        $('#table-wrapper-alldata').fadeIn(200, function() {
+                            $('.js-basic-example').each(function() {
+                                if ($.fn.dataTable.isDataTable(this)) {
+                                    $(this).DataTable().columns.adjust().responsive.recalc();
+                                }
+                            });
                         });
                     });
-                });
-            }, 300);
-        }
-    });
+                }, 300);
+            }
+        });
     </script>
     <!-- Theme Toggle Engine -->
     <script src="../js/theme-toggle.js?v=<?php echo filemtime(__DIR__ . '/../js/theme-toggle.js'); ?>"></script>

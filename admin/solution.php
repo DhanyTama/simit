@@ -53,11 +53,9 @@
                             </td>
                             <td><?php echo date ('d F Y',strtotime ($datax['tglperbaikan']));echo" ["; echo $datax['jamperbaikan']; echo"]";?></td>
                             <td><?php echo $datax['ipclient'];?></td>
-                            <td align="center">
-                                <a href="index.php?page=data">
-                                    <button type="button" class="btn btn-default waves-effect">
-                                        <i class="material-icons">reply_all</i>
-                                    </button>
+                            <td align="center" style="vertical-align: middle;">
+                                <a href="index.php?page=data" class="btn btn-default waves-effect btn-table-back" title="Kembali">
+                                    <i class="material-icons">reply_all</i>
                                 </a>
                             </td>
                         </tr>
@@ -261,18 +259,24 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-float">
                                         <label class="form-label">Note Perbaikan</label>
-                                        <div class="form-line" style="background-color: pink;">
-                                            <textarea name="noteperbaikan" class="form-control" rows="3" style="background-color: pink;" required><?php echo $noteperbaikan; ?></textarea>
+                                        <div class="form-line">
+                                            <textarea name="noteperbaikan" class="form-control" rows="3" required><?php echo $noteperbaikan; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="form-line">
-                                <button type="submit" class="btn btn-link waves-effect">SAVE</button>
-                                <a href="index.php?page=data">
-                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
-                                </a>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                     <div class="form-action-bar">
+                                         <button type="submit" class="btn btn-primary waves-effect">
+                                             <i class="material-icons">save</i> SAVE
+                                         </button>
+                                         <a href="index.php?page=data" class="btn btn-danger waves-effect">
+                                             <i class="material-icons">close</i> CLOSE
+                                         </a>
+                                     </div>
+                                </div>
                             </div>
                         </form>
                     </div>

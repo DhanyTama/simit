@@ -43,11 +43,11 @@ body.dark-mode section.content,
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.dark-mode .navbar .nav > li > a {
+.dark-mode .navbar .nav>li>a {
     color: #cbd5e1 !important;
 }
 
-.dark-mode .navbar .nav > li > a:hover {
+.dark-mode .navbar .nav>li>a:hover {
     background-color: rgba(255, 255, 255, 0.08) !important;
     color: #ffffff !important;
 }
@@ -58,8 +58,8 @@ body.dark-mode section.content,
 }
 
 /* Navbar Theme Toggle Button - Exact Vertical Alignment with Other Icons */
-.navbar .nav > li > a.btn-theme-toggle,
-.navbar-nav > li > a.btn-theme-toggle,
+.navbar .nav>li>a.btn-theme-toggle,
+.navbar-nav>li>a.btn-theme-toggle,
 .btn-theme-toggle {
     display: inline-block !important;
     padding: 7px 7px 2px 7px !important;
@@ -75,13 +75,13 @@ body.dark-mode section.content,
     transition: background-color 0.2s ease, transform 0.2s ease !important;
 }
 
-.navbar .nav > li > a.btn-theme-toggle:hover,
-.navbar-nav > li > a.btn-theme-toggle:hover {
+.navbar .nav>li>a.btn-theme-toggle:hover,
+.navbar-nav>li>a.btn-theme-toggle:hover {
     background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
-.navbar .nav > li > a.btn-theme-toggle i,
-.navbar-nav > li > a.btn-theme-toggle i {
+.navbar .nav>li>a.btn-theme-toggle i,
+.navbar-nav>li>a.btn-theme-toggle i {
     font-size: 24px !important;
     line-height: 1 !important;
     vertical-align: middle !important;
@@ -89,14 +89,16 @@ body.dark-mode section.content,
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease !important;
 }
 
-.dark-mode .navbar .nav > li > a.btn-theme-toggle i,
-.dark-mode .navbar-nav > li > a.btn-theme-toggle i {
-    color: #facc15 !important; /* Golden Sun */
+.dark-mode .navbar .nav>li>a.btn-theme-toggle i,
+.dark-mode .navbar-nav>li>a.btn-theme-toggle i {
+    color: #facc15 !important;
+    /* Golden Sun */
 }
 
-body:not(.dark-mode) .navbar .nav > li > a.btn-theme-toggle i,
-body:not(.dark-mode) .navbar-nav > li > a.btn-theme-toggle i {
-    color: #ffffff !important; /* White Moon */
+body:not(.dark-mode) .navbar .nav>li>a.btn-theme-toggle i,
+body:not(.dark-mode) .navbar-nav>li>a.btn-theme-toggle i {
+    color: #ffffff !important;
+    /* White Moon */
 }
 
 /* ==========================================================================
@@ -137,7 +139,8 @@ body:not(.dark-mode) .sidebar .user-info .image::after,
     right: 2px !important;
     width: 12px !important;
     height: 12px !important;
-    background-color: #22c55e !important; /* Live Online Indicator */
+    background-color: #22c55e !important;
+    /* Live Online Indicator */
     border: 2px solid #ffffff !important;
     border-radius: 50% !important;
     box-shadow: 0 0 8px rgba(34, 197, 94, 0.7) !important;
@@ -216,8 +219,8 @@ body:not(.dark-mode) .sidebar .user-info .dropdown-menu,
     min-width: 170px !important;
 }
 
-body:not(.dark-mode) .sidebar .user-info .dropdown-menu > li > a,
-.sidebar .user-info .dropdown-menu > li > a {
+body:not(.dark-mode) .sidebar .user-info .dropdown-menu>li>a,
+.sidebar .user-info .dropdown-menu>li>a {
     color: #334155 !important;
     border-radius: 8px !important;
     padding: 8px 12px !important;
@@ -225,8 +228,8 @@ body:not(.dark-mode) .sidebar .user-info .dropdown-menu > li > a,
     font-weight: 500 !important;
 }
 
-body:not(.dark-mode) .sidebar .user-info .dropdown-menu > li > a:hover,
-.sidebar .user-info .dropdown-menu > li > a:hover {
+body:not(.dark-mode) .sidebar .user-info .dropdown-menu>li>a:hover,
+.sidebar .user-info .dropdown-menu>li>a:hover {
     background-color: #f1f5f9 !important;
     color: #ef4444 !important;
 }
@@ -253,15 +256,15 @@ body:not(.dark-mode) .sidebar .menu .list .header:not(:first-child),
 }
 
 /* Menu Items List (Light Mode) */
-body:not(.dark-mode) .sidebar .menu .list > li:not(.header),
-body:not(.dark-mode).theme-red .sidebar .menu .list > li:not(.header),
-.sidebar .menu .list > li:not(.header) {
+body:not(.dark-mode) .sidebar .menu .list>li:not(.header),
+body:not(.dark-mode).theme-red .sidebar .menu .list>li:not(.header),
+.sidebar .menu .list>li:not(.header) {
     margin: 3px 12px !important;
 }
 
-body:not(.dark-mode) .sidebar .menu .list > li:not(.header) > a,
-body:not(.dark-mode).theme-red .sidebar .menu .list > li:not(.header) > a,
-.sidebar .menu .list > li:not(.header) > a {
+body:not(.dark-mode) .sidebar .menu .list>li:not(.header)>a,
+body:not(.dark-mode).theme-red .sidebar .menu .list>li:not(.header)>a,
+.sidebar .menu .list>li:not(.header)>a {
     border-radius: 10px !important;
     padding: 10px 14px !important;
     display: flex !important;
@@ -272,9 +275,9 @@ body:not(.dark-mode).theme-red .sidebar .menu .list > li:not(.header) > a,
     position: relative !important;
 }
 
-body:not(.dark-mode) .sidebar .menu .list > li:not(.header) > a i.material-icons,
-body:not(.dark-mode).theme-red .sidebar .menu .list > li:not(.header) > a i.material-icons,
-.sidebar .menu .list > li:not(.header) > a i.material-icons {
+body:not(.dark-mode) .sidebar .menu .list>li:not(.header)>a i.material-icons,
+body:not(.dark-mode).theme-red .sidebar .menu .list>li:not(.header)>a i.material-icons,
+.sidebar .menu .list>li:not(.header)>a i.material-icons {
     font-size: 20px !important;
     line-height: 1 !important;
     margin: 0 12px 0 0 !important;
@@ -288,9 +291,9 @@ body:not(.dark-mode).theme-red .sidebar .menu .list > li:not(.header) > a i.mate
     transition: color 0.2s ease, transform 0.2s ease !important;
 }
 
-body:not(.dark-mode) .sidebar .menu .list > li:not(.header) > a span,
-body:not(.dark-mode).theme-red .sidebar .menu .list > li:not(.header) > a span,
-.sidebar .menu .list > li:not(.header) > a span {
+body:not(.dark-mode) .sidebar .menu .list>li:not(.header)>a span,
+body:not(.dark-mode).theme-red .sidebar .menu .list>li:not(.header)>a span,
+.sidebar .menu .list>li:not(.header)>a span {
     font-size: 13.5px !important;
     font-weight: 500 !important;
     margin: 0 !important;
@@ -300,92 +303,92 @@ body:not(.dark-mode).theme-red .sidebar .menu .list > li:not(.header) > a span,
 }
 
 /* Hover State in Light Mode */
-body:not(.dark-mode) .sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover,
-body:not(.dark-mode).theme-red .sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover,
-.sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover {
+body:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover,
+body:not(.dark-mode).theme-red .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover,
+.sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover {
     background-color: #f8fafc !important;
     transform: translateX(4px) !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
 }
 
-body:not(.dark-mode) .sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover i.material-icons,
-body:not(.dark-mode).theme-red .sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover i.material-icons,
-.sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover i.material-icons {
+body:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+body:not(.dark-mode).theme-red .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+.sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons {
     color: #ef4444 !important;
     transform: scale(1.1) !important;
 }
 
-body:not(.dark-mode) .sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover span,
-body:not(.dark-mode).theme-red .sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover span,
-.sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover span {
+body:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span,
+body:not(.dark-mode).theme-red .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span,
+.sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span {
     color: #0f172a !important;
     font-weight: 600 !important;
 }
 
 /* Active State in Light Mode (Crisp Crimson Gradient Pill) */
-body:not(.dark-mode) .sidebar .menu .list > li.active > a,
-body:not(.dark-mode).theme-red .sidebar .menu .list > li.active > a,
-.sidebar .menu .list > li.active > a {
+body:not(.dark-mode) .sidebar .menu .list>li.active>a,
+body:not(.dark-mode).theme-red .sidebar .menu .list>li.active>a,
+.sidebar .menu .list>li.active>a {
     background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
     color: #ffffff !important;
     box-shadow: 0 4px 14px rgba(239, 68, 68, 0.35) !important;
 }
 
-body:not(.dark-mode) .sidebar .menu .list li.active > :first-child i,
-body:not(.dark-mode) .sidebar .menu .list li.active > :first-child span,
-body:not(.dark-mode).theme-red .sidebar .menu .list li.active > :first-child i,
-body:not(.dark-mode).theme-red .sidebar .menu .list li.active > :first-child span,
-body:not(.dark-mode) .sidebar .menu .list > li.active > a i.material-icons,
-body:not(.dark-mode) .sidebar .menu .list > li.active > a span,
-.sidebar .menu .list > li.active > a i.material-icons,
-.sidebar .menu .list > li.active > a span {
+body:not(.dark-mode) .sidebar .menu .list li.active> :first-child i,
+body:not(.dark-mode) .sidebar .menu .list li.active> :first-child span,
+body:not(.dark-mode).theme-red .sidebar .menu .list li.active> :first-child i,
+body:not(.dark-mode).theme-red .sidebar .menu .list li.active> :first-child span,
+body:not(.dark-mode) .sidebar .menu .list>li.active>a i.material-icons,
+body:not(.dark-mode) .sidebar .menu .list>li.active>a span,
+.sidebar .menu .list>li.active>a i.material-icons,
+.sidebar .menu .list>li.active>a span {
     color: #ffffff !important;
     font-weight: 600 !important;
 }
 
 /* Action Button: MRT - IT (Light Mode CTA) */
-body:not(.dark-mode) .sidebar .menu .list > li.sidebar-action-mrt > a,
-body:not(.dark-mode) .sidebar .menu .list > li > a[data-target="#defaultModal"],
-.sidebar .menu .list > li.sidebar-action-mrt > a,
-.sidebar .menu .list > li > a[data-target="#defaultModal"] {
+body:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a,
+body:not(.dark-mode) .sidebar .menu .list>li>a[data-target="#defaultModal"],
+.sidebar .menu .list>li.sidebar-action-mrt>a,
+.sidebar .menu .list>li>a[data-target="#defaultModal"] {
     background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%) !important;
     border: 1px solid #fecdd3 !important;
     box-shadow: 0 2px 8px rgba(225, 29, 72, 0.08) !important;
 }
 
-body:not(.dark-mode) .sidebar .menu .list > li.sidebar-action-mrt > a span,
-body:not(.dark-mode) .sidebar .menu .list > li > a[data-target="#defaultModal"] span,
-.sidebar .menu .list > li.sidebar-action-mrt > a span,
-.sidebar .menu .list > li > a[data-target="#defaultModal"] span {
+body:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a span,
+body:not(.dark-mode) .sidebar .menu .list>li>a[data-target="#defaultModal"] span,
+.sidebar .menu .list>li.sidebar-action-mrt>a span,
+.sidebar .menu .list>li>a[data-target="#defaultModal"] span {
     color: #e11d48 !important;
     font-weight: 700 !important;
 }
 
-body:not(.dark-mode) .sidebar .menu .list > li.sidebar-action-mrt > a i.material-icons,
-body:not(.dark-mode) .sidebar .menu .list > li > a[data-target="#defaultModal"] i.material-icons,
-.sidebar .menu .list > li.sidebar-action-mrt > a i.material-icons,
-.sidebar .menu .list > li > a[data-target="#defaultModal"] i.material-icons {
+body:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons,
+body:not(.dark-mode) .sidebar .menu .list>li>a[data-target="#defaultModal"] i.material-icons,
+.sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons,
+.sidebar .menu .list>li>a[data-target="#defaultModal"] i.material-icons {
     color: #e11d48 !important;
 }
 
-body:not(.dark-mode) .sidebar .menu .list > li.sidebar-action-mrt > a:hover,
-body:not(.dark-mode) .sidebar .menu .list > li > a[data-target="#defaultModal"]:hover,
-.sidebar .menu .list > li.sidebar-action-mrt > a:hover,
-.sidebar .menu .list > li > a[data-target="#defaultModal"]:hover {
+body:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a:hover,
+body:not(.dark-mode) .sidebar .menu .list>li>a[data-target="#defaultModal"]:hover,
+.sidebar .menu .list>li.sidebar-action-mrt>a:hover,
+.sidebar .menu .list>li>a[data-target="#defaultModal"]:hover {
     background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
     border-color: #e11d48 !important;
     box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3) !important;
     transform: translateY(-1px) translateX(3px) !important;
 }
 
-body:not(.dark-mode) .sidebar .menu .list > li.sidebar-action-mrt > a:hover span,
-body:not(.dark-mode) .sidebar .menu .list > li > a[data-target="#defaultModal"]:hover span,
-body:not(.dark-mode) .sidebar .menu .list > li.sidebar-action-mrt > a:hover i.material-icons,
-body:not(.dark-mode) .sidebar .menu .list > li > a[data-target="#defaultModal"]:hover i.material-icons,
-.sidebar .menu .list > li.sidebar-action-mrt > a:hover span,
-.sidebar .menu .list > li > a[data-target="#defaultModal"]:hover span,
-.sidebar .menu .list > li.sidebar-action-mrt > a:hover i.material-icons,
-.sidebar .menu .list > li > a[data-target="#defaultModal"]:hover i.material-icons {
+body:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a:hover span,
+body:not(.dark-mode) .sidebar .menu .list>li>a[data-target="#defaultModal"]:hover span,
+body:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a:hover i.material-icons,
+body:not(.dark-mode) .sidebar .menu .list>li>a[data-target="#defaultModal"]:hover i.material-icons,
+.sidebar .menu .list>li.sidebar-action-mrt>a:hover span,
+.sidebar .menu .list>li>a[data-target="#defaultModal"]:hover span,
+.sidebar .menu .list>li.sidebar-action-mrt>a:hover i.material-icons,
+.sidebar .menu .list>li>a[data-target="#defaultModal"]:hover i.material-icons {
     color: #ffffff !important;
 }
 
@@ -417,7 +420,8 @@ body:not(.dark-mode) .sidebar-theme-toggle i.sidebar-theme-icon,
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    color: #6366f1 !important; /* Indigo Moon */
+    color: #6366f1 !important;
+    /* Indigo Moon */
     flex-shrink: 0 !important;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease !important;
 }
@@ -568,11 +572,11 @@ body:not(.dark-mode) .sidebar .legal .version b,
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45) !important;
 }
 
-.dark-mode .sidebar .user-info .dropdown-menu > li > a {
+.dark-mode .sidebar .user-info .dropdown-menu>li>a {
     color: #cbd5e1 !important;
 }
 
-.dark-mode .sidebar .user-info .dropdown-menu > li > a:hover {
+.dark-mode .sidebar .user-info .dropdown-menu>li>a:hover {
     background-color: rgba(255, 255, 255, 0.08) !important;
     color: #38bdf8 !important;
 }
@@ -587,80 +591,80 @@ body:not(.dark-mode) .sidebar .legal .version b,
 }
 
 /* Menu Items List - Dark Mode */
-.dark-mode .sidebar .menu .list > li:not(.header) > a {
+.dark-mode .sidebar .menu .list>li:not(.header)>a {
     color: #94a3b8 !important;
 }
 
-.dark-mode .sidebar .menu .list > li:not(.header) > a span {
+.dark-mode .sidebar .menu .list>li:not(.header)>a span {
     color: #cbd5e1 !important;
 }
 
-.dark-mode .sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover {
+.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover {
     background-color: rgba(255, 255, 255, 0.05) !important;
     transform: translateX(4px) !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
-.dark-mode .sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover i.material-icons {
+.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons {
     color: #38bdf8 !important;
     transform: scale(1.1) !important;
 }
 
-.dark-mode .sidebar .menu .list > li:not(.active):not(.header):not(.sidebar-action-mrt) > a:hover span {
+.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span {
     color: #f8fafc !important;
     font-weight: 600 !important;
 }
 
 /* Active State in Dark Mode (Luminous Electric Blue Pill) */
-.dark-mode .sidebar .menu .list > li.active > a,
-.dark-mode.theme-red .sidebar .menu .list > li.active > a {
+.dark-mode .sidebar .menu .list>li.active>a,
+.dark-mode.theme-red .sidebar .menu .list>li.active>a {
     background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
     border: 1px solid rgba(56, 189, 248, 0.35) !important;
     color: #ffffff !important;
     box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
 }
 
-.dark-mode .sidebar .menu .list li.active > :first-child i,
-.dark-mode .sidebar .menu .list li.active > :first-child span,
-.dark-mode.theme-red .sidebar .menu .list li.active > :first-child i,
-.dark-mode.theme-red .sidebar .menu .list li.active > :first-child span,
-.dark-mode .sidebar .menu .list > li.active > a i.material-icons,
-.dark-mode .sidebar .menu .list > li.active > a span {
+.dark-mode .sidebar .menu .list li.active> :first-child i,
+.dark-mode .sidebar .menu .list li.active> :first-child span,
+.dark-mode.theme-red .sidebar .menu .list li.active> :first-child i,
+.dark-mode.theme-red .sidebar .menu .list li.active> :first-child span,
+.dark-mode .sidebar .menu .list>li.active>a i.material-icons,
+.dark-mode .sidebar .menu .list>li.active>a span {
     color: #ffffff !important;
     font-weight: 600 !important;
 }
 
 /* Action Button: MRT - IT (Dark Mode CTA) */
-.dark-mode .sidebar .menu .list > li.sidebar-action-mrt > a,
-.dark-mode .sidebar .menu .list > li > a[data-target="#defaultModal"] {
+.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a,
+.dark-mode .sidebar .menu .list>li>a[data-target="#defaultModal"] {
     background: linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(2, 132, 199, 0.05) 100%) !important;
     border: 1px solid rgba(56, 189, 248, 0.35) !important;
     box-shadow: 0 2px 8px rgba(14, 165, 233, 0.12) !important;
 }
 
-.dark-mode .sidebar .menu .list > li.sidebar-action-mrt > a span,
-.dark-mode .sidebar .menu .list > li > a[data-target="#defaultModal"] span {
+.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a span,
+.dark-mode .sidebar .menu .list>li>a[data-target="#defaultModal"] span {
     color: #38bdf8 !important;
     font-weight: 700 !important;
 }
 
-.dark-mode .sidebar .menu .list > li.sidebar-action-mrt > a i.material-icons,
-.dark-mode .sidebar .menu .list > li > a[data-target="#defaultModal"] i.material-icons {
+.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons,
+.dark-mode .sidebar .menu .list>li>a[data-target="#defaultModal"] i.material-icons {
     color: #38bdf8 !important;
 }
 
-.dark-mode .sidebar .menu .list > li.sidebar-action-mrt > a:hover,
-.dark-mode .sidebar .menu .list > li > a[data-target="#defaultModal"]:hover {
+.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover,
+.dark-mode .sidebar .menu .list>li>a[data-target="#defaultModal"]:hover {
     background: linear-gradient(135deg, rgba(14, 165, 233, 0.25) 0%, rgba(2, 132, 199, 0.2) 100%) !important;
     border-color: #38bdf8 !important;
     box-shadow: 0 4px 16px rgba(56, 189, 248, 0.25) !important;
     transform: translateY(-1px) translateX(3px) !important;
 }
 
-.dark-mode .sidebar .menu .list > li.sidebar-action-mrt > a:hover span,
-.dark-mode .sidebar .menu .list > li > a[data-target="#defaultModal"]:hover span,
-.dark-mode .sidebar .menu .list > li.sidebar-action-mrt > a:hover i.material-icons,
-.dark-mode .sidebar .menu .list > li > a[data-target="#defaultModal"]:hover i.material-icons {
+.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover span,
+.dark-mode .sidebar .menu .list>li>a[data-target="#defaultModal"]:hover span,
+.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover i.material-icons,
+.dark-mode .sidebar .menu .list>li>a[data-target="#defaultModal"]:hover i.material-icons {
     color: #ffffff !important;
 }
 
@@ -678,7 +682,8 @@ body:not(.dark-mode) .sidebar .legal .version b,
 }
 
 .dark-mode .sidebar-theme-toggle i.sidebar-theme-icon {
-    color: #facc15 !important; /* Golden Sun */
+    color: #facc15 !important;
+    /* Golden Sun */
     transform: rotate(360deg);
 }
 
@@ -780,35 +785,35 @@ body:not(.dark-mode) .sidebar .legal .version b,
     color: #cbd5e1 !important;
 }
 
-.dark-mode .table > thead > tr > th,
-.dark-mode table.dataTable thead > tr > th {
+.dark-mode .table>thead>tr>th,
+.dark-mode table.dataTable thead>tr>th {
     background-color: #0f172a !important;
     color: #94a3b8 !important;
     border-bottom: 2px solid #334155 !important;
 }
 
-.dark-mode .table > thead > tr > th:first-child,
-.dark-mode table.dataTable thead > tr > th:first-child {
+.dark-mode .table>thead>tr>th:first-child,
+.dark-mode table.dataTable thead>tr>th:first-child {
     color: #64748b !important;
 }
 
-.dark-mode .table > tbody > tr > td,
-.dark-mode table.dataTable tbody > tr > td {
+.dark-mode .table>tbody>tr>td,
+.dark-mode table.dataTable tbody>tr>td {
     border-top: 1px solid #334155 !important;
     color: #cbd5e1 !important;
 }
 
-.dark-mode .table > tbody > tr > td:first-child,
-.dark-mode table.dataTable tbody > tr > td:first-child {
+.dark-mode .table>tbody>tr>td:first-child,
+.dark-mode table.dataTable tbody>tr>td:first-child {
     color: #64748b !important;
 }
 
-.dark-mode .table-striped > tbody > tr:nth-of-type(odd) {
+.dark-mode .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: rgba(255, 255, 255, 0.02) !important;
 }
 
-.dark-mode .table > tbody > tr:hover,
-.dark-mode .table-hover > tbody > tr:hover {
+.dark-mode .table>tbody>tr:hover,
+.dark-mode .table-hover>tbody>tr:hover {
     background-color: rgba(255, 255, 255, 0.045) !important;
 }
 
@@ -875,28 +880,28 @@ body:not(.dark-mode) .sidebar .legal .version b,
 }
 
 /* Pagination */
-.dark-mode .pagination > li > a {
+.dark-mode .pagination>li>a {
     background-color: #0f172a !important;
     border-color: #334155 !important;
     color: #94a3b8 !important;
 }
 
-.dark-mode .pagination > li > a:hover {
+.dark-mode .pagination>li>a:hover {
     background-color: #1e293b !important;
     color: #f1f5f9 !important;
 }
 
-.dark-mode .pagination > .active > a,
-.dark-mode .pagination > .active > a:focus,
-.dark-mode .pagination > .active > a:hover {
+.dark-mode .pagination>.active>a,
+.dark-mode .pagination>.active>a:focus,
+.dark-mode .pagination>.active>a:hover {
     background-color: #ef4444 !important;
     border-color: #ef4444 !important;
     color: #ffffff !important;
 }
 
-.dark-mode .pagination > .disabled > a,
-.dark-mode .pagination > .disabled > a:focus,
-.dark-mode .pagination > .disabled > a:hover {
+.dark-mode .pagination>.disabled>a,
+.dark-mode .pagination>.disabled>a:focus,
+.dark-mode .pagination>.disabled>a:hover {
     background-color: #090d16 !important;
     border-color: #1e293b !important;
     color: #475569 !important;
@@ -955,35 +960,77 @@ body:not(.dark-mode) .sidebar .legal .version b,
 /* ==========================================================================
    Form Controls
    ========================================================================== */
-.dark-mode .form-group > label.form-label,
-.dark-mode .form-group > label,
-.dark-mode label.form-label {
+.dark-mode .form-group>label.form-label,
+.dark-mode .form-group>label,
+.dark-mode label.form-label,
+.dark-mode label {
     color: #cbd5e1 !important;
 }
 
 .dark-mode input.form-control,
+.dark-mode input.form-control:not(.input-sm),
 .dark-mode .form-group input.form-control,
+.dark-mode .form-group input.form-control:not(.input-sm),
 .dark-mode .form-group .form-line input.form-control,
+.dark-mode .form-group .form-line input.form-control:not(.input-sm),
 .dark-mode textarea.form-control,
 .dark-mode .form-group textarea.form-control,
-.dark-mode .form-group .form-line textarea.form-control,
-.dark-mode select.form-control:not(.show-tick) {
+.dark-mode .form-group .form-line textarea.form-control {
     background-color: #0f172a !important;
-    border-color: #334155 !important;
+    border: 1px solid #334155 !important;
+    border-radius: 8px !important;
     color: #f1f5f9 !important;
 }
 
+/* Native Select Elements in Dark Mode */
+.dark-mode select.form-control,
+.dark-mode select.form-control.show-tick,
+.dark-mode select.form-control:not(.show-tick),
+.dark-mode .form-group select,
+.dark-mode .form-group .form-line select,
+.dark-mode select {
+    border-radius: 8px !important;
+    height: 42px !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    outline: none !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    padding: 8px 36px 8px 14px !important;
+    line-height: 24px !important;
+    background-color: #0f172a !important;
+    border: 1px solid #334155 !important;
+    color: #f1f5f9 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    background-size: 14px 14px !important;
+}
+
+.dark-mode select option {
+    background-color: #0f172a !important;
+    color: #f1f5f9 !important;
+    padding: 8px 12px !important;
+}
+
 .dark-mode input.form-control:hover,
-.dark-mode textarea.form-control:hover {
+.dark-mode textarea.form-control:hover,
+.dark-mode select.form-control:hover,
+.dark-mode .form-group select:hover {
     border-color: #475569 !important;
 }
 
 .dark-mode input.form-control:focus,
-.dark-mode textarea.form-control:focus {
+.dark-mode textarea.form-control:focus,
+.dark-mode select.form-control:focus,
+.dark-mode .form-group select:focus {
     border-color: #0284c7 !important;
     box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.25) !important;
     background-color: #0f172a !important;
     color: #ffffff !important;
+    outline: none !important;
 }
 
 .dark-mode input.form-control::placeholder,
@@ -992,35 +1039,148 @@ body:not(.dark-mode) .sidebar .legal .version b,
 }
 
 /* Bootstrap Select Dropdown */
-.dark-mode .bootstrap-select > .btn.dropdown-toggle {
+.dark-mode .bootstrap-select,
+.dark-mode .bootstrap-select.form-control,
+.dark-mode div.bootstrap-select.form-control {
+    border-radius: 8px !important;
+}
+
+.dark-mode .bootstrap-select>.btn.dropdown-toggle,
+.dark-mode .bootstrap-select>.btn.dropdown-toggle:hover,
+.dark-mode .bootstrap-select>.btn.dropdown-toggle:focus,
+.dark-mode .bootstrap-select.open>.btn.dropdown-toggle {
+    border-radius: 8px !important;
+    height: 42px !important;
+    line-height: 22px !important;
+    padding: 9px 14px !important;
     background-color: #0f172a !important;
-    border-color: #334155 !important;
+    border: 1px solid #334155 !important;
     color: #f1f5f9 !important;
 }
 
-.dark-mode .bootstrap-select > .btn.dropdown-toggle .filter-option {
-    color: #f1f5f9 !important;
+.dark-mode .bootstrap-select>.btn.dropdown-toggle:hover,
+.dark-mode .bootstrap-select>.btn.dropdown-toggle:focus,
+.dark-mode .bootstrap-select.open>.btn.dropdown-toggle {
+    border-color: #0284c7 !important;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2) !important;
 }
 
-.dark-mode .bootstrap-select > .dropdown-menu {
+.dark-mode .bootstrap-select>.btn.dropdown-toggle .filter-option {
+    color: #f1f5f9 !important;
+    line-height: 22px !important;
+}
+
+.dark-mode .bootstrap-select>.btn.dropdown-toggle .bs-caret .caret {
+    border-top-color: #94a3b8 !important;
+}
+
+.dark-mode .bootstrap-select>.dropdown-menu {
+    border-radius: 12px !important;
     background-color: #1e293b !important;
-    border-color: #334155 !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5) !important;
+    padding: 6px !important;
+}
+
+.dark-mode .bootstrap-select .dropdown-menu li {
+    margin: 2px 0 !important;
+    border: none !important;
 }
 
 .dark-mode .bootstrap-select .dropdown-menu li a {
     color: #cbd5e1 !important;
+    border-radius: 8px !important;
+    padding: 8px 14px !important;
+    font-size: 13.5px !important;
+    transition: all 0.15s ease !important;
 }
 
 .dark-mode .bootstrap-select .dropdown-menu li a:hover {
     background-color: rgba(255, 255, 255, 0.08) !important;
     color: #ffffff !important;
+    border-radius: 8px !important;
 }
 
 .dark-mode .bootstrap-select .dropdown-menu li.selected a,
 .dark-mode .bootstrap-select .dropdown-menu li.active a {
-    background-color: rgba(2, 132, 199, 0.2) !important;
+    background-color: rgba(2, 132, 199, 0.25) !important;
     color: #38bdf8 !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+}
+
+.dark-mode .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
+    color: #38bdf8 !important;
+}
+
+/* Default Buttons & Action Buttons in Dark Mode */
+.dark-mode .btn-default {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+    color: #cbd5e1 !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+}
+
+.dark-mode .btn-default i,
+.dark-mode .btn-default i.material-icons,
+.dark-mode .btn-default>i:only-child,
+.dark-mode .btn-default i.material-icons:only-child {
+    color: #cbd5e1 !important;
+}
+
+.dark-mode .btn-default:hover,
+.dark-mode .btn-default:focus,
+.dark-mode .btn-default:active {
+    background-color: #334155 !important;
+    border-color: #475569 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .btn-default:hover i,
+.dark-mode .btn-default:hover i.material-icons,
+.dark-mode .btn-default:hover>i:only-child,
+.dark-mode .btn-default:hover i.material-icons:only-child,
+.dark-mode .btn-default:focus i,
+.dark-mode .btn-default:focus i.material-icons {
+    color: #ffffff !important;
+}
+
+.dark-mode .btn-table-back,
+.dark-mode .table td a.btn-table-back,
+.dark-mode .table td .btn-table-back {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-mode .btn-table-back i,
+.dark-mode .btn-table-back i.material-icons,
+.dark-mode .table td a.btn-table-back i,
+.dark-mode .table td .btn.btn-default i {
+    color: #94a3b8 !important;
+    position: static !important;
+    top: 0 !important;
+}
+
+.dark-mode .btn-table-back:hover,
+.dark-mode .table td a.btn-table-back:hover,
+.dark-mode .table td .btn-table-back:hover {
+    background-color: #334155 !important;
+    border-color: #475569 !important;
+}
+
+.dark-mode .btn-table-back:hover i,
+.dark-mode .table td a.btn-table-back:hover i,
+.dark-mode .table td .btn.btn-default:hover i {
+    color: #f8fafc !important;
+}
+
+/* Action Bars & Dividers */
+.dark-mode .form-action-bar,
+.dark-mode div[style*="border-top"],
+.dark-mode hr {
+    border-top-color: #334155 !important;
 }
 
 /* Select2 in Modal */
@@ -1118,4 +1278,1745 @@ body:not(.dark-mode) .sidebar .legal .version b,
 .dark-mode .swal2-footer {
     border-top-color: #334155 !important;
     color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   Skin Picker Widget in Sidebar
+   ========================================================================== */
+.sidebar .sidebar-skin-item {
+    margin: 8px 12px 14px 12px !important;
+}
+
+.sidebar-skin-picker {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.dark-mode .sidebar-skin-picker {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-skin-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.sidebar-skin-title i {
+    font-size: 16px;
+    color: #6366f1;
+}
+
+.dark-mode .sidebar-skin-title {
+    color: #94a3b8;
+}
+
+.dark-mode .sidebar-skin-title i {
+    color: #38bdf8;
+}
+
+.sidebar-skin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.skin-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #334155;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+    text-align: left;
+    width: 100%;
+}
+
+.dark-mode .skin-btn {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+}
+
+.skin-btn:hover {
+    transform: translateY(-1px);
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.dark-mode .skin-btn:hover {
+    border-color: rgba(56, 189, 248, 0.3);
+    background: #273549;
+}
+
+.skin-btn.active {
+    border-color: #ef4444;
+    background: #fef2f2;
+    color: #b91c1c;
+    box-shadow: 0 0 0 1px #ef4444;
+}
+
+.dark-mode .skin-btn.active {
+    border-color: #38bdf8;
+    background: rgba(14, 165, 233, 0.15);
+    color: #38bdf8;
+    box-shadow: 0 0 0 1px #38bdf8;
+}
+
+.skin-preview-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.skin-dot-default {
+    background: linear-gradient(135deg, #ef4444 0%, #38bdf8 100%);
+}
+
+.skin-dot-cappuccino {
+    background: linear-gradient(135deg, #6f4e37 0%, #d4a373 100%);
+}
+
+.skin-dot-everforest {
+    background: linear-gradient(135deg, #4a7a40 0%, #a7c080 100%);
+}
+
+.skin-dot-tokyo {
+    background: linear-gradient(135deg, #2e7de9 0%, #bb9af7 100%);
+}
+
+/* ==========================================================================
+   THEME SKIN: CAPPUCCINO (Warm Coffee Latte / Dark Roast Espresso Mocha)
+   ========================================================================== */
+
+/* --- Cappuccino Latte - Light Mode --- */
+html.skin-cappuccino:not(.dark-mode) body,
+html.skin-cappuccino:not(.dark-mode) section.content,
+body.skin-cappuccino:not(.dark-mode),
+body.skin-cappuccino:not(.dark-mode) section.content {
+    background-color: #f7f3ee !important;
+    color: #4a3427 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .theme-red .navbar,
+html.skin-cappuccino:not(.dark-mode) .navbar,
+body.skin-cappuccino:not(.dark-mode) .theme-red .navbar,
+body.skin-cappuccino:not(.dark-mode) .navbar {
+    background: linear-gradient(135deg, #583722 0%, #7b4f31 50%, #9c6742 100%) !important;
+    box-shadow: 0 4px 20px rgba(88, 55, 34, 0.3) !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .sidebar {
+    background-color: #fdfbf7 !important;
+    border-right: 1px solid #ebdcd0 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .sidebar .user-info,
+body.skin-cappuccino:not(.dark-mode) .sidebar .user-info {
+    background: linear-gradient(135deg, #583722 0%, #7b4f31 50%, #9c6742 100%) !important;
+    background-image: radial-gradient(circle at 85% 20%, rgba(255, 235, 214, 0.2) 0%, transparent 60%), linear-gradient(135deg, #583722 0%, #7b4f31 50%, #9c6742 100%) !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li.active>a,
+body.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li.active>a {
+    background: linear-gradient(135deg, #7b4f31 0%, #a67248 100%) !important;
+    box-shadow: 0 4px 14px rgba(123, 79, 49, 0.35) !important;
+    color: #ffffff !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+html.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span,
+body.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+body.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span {
+    color: #7b4f31 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a,
+body.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a {
+    background: #fbf6ef !important;
+    border-color: #ebd3be !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a span,
+html.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons,
+body.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a span,
+body.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons {
+    color: #7b4f31 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a:hover,
+body.skin-cappuccino:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a:hover {
+    background: linear-gradient(135deg, #7b4f31 0%, #a67248 100%) !important;
+    border-color: #7b4f31 !important;
+    box-shadow: 0 4px 14px rgba(123, 79, 49, 0.35) !important;
+    color: #ffffff !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .sidebar .legal .copyright a,
+body.skin-cappuccino:not(.dark-mode) .sidebar .legal .copyright a {
+    color: #7b4f31 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .skin-btn.active,
+body.skin-cappuccino:not(.dark-mode) .skin-btn.active {
+    border-color: #7b4f31 !important;
+    background: #fbf6ef !important;
+    color: #7b4f31 !important;
+    box-shadow: 0 0 0 1px #7b4f31 !important;
+}
+
+/* Cappuccino Light - Cards & Headers */
+html.skin-cappuccino:not(.dark-mode) .card {
+    background-color: #ffffff !important;
+    border: 1px solid #ebdcd0 !important;
+    box-shadow: 0 4px 18px rgba(88, 55, 34, 0.06) !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .card .header {
+    border-bottom: 1px solid #ebdcd0 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .card .header h2 {
+    color: #4a3427 !important;
+    font-weight: 700;
+}
+
+/* Cappuccino Light - Tables */
+html.skin-cappuccino:not(.dark-mode) .table>thead>tr>th,
+html.skin-cappuccino:not(.dark-mode) table.dataTable thead>tr>th {
+    background: linear-gradient(135deg, #583722 0%, #6f472d 100%) !important;
+    color: #fdfaf7 !important;
+    border-bottom: 2px solid #8b5a38 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .table>tbody>tr>td,
+html.skin-cappuccino:not(.dark-mode) table.dataTable tbody>tr>td {
+    border-top: 1px solid #ebdcd0 !important;
+    color: #4a3427 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(123, 79, 49, 0.03) !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .table-hover>tbody>tr:hover,
+html.skin-cappuccino:not(.dark-mode) .table>tbody>tr:hover {
+    background-color: rgba(123, 79, 49, 0.065) !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .table .collapse {
+    background-color: #fcf9f5 !important;
+    border: 1px solid #ebdcd0 !important;
+    border-left: 3px solid #7b4f31 !important;
+}
+
+/* Cappuccino Light - DataTables & Pagination */
+html.skin-cappuccino:not(.dark-mode) .dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #7b4f31 !important;
+    box-shadow: 0 0 0 3px rgba(123, 79, 49, 0.25) !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .pagination>.active>a,
+html.skin-cappuccino:not(.dark-mode) .pagination>.active>a:focus,
+html.skin-cappuccino:not(.dark-mode) .pagination>.active>a:hover {
+    background-color: #7b4f31 !important;
+    border-color: #7b4f31 !important;
+    color: #ffffff !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .pagination>li>a {
+    color: #583722 !important;
+}
+
+/* Cappuccino Light - Buttons & Modals */
+html.skin-cappuccino:not(.dark-mode) .btn-primary {
+    background-color: #7b4f31 !important;
+    border-color: #6a4228 !important;
+    color: #ffffff !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .btn-primary:hover,
+html.skin-cappuccino:not(.dark-mode) .btn-primary:focus {
+    background-color: #583722 !important;
+    border-color: #4a2d1a !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .btn-info {
+    background-color: #a67248 !important;
+    border-color: #93623c !important;
+    color: #ffffff !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .modal-header {
+    background-color: #fcf9f5 !important;
+    border-bottom: 1px solid #ebdcd0 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .modal-title {
+    color: #4a3427 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .modal-footer {
+    background-color: #fcf9f5 !important;
+    border-top: 1px solid #ebdcd0 !important;
+}
+
+/* Cappuccino Light - Forms & Accordion Panels */
+html.skin-cappuccino:not(.dark-mode) .form-line.focused:after {
+    border-bottom: 2px solid #7b4f31 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .panel-col-pink .panel-heading {
+    background-color: #583722 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .panel-col-cyan .panel-heading {
+    background-color: #7b4f31 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .panel-col-teal .panel-heading {
+    background-color: #9c6742 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .panel-col-orange .panel-heading {
+    background-color: #b88358 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .info-box .icon {
+    background-color: #7b4f31 !important;
+}
+
+/* --- Cappuccino Dark Roast Espresso - Dark Mode --- */
+html.skin-cappuccino.dark-mode body,
+html.skin-cappuccino.dark-mode section.content,
+body.skin-cappuccino.dark-mode,
+body.skin-cappuccino.dark-mode section.content {
+    background-color: #181310 !important;
+    color: #dfd4cb !important;
+}
+
+html.skin-cappuccino.dark-mode .card,
+body.skin-cappuccino.dark-mode .card {
+    background-color: #241b16 !important;
+    border: 1px solid rgba(212, 163, 115, 0.16) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+}
+
+html.skin-cappuccino.dark-mode .card .header {
+    border-bottom: 1px solid #382a22 !important;
+}
+
+html.skin-cappuccino.dark-mode .card .header h2 {
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode .card .body {
+    color: #dfd4cb !important;
+}
+
+html.skin-cappuccino.dark-mode .navbar,
+body.skin-cappuccino.dark-mode .navbar {
+    background: linear-gradient(135deg, #100c0a 0%, #1a1310 50%, #261c17 100%) !important;
+    border-bottom: 1px solid rgba(212, 163, 115, 0.28) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar,
+body.skin-cappuccino.dark-mode .sidebar {
+    background-color: #191310 !important;
+    border-right: 1px solid rgba(212, 163, 115, 0.14) !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar .user-info,
+body.skin-cappuccino.dark-mode .sidebar .user-info {
+    background: linear-gradient(145deg, #2b1e18 0%, #181310 100%) !important;
+    background-image: radial-gradient(circle at 85% 20%, rgba(212, 163, 115, 0.2) 0%, transparent 60%), linear-gradient(145deg, #2b1e18 0%, #181310 100%) !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar .user-info .image img,
+body.skin-cappuccino.dark-mode .sidebar .user-info .image img {
+    border-color: #d4a373 !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar .menu .list>li.active>a,
+body.skin-cappuccino.dark-mode .sidebar .menu .list>li.active>a {
+    background: linear-gradient(135deg, #d4a373 0%, #b88358 100%) !important;
+    border-color: rgba(212, 163, 115, 0.6) !important;
+    box-shadow: 0 4px 16px rgba(212, 163, 115, 0.35) !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar .menu .list li.active> :first-child i,
+html.skin-cappuccino.dark-mode .sidebar .menu .list li.active> :first-child span,
+body.skin-cappuccino.dark-mode .sidebar .menu .list li.active> :first-child i,
+body.skin-cappuccino.dark-mode .sidebar .menu .list li.active> :first-child span {
+    color: #181310 !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+html.skin-cappuccino.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span,
+body.skin-cappuccino.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+body.skin-cappuccino.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span {
+    color: #d4a373 !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a,
+body.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a {
+    background: rgba(212, 163, 115, 0.12) !important;
+    border-color: rgba(212, 163, 115, 0.35) !important;
+    box-shadow: 0 2px 8px rgba(212, 163, 115, 0.12) !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a span,
+html.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons,
+body.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a span,
+body.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons {
+    color: #d4a373 !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover,
+body.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover {
+    background: linear-gradient(135deg, #d4a373 0%, #b88358 100%) !important;
+    border-color: #d4a373 !important;
+    box-shadow: 0 4px 16px rgba(212, 163, 115, 0.35) !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover span,
+html.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover i.material-icons,
+body.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover span,
+body.skin-cappuccino.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover i.material-icons {
+    color: #181310 !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar-switch-track,
+body.skin-cappuccino.dark-mode .sidebar-switch-track {
+    background-color: #d4a373 !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar-switch-thumb,
+body.skin-cappuccino.dark-mode .sidebar-switch-thumb {
+    background-color: #faedcd !important;
+    box-shadow: 0 0 10px rgba(250, 237, 205, 0.6) !important;
+}
+
+html.skin-cappuccino.dark-mode .sidebar .legal .copyright a,
+body.skin-cappuccino.dark-mode .sidebar .legal .copyright a {
+    color: #d4a373 !important;
+}
+
+html.skin-cappuccino.dark-mode .skin-btn.active,
+body.skin-cappuccino.dark-mode .skin-btn.active {
+    border-color: #d4a373 !important;
+    background: rgba(212, 163, 115, 0.18) !important;
+    color: #d4a373 !important;
+    box-shadow: 0 0 0 1px #d4a373 !important;
+}
+
+/* Cappuccino Dark - Tables */
+html.skin-cappuccino.dark-mode .table>thead>tr>th,
+html.skin-cappuccino.dark-mode table.dataTable thead>tr>th {
+    background-color: #1b1411 !important;
+    color: #faedcd !important;
+    border-bottom: 2px solid #4a3427 !important;
+}
+
+html.skin-cappuccino.dark-mode .table>tbody>tr>td,
+html.skin-cappuccino.dark-mode table.dataTable tbody>tr>td {
+    border-top: 1px solid #382a22 !important;
+    color: #dfd4cb !important;
+}
+
+html.skin-cappuccino.dark-mode .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(212, 163, 115, 0.025) !important;
+}
+
+html.skin-cappuccino.dark-mode .table-hover>tbody>tr:hover,
+html.skin-cappuccino.dark-mode .table>tbody>tr:hover {
+    background-color: rgba(212, 163, 115, 0.06) !important;
+}
+
+html.skin-cappuccino.dark-mode .table .collapse {
+    background-color: #1e1713 !important;
+    border: 1px solid #382a22 !important;
+    border-left: 3px solid #d4a373 !important;
+}
+
+html.skin-cappuccino.dark-mode td span[style*="color: #1e293b"],
+html.skin-cappuccino.dark-mode td span[style*="color:#1e293b"] {
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode td span[style*="color: #64748b"],
+html.skin-cappuccino.dark-mode td small[style*="color: #64748b"] {
+    color: #b59f93 !important;
+}
+
+/* Cappuccino Dark - Controls & Pagination */
+html.skin-cappuccino.dark-mode .dataTables_wrapper .dataTables_filter input,
+html.skin-cappuccino.dark-mode .dataTables_length select {
+    background-color: #1b1411 !important;
+    border-color: #382a22 !important;
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode .dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #d4a373 !important;
+    box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.25) !important;
+}
+
+html.skin-cappuccino.dark-mode .pagination>li>a {
+    background-color: #1b1411 !important;
+    border-color: #382a22 !important;
+    color: #b59f93 !important;
+}
+
+html.skin-cappuccino.dark-mode .pagination>.active>a,
+html.skin-cappuccino.dark-mode .pagination>.active>a:focus,
+html.skin-cappuccino.dark-mode .pagination>.active>a:hover {
+    background-color: #d4a373 !important;
+    border-color: #d4a373 !important;
+    color: #181310 !important;
+    font-weight: 700 !important;
+}
+
+/* Cappuccino Dark - Buttons & Modals */
+html.skin-cappuccino.dark-mode .btn-primary {
+    background-color: #d4a373 !important;
+    border-color: #b88358 !important;
+    color: #181310 !important;
+    font-weight: 700 !important;
+}
+
+html.skin-cappuccino.dark-mode .btn-primary:hover,
+html.skin-cappuccino.dark-mode .btn-primary:focus {
+    background-color: #faedcd !important;
+    border-color: #d4a373 !important;
+    color: #181310 !important;
+}
+
+html.skin-cappuccino.dark-mode .btn-info {
+    background-color: #b88358 !important;
+    border-color: #9c6742 !important;
+    color: #ffffff !important;
+}
+
+html.skin-cappuccino.dark-mode .modal-content {
+    background-color: #241b16 !important;
+    border: 1px solid #382a22 !important;
+}
+
+html.skin-cappuccino.dark-mode .modal-header,
+html.skin-cappuccino.dark-mode .modal-footer {
+    background-color: #1b1411 !important;
+    border-color: #382a22 !important;
+}
+
+html.skin-cappuccino.dark-mode .modal-title {
+    color: #faedcd !important;
+}
+
+/* Cappuccino Dark - Forms & Selects & Buttons */
+html.skin-cappuccino.dark-mode input.form-control,
+html.skin-cappuccino.dark-mode input.form-control:not(.input-sm),
+html.skin-cappuccino.dark-mode .form-group input.form-control,
+html.skin-cappuccino.dark-mode textarea.form-control,
+html.skin-cappuccino.dark-mode select.form-control,
+html.skin-cappuccino.dark-mode select {
+    background-color: #1b1411 !important;
+    border: 1px solid #382a22 !important;
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode input.form-control:focus,
+html.skin-cappuccino.dark-mode textarea.form-control:focus {
+    border-color: #d4a373 !important;
+    box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.25) !important;
+}
+
+html.skin-cappuccino.dark-mode .bootstrap-select>.btn.dropdown-toggle,
+html.skin-cappuccino.dark-mode .bootstrap-select>.btn.dropdown-toggle:hover,
+html.skin-cappuccino.dark-mode .bootstrap-select>.btn.dropdown-toggle:focus,
+html.skin-cappuccino.dark-mode .bootstrap-select.open>.btn.dropdown-toggle {
+    background-color: #1b1411 !important;
+    border: 1px solid #382a22 !important;
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode .bootstrap-select>.btn.dropdown-toggle .filter-option {
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode .bootstrap-select>.btn.dropdown-toggle .bs-caret .caret {
+    border-top-color: #d4a373 !important;
+}
+
+html.skin-cappuccino.dark-mode .bootstrap-select>.dropdown-menu {
+    background-color: #241b16 !important;
+    border: 1px solid #382a22 !important;
+}
+
+html.skin-cappuccino.dark-mode .bootstrap-select .dropdown-menu li a {
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode .bootstrap-select .dropdown-menu li.selected a,
+html.skin-cappuccino.dark-mode .bootstrap-select .dropdown-menu li.active a {
+    background-color: rgba(212, 163, 115, 0.25) !important;
+    color: #d4a373 !important;
+}
+
+html.skin-cappuccino.dark-mode .btn-default {
+    background-color: #241b16 !important;
+    border: 1px solid #382a22 !important;
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode .btn-default i,
+html.skin-cappuccino.dark-mode .btn-default i.material-icons,
+html.skin-cappuccino.dark-mode .btn-default>i:only-child {
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode .btn-default:hover {
+    background-color: #382a22 !important;
+    border-color: #5c402d !important;
+    color: #ffffff !important;
+}
+
+html.skin-cappuccino.dark-mode .btn-default:hover i,
+html.skin-cappuccino.dark-mode .btn-default:hover i.material-icons,
+html.skin-cappuccino.dark-mode .btn-default:hover>i:only-child {
+    color: #ffffff !important;
+}
+
+html.skin-cappuccino.dark-mode .panel-group .panel {
+    background-color: #241b16 !important;
+    border-color: #382a22 !important;
+}
+
+html.skin-cappuccino.dark-mode .panel-group .panel-body {
+    background-color: #1b1411 !important;
+}
+
+html.skin-cappuccino.dark-mode .panel-col-pink .panel-heading {
+    background-color: #38261a !important;
+}
+
+html.skin-cappuccino.dark-mode .panel-col-cyan .panel-heading {
+    background-color: #4a3324 !important;
+}
+
+html.skin-cappuccino.dark-mode .panel-col-teal .panel-heading {
+    background-color: #5c402d !important;
+}
+
+html.skin-cappuccino.dark-mode .panel-col-orange .panel-heading {
+    background-color: #6d4d38 !important;
+}
+
+html.skin-cappuccino.dark-mode .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #d4a373 !important;
+    color: #181310 !important;
+}
+
+/* ==========================================================================
+   THEME SKIN: EVERFOREST (Light Forest / Dark Pine)
+   ========================================================================== */
+
+/* --- Everforest Light --- */
+html.skin-everforest:not(.dark-mode) body,
+html.skin-everforest:not(.dark-mode) section.content,
+body.skin-everforest:not(.dark-mode),
+body.skin-everforest:not(.dark-mode) section.content {
+    background-color: #f1f4ea !important;
+    color: #3c483e !important;
+}
+
+html.skin-everforest:not(.dark-mode) .theme-red .navbar,
+html.skin-everforest:not(.dark-mode) .navbar,
+body.skin-everforest:not(.dark-mode) .theme-red .navbar,
+body.skin-everforest:not(.dark-mode) .navbar {
+    background: linear-gradient(135deg, #2e4a2b 0%, #436e3b 50%, #5d8a52 100%) !important;
+    box-shadow: 0 4px 20px rgba(46, 74, 43, 0.3) !important;
+}
+
+html.skin-everforest:not(.dark-mode) .sidebar {
+    background-color: #f9fbf6 !important;
+    border-right: 1px solid #dce4d2 !important;
+}
+
+html.skin-everforest:not(.dark-mode) .sidebar .user-info,
+body.skin-everforest:not(.dark-mode) .sidebar .user-info {
+    background: linear-gradient(135deg, #2e4a2b 0%, #436e3b 50%, #5d8a52 100%) !important;
+    background-image: radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 60%), linear-gradient(135deg, #2e4a2b 0%, #436e3b 50%, #5d8a52 100%) !important;
+}
+
+html.skin-everforest:not(.dark-mode) .sidebar .menu .list>li.active>a,
+body.skin-everforest:not(.dark-mode) .sidebar .menu .list>li.active>a {
+    background: linear-gradient(135deg, #436e3b 0%, #5d8a52 100%) !important;
+    box-shadow: 0 4px 14px rgba(67, 110, 59, 0.35) !important;
+    color: #ffffff !important;
+}
+
+html.skin-everforest:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+html.skin-everforest:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span,
+body.skin-everforest:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+body.skin-everforest:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span {
+    color: #436e3b !important;
+}
+
+html.skin-everforest:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a,
+body.skin-everforest:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a {
+    background: #f1f7ec !important;
+    border-color: #c9ddbe !important;
+}
+
+html.skin-everforest:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a span,
+html.skin-everforest:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons,
+body.skin-everforest:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a span,
+body.skin-everforest:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons {
+    color: #436e3b !important;
+}
+
+html.skin-everforest:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a:hover,
+body.skin-everforest:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a:hover {
+    background: linear-gradient(135deg, #436e3b 0%, #5d8a52 100%) !important;
+    border-color: #436e3b !important;
+    box-shadow: 0 4px 14px rgba(67, 110, 59, 0.35) !important;
+    color: #ffffff !important;
+}
+
+html.skin-everforest:not(.dark-mode) .sidebar .legal .copyright a,
+body.skin-everforest:not(.dark-mode) .sidebar .legal .copyright a {
+    color: #436e3b !important;
+}
+
+html.skin-everforest:not(.dark-mode) .skin-btn.active,
+body.skin-everforest:not(.dark-mode) .skin-btn.active {
+    border-color: #436e3b !important;
+    background: #f1f7ec !important;
+    color: #436e3b !important;
+    box-shadow: 0 0 0 1px #436e3b !important;
+}
+
+/* Everforest Light - Cards & Headers */
+html.skin-everforest:not(.dark-mode) .card {
+    background-color: #ffffff !important;
+    border: 1px solid #dce4d2 !important;
+    box-shadow: 0 4px 18px rgba(46, 74, 43, 0.06) !important;
+}
+
+html.skin-everforest:not(.dark-mode) .card .header {
+    border-bottom: 1px solid #dce4d2 !important;
+}
+
+html.skin-everforest:not(.dark-mode) .card .header h2 {
+    color: #2e4a2b !important;
+    font-weight: 700;
+}
+
+/* Everforest Light - Tables */
+html.skin-everforest:not(.dark-mode) .table>thead>tr>th,
+html.skin-everforest:not(.dark-mode) table.dataTable thead>tr>th {
+    background: linear-gradient(135deg, #2e4a2b 0%, #3e6337 100%) !important;
+    color: #f6faf2 !important;
+    border-bottom: 2px solid #5d8a52 !important;
+}
+
+html.skin-everforest:not(.dark-mode) .table>tbody>tr>td,
+html.skin-everforest:not(.dark-mode) table.dataTable tbody>tr>td {
+    border-top: 1px solid #dce4d2 !important;
+    color: #3c483e !important;
+}
+
+html.skin-everforest:not(.dark-mode) .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(67, 110, 59, 0.03) !important;
+}
+
+html.skin-everforest:not(.dark-mode) .table-hover>tbody>tr:hover,
+html.skin-everforest:not(.dark-mode) .table>tbody>tr:hover {
+    background-color: rgba(67, 110, 59, 0.065) !important;
+}
+
+html.skin-everforest:not(.dark-mode) .table .collapse {
+    background-color: #f7fbf3 !important;
+    border: 1px solid #dce4d2 !important;
+    border-left: 3px solid #436e3b !important;
+}
+
+/* Everforest Light - DataTables & Pagination */
+html.skin-everforest:not(.dark-mode) .dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #436e3b !important;
+    box-shadow: 0 0 0 3px rgba(67, 110, 59, 0.25) !important;
+}
+
+html.skin-everforest:not(.dark-mode) .pagination>.active>a,
+html.skin-everforest:not(.dark-mode) .pagination>.active>a:focus,
+html.skin-everforest:not(.dark-mode) .pagination>.active>a:hover {
+    background-color: #436e3b !important;
+    border-color: #436e3b !important;
+    color: #ffffff !important;
+}
+
+html.skin-everforest:not(.dark-mode) .pagination>li>a {
+    color: #2e4a2b !important;
+}
+
+/* Everforest Light - Buttons & Modals */
+html.skin-everforest:not(.dark-mode) .btn-primary {
+    background-color: #436e3b !important;
+    border-color: #34572e !important;
+    color: #ffffff !important;
+}
+
+html.skin-everforest:not(.dark-mode) .btn-primary:hover,
+html.skin-everforest:not(.dark-mode) .btn-primary:focus {
+    background-color: #2e4a2b !important;
+    border-color: #233b21 !important;
+}
+
+html.skin-everforest:not(.dark-mode) .btn-info {
+    background-color: #357a7b !important;
+    border-color: #286364 !important;
+    color: #ffffff !important;
+}
+
+html.skin-everforest:not(.dark-mode) .modal-header {
+    background-color: #f7fbf3 !important;
+    border-bottom: 1px solid #dce4d2 !important;
+}
+
+html.skin-everforest:not(.dark-mode) .modal-title {
+    color: #2e4a2b !important;
+}
+
+html.skin-everforest:not(.dark-mode) .modal-footer {
+    background-color: #f7fbf3 !important;
+    border-top: 1px solid #dce4d2 !important;
+}
+
+/* Everforest Light - Forms & Accordion Panels */
+html.skin-everforest:not(.dark-mode) .form-line.focused:after {
+    border-bottom: 2px solid #436e3b !important;
+}
+
+html.skin-everforest:not(.dark-mode) .panel-col-pink .panel-heading {
+    background-color: #2e4a2b !important;
+}
+
+html.skin-everforest:not(.dark-mode) .panel-col-cyan .panel-heading {
+    background-color: #436e3b !important;
+}
+
+html.skin-everforest:not(.dark-mode) .panel-col-teal .panel-heading {
+    background-color: #5d8a52 !important;
+}
+
+html.skin-everforest:not(.dark-mode) .panel-col-orange .panel-heading {
+    background-color: #7d6836 !important;
+}
+
+html.skin-everforest:not(.dark-mode) .info-box .icon {
+    background-color: #436e3b !important;
+}
+
+/* --- Everforest Dark --- */
+html.skin-everforest.dark-mode body,
+html.skin-everforest.dark-mode section.content,
+body.skin-everforest.dark-mode,
+body.skin-everforest.dark-mode section.content {
+    background-color: #1e2326 !important;
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .card,
+body.skin-everforest.dark-mode .card {
+    background-color: #272e33 !important;
+    border: 1px solid rgba(167, 192, 128, 0.14) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+}
+
+html.skin-everforest.dark-mode .card .header {
+    border-bottom: 1px solid #343e44 !important;
+}
+
+html.skin-everforest.dark-mode .card .header h2 {
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .card .body {
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .navbar,
+body.skin-everforest.dark-mode .navbar {
+    background: linear-gradient(135deg, #191e21 0%, #232a2e 50%, #2d353b 100%) !important;
+    border-bottom: 1px solid rgba(167, 192, 128, 0.28) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.skin-everforest.dark-mode .sidebar,
+body.skin-everforest.dark-mode .sidebar {
+    background-color: #232a2e !important;
+    border-right: 1px solid rgba(167, 192, 128, 0.14) !important;
+}
+
+html.skin-everforest.dark-mode .sidebar .user-info,
+body.skin-everforest.dark-mode .sidebar .user-info {
+    background: linear-gradient(145deg, #2d353b 0%, #232a2e 100%) !important;
+    background-image: radial-gradient(circle at 85% 20%, rgba(167, 192, 128, 0.18) 0%, transparent 60%), linear-gradient(145deg, #2d353b 0%, #232a2e 100%) !important;
+}
+
+html.skin-everforest.dark-mode .sidebar .user-info .image img,
+body.skin-everforest.dark-mode .sidebar .user-info .image img {
+    border-color: #a7c080 !important;
+}
+
+html.skin-everforest.dark-mode .sidebar .menu .list>li.active>a,
+body.skin-everforest.dark-mode .sidebar .menu .list>li.active>a {
+    background: linear-gradient(135deg, #a7c080 0%, #83c092 100%) !important;
+    border-color: rgba(167, 192, 128, 0.6) !important;
+    box-shadow: 0 4px 16px rgba(167, 192, 128, 0.35) !important;
+}
+
+html.skin-everforest.dark-mode .sidebar .menu .list li.active> :first-child i,
+html.skin-everforest.dark-mode .sidebar .menu .list li.active> :first-child span,
+body.skin-everforest.dark-mode .sidebar .menu .list li.active> :first-child i,
+body.skin-everforest.dark-mode .sidebar .menu .list li.active> :first-child span {
+    color: #1e2326 !important;
+}
+
+html.skin-everforest.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+html.skin-everforest.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span,
+body.skin-everforest.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+body.skin-everforest.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span {
+    color: #a7c080 !important;
+}
+
+html.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a,
+body.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a {
+    background: rgba(167, 192, 128, 0.12) !important;
+    border-color: rgba(167, 192, 128, 0.35) !important;
+    box-shadow: 0 2px 8px rgba(167, 192, 128, 0.12) !important;
+}
+
+html.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a span,
+html.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons,
+body.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a span,
+body.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons {
+    color: #a7c080 !important;
+}
+
+html.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover,
+body.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover {
+    background: linear-gradient(135deg, #a7c080 0%, #83c092 100%) !important;
+    border-color: #a7c080 !important;
+    box-shadow: 0 4px 16px rgba(167, 192, 128, 0.35) !important;
+}
+
+html.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover span,
+html.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover i.material-icons,
+body.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover span,
+body.skin-everforest.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover i.material-icons {
+    color: #1e2326 !important;
+}
+
+html.skin-everforest.dark-mode .sidebar-switch-track,
+body.skin-everforest.dark-mode .sidebar-switch-track {
+    background-color: #a7c080 !important;
+}
+
+html.skin-everforest.dark-mode .sidebar-switch-thumb,
+body.skin-everforest.dark-mode .sidebar-switch-thumb {
+    background-color: #e69875 !important;
+    box-shadow: 0 0 10px rgba(230, 152, 117, 0.6) !important;
+}
+
+html.skin-everforest.dark-mode .sidebar .legal .copyright a,
+body.skin-everforest.dark-mode .sidebar .legal .copyright a {
+    color: #a7c080 !important;
+}
+
+html.skin-everforest.dark-mode .skin-btn.active,
+body.skin-everforest.dark-mode .skin-btn.active {
+    border-color: #a7c080 !important;
+    background: rgba(167, 192, 128, 0.18) !important;
+    color: #a7c080 !important;
+    box-shadow: 0 0 0 1px #a7c080 !important;
+}
+
+/* Everforest Dark - Tables */
+html.skin-everforest.dark-mode .table>thead>tr>th,
+html.skin-everforest.dark-mode table.dataTable thead>tr>th {
+    background-color: #1c2225 !important;
+    color: #d3c6aa !important;
+    border-bottom: 2px solid #3d4a52 !important;
+}
+
+html.skin-everforest.dark-mode .table>tbody>tr>td,
+html.skin-everforest.dark-mode table.dataTable tbody>tr>td {
+    border-top: 1px solid #343e44 !important;
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(167, 192, 128, 0.025) !important;
+}
+
+html.skin-everforest.dark-mode .table-hover>tbody>tr:hover,
+html.skin-everforest.dark-mode .table>tbody>tr:hover {
+    background-color: rgba(167, 192, 128, 0.06) !important;
+}
+
+html.skin-everforest.dark-mode .table .collapse {
+    background-color: #20272b !important;
+    border: 1px solid #343e44 !important;
+    border-left: 3px solid #a7c080 !important;
+}
+
+html.skin-everforest.dark-mode td span[style*="color: #1e293b"],
+html.skin-everforest.dark-mode td span[style*="color:#1e293b"] {
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode td span[style*="color: #64748b"],
+html.skin-everforest.dark-mode td small[style*="color: #64748b"] {
+    color: #9da993 !important;
+}
+
+/* Everforest Dark - Controls & Pagination */
+html.skin-everforest.dark-mode .dataTables_wrapper .dataTables_filter input,
+html.skin-everforest.dark-mode .dataTables_length select {
+    background-color: #1c2225 !important;
+    border-color: #343e44 !important;
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #a7c080 !important;
+    box-shadow: 0 0 0 3px rgba(167, 192, 128, 0.25) !important;
+}
+
+html.skin-everforest.dark-mode .pagination>li>a {
+    background-color: #1c2225 !important;
+    border-color: #343e44 !important;
+    color: #9da993 !important;
+}
+
+html.skin-everforest.dark-mode .pagination>.active>a,
+html.skin-everforest.dark-mode .pagination>.active>a:focus,
+html.skin-everforest.dark-mode .pagination>.active>a:hover {
+    background-color: #a7c080 !important;
+    border-color: #a7c080 !important;
+    color: #1e2326 !important;
+    font-weight: 700 !important;
+}
+
+/* Everforest Dark - Buttons & Modals */
+html.skin-everforest.dark-mode .btn-primary {
+    background-color: #a7c080 !important;
+    border-color: #8fa86c !important;
+    color: #1e2326 !important;
+    font-weight: 700 !important;
+}
+
+html.skin-everforest.dark-mode .btn-primary:hover,
+html.skin-everforest.dark-mode .btn-primary:focus {
+    background-color: #c0dba0 !important;
+    border-color: #a7c080 !important;
+    color: #1e2326 !important;
+}
+
+html.skin-everforest.dark-mode .btn-info {
+    background-color: #83c092 !important;
+    border-color: #6fad7e !important;
+    color: #1e2326 !important;
+    font-weight: 700 !important;
+}
+
+html.skin-everforest.dark-mode .modal-content {
+    background-color: #272e33 !important;
+    border: 1px solid #343e44 !important;
+}
+
+html.skin-everforest.dark-mode .modal-header,
+html.skin-everforest.dark-mode .modal-footer {
+    background-color: #1c2225 !important;
+    border-color: #343e44 !important;
+}
+
+html.skin-everforest.dark-mode .modal-title {
+    color: #d3c6aa !important;
+}
+
+/* Everforest Dark - Forms & Selects & Buttons */
+html.skin-everforest.dark-mode input.form-control,
+html.skin-everforest.dark-mode input.form-control:not(.input-sm),
+html.skin-everforest.dark-mode .form-group input.form-control,
+html.skin-everforest.dark-mode textarea.form-control,
+html.skin-everforest.dark-mode select.form-control,
+html.skin-everforest.dark-mode select {
+    background-color: #1c2225 !important;
+    border: 1px solid #343e44 !important;
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode input.form-control:focus,
+html.skin-everforest.dark-mode textarea.form-control:focus {
+    border-color: #a7c080 !important;
+    box-shadow: 0 0 0 3px rgba(167, 192, 128, 0.25) !important;
+}
+
+html.skin-everforest.dark-mode .bootstrap-select>.btn.dropdown-toggle,
+html.skin-everforest.dark-mode .bootstrap-select>.btn.dropdown-toggle:hover,
+html.skin-everforest.dark-mode .bootstrap-select>.btn.dropdown-toggle:focus,
+html.skin-everforest.dark-mode .bootstrap-select.open>.btn.dropdown-toggle {
+    background-color: #1c2225 !important;
+    border: 1px solid #343e44 !important;
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .bootstrap-select>.btn.dropdown-toggle .filter-option {
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .bootstrap-select>.btn.dropdown-toggle .bs-caret .caret {
+    border-top-color: #a7c080 !important;
+}
+
+html.skin-everforest.dark-mode .bootstrap-select>.dropdown-menu {
+    background-color: #272e33 !important;
+    border: 1px solid #343e44 !important;
+}
+
+html.skin-everforest.dark-mode .bootstrap-select .dropdown-menu li a {
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .bootstrap-select .dropdown-menu li.selected a,
+html.skin-everforest.dark-mode .bootstrap-select .dropdown-menu li.active a {
+    background-color: rgba(167, 192, 128, 0.25) !important;
+    color: #a7c080 !important;
+}
+
+html.skin-everforest.dark-mode .btn-default {
+    background-color: #272e33 !important;
+    border: 1px solid #343e44 !important;
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .btn-default i,
+html.skin-everforest.dark-mode .btn-default i.material-icons,
+html.skin-everforest.dark-mode .btn-default>i:only-child {
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .btn-default:hover {
+    background-color: #343e44 !important;
+    border-color: #4a555b !important;
+    color: #ffffff !important;
+}
+
+html.skin-everforest.dark-mode .btn-default:hover i,
+html.skin-everforest.dark-mode .btn-default:hover i.material-icons,
+html.skin-everforest.dark-mode .btn-default:hover>i:only-child {
+    color: #ffffff !important;
+}
+
+html.skin-everforest.dark-mode .panel-group .panel {
+    background-color: #272e33 !important;
+    border-color: #343e44 !important;
+}
+
+html.skin-everforest.dark-mode .panel-group .panel-body {
+    background-color: #1c2225 !important;
+}
+
+html.skin-everforest.dark-mode .panel-col-pink .panel-heading {
+    background-color: #242d28 !important;
+}
+
+html.skin-everforest.dark-mode .panel-col-cyan .panel-heading {
+    background-color: #2b3830 !important;
+}
+
+html.skin-everforest.dark-mode .panel-col-teal .panel-heading {
+    background-color: #344538 !important;
+}
+
+html.skin-everforest.dark-mode .panel-col-orange .panel-heading {
+    background-color: #423b2c !important;
+}
+
+html.skin-everforest.dark-mode .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #a7c080 !important;
+    color: #1e2326 !important;
+}
+
+/* ==========================================================================
+   THEME SKIN: TOKYO NIGHT (Tokyo Day / Tokyo Midnight Neon)
+   ========================================================================== */
+
+/* --- Tokyo Day - Light Mode --- */
+html.skin-tokyo:not(.dark-mode) body,
+html.skin-tokyo:not(.dark-mode) section.content,
+body.skin-tokyo:not(.dark-mode),
+body.skin-tokyo:not(.dark-mode) section.content {
+    background-color: #eaf0f9 !important;
+    color: #2e3859 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .theme-red .navbar,
+html.skin-tokyo:not(.dark-mode) .navbar,
+body.skin-tokyo:not(.dark-mode) .theme-red .navbar,
+body.skin-tokyo:not(.dark-mode) .navbar {
+    background: linear-gradient(135deg, #242c4c 0%, #343e6a 50%, #4a5a96 100%) !important;
+    box-shadow: 0 4px 20px rgba(36, 44, 76, 0.3) !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .sidebar {
+    background-color: #f7f9fd !important;
+    border-right: 1px solid #d5daf0 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .sidebar .user-info,
+body.skin-tokyo:not(.dark-mode) .sidebar .user-info {
+    background: linear-gradient(135deg, #242c4c 0%, #343e6a 50%, #4a5a96 100%) !important;
+    background-image: radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 60%), linear-gradient(135deg, #242c4c 0%, #343e6a 50%, #4a5a96 100%) !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li.active>a,
+body.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li.active>a {
+    background: linear-gradient(135deg, #343e6a 0%, #2e7de9 100%) !important;
+    box-shadow: 0 4px 14px rgba(46, 125, 233, 0.35) !important;
+    color: #ffffff !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+html.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span,
+body.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+body.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span {
+    color: #2e7de9 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a,
+body.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a {
+    background: #eef3fc !important;
+    border-color: #c4d7fa !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a span,
+html.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons,
+body.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a span,
+body.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons {
+    color: #2e7de9 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a:hover,
+body.skin-tokyo:not(.dark-mode) .sidebar .menu .list>li.sidebar-action-mrt>a:hover {
+    background: linear-gradient(135deg, #343e6a 0%, #2e7de9 100%) !important;
+    border-color: #2e7de9 !important;
+    box-shadow: 0 4px 14px rgba(46, 125, 233, 0.35) !important;
+    color: #ffffff !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .sidebar .legal .copyright a,
+body.skin-tokyo:not(.dark-mode) .sidebar .legal .copyright a {
+    color: #2e7de9 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .skin-btn.active,
+body.skin-tokyo:not(.dark-mode) .skin-btn.active {
+    border-color: #2e7de9 !important;
+    background: #eef3fc !important;
+    color: #2e7de9 !important;
+    box-shadow: 0 0 0 1px #2e7de9 !important;
+}
+
+/* Tokyo Light - Cards & Headers */
+html.skin-tokyo:not(.dark-mode) .card {
+    background-color: #ffffff !important;
+    border: 1px solid #d5daf0 !important;
+    box-shadow: 0 4px 18px rgba(36, 44, 76, 0.06) !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .card .header {
+    border-bottom: 1px solid #d5daf0 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .card .header h2 {
+    color: #242c4c !important;
+    font-weight: 700;
+}
+
+/* Tokyo Light - Tables */
+html.skin-tokyo:not(.dark-mode) .table>thead>tr>th,
+html.skin-tokyo:not(.dark-mode) table.dataTable thead>tr>th {
+    background: linear-gradient(135deg, #242c4c 0%, #343e6a 100%) !important;
+    color: #f5f8ff !important;
+    border-bottom: 2px solid #2e7de9 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .table>tbody>tr>td,
+html.skin-tokyo:not(.dark-mode) table.dataTable tbody>tr>td {
+    border-top: 1px solid #d5daf0 !important;
+    color: #2e3859 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(46, 125, 233, 0.03) !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .table-hover>tbody>tr:hover,
+html.skin-tokyo:not(.dark-mode) .table>tbody>tr:hover {
+    background-color: rgba(46, 125, 233, 0.065) !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .table .collapse {
+    background-color: #f3f7fd !important;
+    border: 1px solid #d5daf0 !important;
+    border-left: 3px solid #2e7de9 !important;
+}
+
+/* Tokyo Light - DataTables & Pagination */
+html.skin-tokyo:not(.dark-mode) .dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #2e7de9 !important;
+    box-shadow: 0 0 0 3px rgba(46, 125, 233, 0.25) !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .pagination>.active>a,
+html.skin-tokyo:not(.dark-mode) .pagination>.active>a:focus,
+html.skin-tokyo:not(.dark-mode) .pagination>.active>a:hover {
+    background-color: #2e7de9 !important;
+    border-color: #2e7de9 !important;
+    color: #ffffff !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .pagination>li>a {
+    color: #242c4c !important;
+}
+
+/* Tokyo Light - Buttons & Modals */
+html.skin-tokyo:not(.dark-mode) .btn-primary {
+    background-color: #2e7de9 !important;
+    border-color: #2168c8 !important;
+    color: #ffffff !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .btn-primary:hover,
+html.skin-tokyo:not(.dark-mode) .btn-primary:focus {
+    background-color: #242c4c !important;
+    border-color: #1a2038 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .btn-info {
+    background-color: #008ba3 !important;
+    border-color: #007387 !important;
+    color: #ffffff !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .modal-header {
+    background-color: #f3f7fd !important;
+    border-bottom: 1px solid #d5daf0 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .modal-title {
+    color: #242c4c !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .modal-footer {
+    background-color: #f3f7fd !important;
+    border-top: 1px solid #d5daf0 !important;
+}
+
+/* Tokyo Light - Forms & Accordion Panels */
+html.skin-tokyo:not(.dark-mode) .form-line.focused:after {
+    border-bottom: 2px solid #2e7de9 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .panel-col-pink .panel-heading {
+    background-color: #242c4c !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .panel-col-cyan .panel-heading {
+    background-color: #343e6a !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .panel-col-teal .panel-heading {
+    background-color: #2e7de9 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .panel-col-orange .panel-heading {
+    background-color: #634f99 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .info-box .icon {
+    background-color: #2e7de9 !important;
+}
+
+/* --- Tokyo Night - Dark Mode --- */
+html.skin-tokyo.dark-mode body,
+html.skin-tokyo.dark-mode section.content,
+body.skin-tokyo.dark-mode,
+body.skin-tokyo.dark-mode section.content {
+    background-color: #13141f !important;
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .card,
+body.skin-tokyo.dark-mode .card {
+    background-color: #1a1b26 !important;
+    border: 1px solid rgba(122, 162, 247, 0.16) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+}
+
+html.skin-tokyo.dark-mode .card .header {
+    border-bottom: 1px solid #25283c !important;
+}
+
+html.skin-tokyo.dark-mode .card .header h2 {
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .card .body {
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .navbar,
+body.skin-tokyo.dark-mode .navbar {
+    background: linear-gradient(135deg, #0e0f17 0%, #141521 50%, #1a1b26 100%) !important;
+    border-bottom: 1px solid rgba(122, 162, 247, 0.28) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar,
+body.skin-tokyo.dark-mode .sidebar {
+    background-color: #161622 !important;
+    border-right: 1px solid rgba(122, 162, 247, 0.14) !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar .user-info,
+body.skin-tokyo.dark-mode .sidebar .user-info {
+    background: linear-gradient(145deg, #24283b 0%, #161622 100%) !important;
+    background-image: radial-gradient(circle at 85% 20%, rgba(122, 162, 247, 0.2) 0%, transparent 60%), linear-gradient(145deg, #24283b 0%, #161622 100%) !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar .user-info .image img,
+body.skin-tokyo.dark-mode .sidebar .user-info .image img {
+    border-color: #7aa2f7 !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar .menu .list>li.active>a,
+body.skin-tokyo.dark-mode .sidebar .menu .list>li.active>a {
+    background: linear-gradient(135deg, #7aa2f7 0%, #bb9af7 100%) !important;
+    border-color: rgba(122, 162, 247, 0.6) !important;
+    box-shadow: 0 4px 16px rgba(122, 162, 247, 0.4) !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar .menu .list li.active> :first-child i,
+html.skin-tokyo.dark-mode .sidebar .menu .list li.active> :first-child span,
+body.skin-tokyo.dark-mode .sidebar .menu .list li.active> :first-child i,
+body.skin-tokyo.dark-mode .sidebar .menu .list li.active> :first-child span {
+    color: #13141f !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+html.skin-tokyo.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span,
+body.skin-tokyo.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover i.material-icons,
+body.skin-tokyo.dark-mode .sidebar .menu .list>li:not(.active):not(.header):not(.sidebar-action-mrt)>a:hover span {
+    color: #7aa2f7 !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a,
+body.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a {
+    background: rgba(122, 162, 247, 0.12) !important;
+    border-color: rgba(122, 162, 247, 0.35) !important;
+    box-shadow: 0 2px 8px rgba(122, 162, 247, 0.12) !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a span,
+html.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons,
+body.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a span,
+body.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a i.material-icons {
+    color: #7aa2f7 !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover,
+body.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover {
+    background: linear-gradient(135deg, #7aa2f7 0%, #bb9af7 100%) !important;
+    border-color: #7aa2f7 !important;
+    box-shadow: 0 4px 16px rgba(122, 162, 247, 0.4) !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover span,
+html.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover i.material-icons,
+body.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover span,
+body.skin-tokyo.dark-mode .sidebar .menu .list>li.sidebar-action-mrt>a:hover i.material-icons {
+    color: #13141f !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar-switch-track,
+body.skin-tokyo.dark-mode .sidebar-switch-track {
+    background-color: #7aa2f7 !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar-switch-thumb,
+body.skin-tokyo.dark-mode .sidebar-switch-thumb {
+    background-color: #bb9af7 !important;
+    box-shadow: 0 0 10px rgba(187, 154, 247, 0.6) !important;
+}
+
+html.skin-tokyo.dark-mode .sidebar .legal .copyright a,
+body.skin-tokyo.dark-mode .sidebar .legal .copyright a {
+    color: #7aa2f7 !important;
+}
+
+html.skin-tokyo.dark-mode .skin-btn.active,
+body.skin-tokyo.dark-mode .skin-btn.active {
+    border-color: #7aa2f7 !important;
+    background: rgba(122, 162, 247, 0.18) !important;
+    color: #7aa2f7 !important;
+    box-shadow: 0 0 0 1px #7aa2f7 !important;
+}
+
+/* Tokyo Dark - Tables */
+html.skin-tokyo.dark-mode .table>thead>tr>th,
+html.skin-tokyo.dark-mode table.dataTable thead>tr>th {
+    background-color: #151622 !important;
+    color: #c0caf5 !important;
+    border-bottom: 2px solid #3b4261 !important;
+}
+
+html.skin-tokyo.dark-mode .table>tbody>tr>td,
+html.skin-tokyo.dark-mode table.dataTable tbody>tr>td {
+    border-top: 1px solid #25283c !important;
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(122, 162, 247, 0.025) !important;
+}
+
+html.skin-tokyo.dark-mode .table-hover>tbody>tr:hover,
+html.skin-tokyo.dark-mode .table>tbody>tr:hover {
+    background-color: rgba(122, 162, 247, 0.06) !important;
+}
+
+html.skin-tokyo.dark-mode .table .collapse {
+    background-color: #181926 !important;
+    border: 1px solid #25283c !important;
+    border-left: 3px solid #7aa2f7 !important;
+}
+
+html.skin-tokyo.dark-mode td span[style*="color: #1e293b"],
+html.skin-tokyo.dark-mode td span[style*="color:#1e293b"] {
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode td span[style*="color: #64748b"],
+html.skin-tokyo.dark-mode td small[style*="color: #64748b"] {
+    color: #828bb8 !important;
+}
+
+/* Tokyo Dark - Controls & Pagination */
+html.skin-tokyo.dark-mode .dataTables_wrapper .dataTables_filter input,
+html.skin-tokyo.dark-mode .dataTables_length select {
+    background-color: #151622 !important;
+    border-color: #25283c !important;
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #7aa2f7 !important;
+    box-shadow: 0 0 0 3px rgba(122, 162, 247, 0.25) !important;
+}
+
+html.skin-tokyo.dark-mode .pagination>li>a {
+    background-color: #151622 !important;
+    border-color: #25283c !important;
+    color: #828bb8 !important;
+}
+
+html.skin-tokyo.dark-mode .pagination>.active>a,
+html.skin-tokyo.dark-mode .pagination>.active>a:focus,
+html.skin-tokyo.dark-mode .pagination>.active>a:hover {
+    background-color: #7aa2f7 !important;
+    border-color: #7aa2f7 !important;
+    color: #13141f !important;
+    font-weight: 700 !important;
+}
+
+/* Tokyo Dark - Buttons & Modals */
+html.skin-tokyo.dark-mode .btn-primary {
+    background-color: #7aa2f7 !important;
+    border-color: #5c8ae6 !important;
+    color: #13141f !important;
+    font-weight: 700 !important;
+}
+
+html.skin-tokyo.dark-mode .btn-primary:hover,
+html.skin-tokyo.dark-mode .btn-primary:focus {
+    background-color: #bb9af7 !important;
+    border-color: #a482e6 !important;
+    color: #13141f !important;
+}
+
+html.skin-tokyo.dark-mode .btn-info {
+    background-color: #7dcfff !important;
+    border-color: #57bce6 !important;
+    color: #13141f !important;
+    font-weight: 700 !important;
+}
+
+html.skin-tokyo.dark-mode .modal-content {
+    background-color: #1a1b26 !important;
+    border: 1px solid #25283c !important;
+}
+
+html.skin-tokyo.dark-mode .modal-header,
+html.skin-tokyo.dark-mode .modal-footer {
+    background-color: #151622 !important;
+    border-color: #25283c !important;
+}
+
+html.skin-tokyo.dark-mode .modal-title {
+    color: #c0caf5 !important;
+}
+
+/* Tokyo Dark - Forms & Selects & Buttons */
+html.skin-tokyo.dark-mode input.form-control,
+html.skin-tokyo.dark-mode input.form-control:not(.input-sm),
+html.skin-tokyo.dark-mode .form-group input.form-control,
+html.skin-tokyo.dark-mode textarea.form-control,
+html.skin-tokyo.dark-mode select.form-control,
+html.skin-tokyo.dark-mode select {
+    background-color: #151622 !important;
+    border: 1px solid #25283c !important;
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode input.form-control:focus,
+html.skin-tokyo.dark-mode textarea.form-control:focus {
+    border-color: #7aa2f7 !important;
+    box-shadow: 0 0 0 3px rgba(122, 162, 247, 0.25) !important;
+}
+
+html.skin-tokyo.dark-mode .bootstrap-select>.btn.dropdown-toggle,
+html.skin-tokyo.dark-mode .bootstrap-select>.btn.dropdown-toggle:hover,
+html.skin-tokyo.dark-mode .bootstrap-select>.btn.dropdown-toggle:focus,
+html.skin-tokyo.dark-mode .bootstrap-select.open>.btn.dropdown-toggle {
+    background-color: #151622 !important;
+    border: 1px solid #25283c !important;
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .bootstrap-select>.btn.dropdown-toggle .filter-option {
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .bootstrap-select>.btn.dropdown-toggle .bs-caret .caret {
+    border-top-color: #7aa2f7 !important;
+}
+
+html.skin-tokyo.dark-mode .bootstrap-select>.dropdown-menu {
+    background-color: #1a1b26 !important;
+    border: 1px solid #25283c !important;
+}
+
+html.skin-tokyo.dark-mode .bootstrap-select .dropdown-menu li a {
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .bootstrap-select .dropdown-menu li.selected a,
+html.skin-tokyo.dark-mode .bootstrap-select .dropdown-menu li.active a {
+    background-color: rgba(122, 162, 247, 0.25) !important;
+    color: #7aa2f7 !important;
+}
+
+html.skin-tokyo.dark-mode .btn-default {
+    background-color: #1a1b26 !important;
+    border: 1px solid #25283c !important;
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .btn-default i,
+html.skin-tokyo.dark-mode .btn-default i.material-icons,
+html.skin-tokyo.dark-mode .btn-default>i:only-child {
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .btn-default:hover {
+    background-color: #25283c !important;
+    border-color: #3b4261 !important;
+    color: #ffffff !important;
+}
+
+html.skin-tokyo.dark-mode .btn-default:hover i,
+html.skin-tokyo.dark-mode .btn-default:hover i.material-icons,
+html.skin-tokyo.dark-mode .btn-default:hover>i:only-child {
+    color: #ffffff !important;
+}
+
+html.skin-tokyo.dark-mode .panel-group .panel {
+    background-color: #1a1b26 !important;
+    border-color: #25283c !important;
+}
+
+html.skin-tokyo.dark-mode .panel-group .panel-body {
+    background-color: #151622 !important;
+}
+
+html.skin-tokyo.dark-mode .panel-col-pink .panel-heading {
+    background-color: #1f2238 !important;
+}
+
+html.skin-tokyo.dark-mode .panel-col-cyan .panel-heading {
+    background-color: #242a47 !important;
+}
+
+html.skin-tokyo.dark-mode .panel-col-teal .panel-heading {
+    background-color: #203347 !important;
+}
+
+html.skin-tokyo.dark-mode .panel-col-orange .panel-heading {
+    background-color: #352547 !important;
+}
+
+html.skin-tokyo.dark-mode .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #7aa2f7 !important;
+    color: #13141f !important;
+}
+
+/* ==========================================================================
+   DEFAULT SKIN ENHANCEMENTS (Clean Crimson & Navy)
+   ========================================================================== */
+html.skin-default:not(.dark-mode) .table>thead>tr>th,
+html.skin-default:not(.dark-mode) table.dataTable thead>tr>th {
+    background: #dc2626 !important;
+    color: #ffffff !important;
+    border-bottom: 2px solid #ef4444 !important;
+}
+
+html.skin-default:not(.dark-mode) .table>thead>tr>th:first-child,
+html.skin-default:not(.dark-mode) table.dataTable thead>tr>th:first-child {
+    color: #ffffff !important;
 }

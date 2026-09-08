@@ -51,11 +51,9 @@
                             <td><?php echo $datax['nama']."<br>[".$datax['depart']."]";?></td>
                             <td><?php echo nl2br(trim($datax['jnskendala']));?></td>
                             <td><?php echo $datax['ipclient'];?></td>
-                            <td align="center">
-                                <a href="index.php?page=data">
-                                    <button type="button" class="btn btn-default waves-effect">
-                                        <i class="material-icons">reply_all</i>
-                                    </button>
+                            <td align="center" style="vertical-align: middle;">
+                                <a href="index.php?page=data" class="btn btn-default waves-effect btn-table-back" title="Kembali">
+                                    <i class="material-icons">reply_all</i>
                                 </a>
                             </td>
                         </tr>
@@ -156,14 +154,12 @@
                     <!-- Row 4: Tombol Action (FULL WIDTH) -->
                     <div class="row clearfix">
                         <div class="col-md-12">
-                            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee;">
+                            <div class="form-action-bar">
                                 <button type="submit" class="btn btn-primary waves-effect">
                                     <i class="material-icons">save</i> SAVE
                                 </button>
-                                <a href="index.php?page=data">
-                                    <button type="button" class="btn btn-danger waves-effect">
-                                        <i class="material-icons">close</i> CLOSE
-                                    </button>
+                                <a href="index.php?page=data" class="btn btn-danger waves-effect">
+                                    <i class="material-icons">close</i> CLOSE
                                 </a>
                             </div>
                         </div>
