@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: simit-web
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - simit-network
+
+  db:
+    image: mysql:8.0
+    container_name: simit-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: eit010517
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: '@Sidoarjo123'
+    volumes:
+      - db_data:/var/lib/mysql
+      # Uncomment the line below to automatically import the database schema/data
+      # Make sure the SQL file is correct, e.g., db_simit.sql or eit010517(1).sql
+      # - ./eit010517(1).sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - simit-network
+
+volumes:
+  db_data:
+
+networks:
+  simit-network:
+    driver: bridge
