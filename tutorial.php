@@ -20,11 +20,11 @@
                         <div class="body">
                             <div class="row clearfix">
                                 <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
-                                    <div class="panel-group full-body" id="accordion_19" role="tablist" aria-multiselectable="true">
+                                    <div class="panel-group full-body" id="accordion_19" role="tablist" aria-multiselectable="false">
                                         <div class="panel panel-col-pink">
                                             <div class="panel-heading" role="tab" id="headingOne_19">
                                                 <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" href="#collapseOne_19" aria-expanded="true" aria-controls="collapseOne_19">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion_19" href="#collapseOne_19" aria-expanded="true" aria-controls="collapseOne_19">
                                                         <i class="material-icons">perm_contact_calendar</i> MRT - IT
                                                     </a>
                                                 </h4>
@@ -46,7 +46,7 @@
                                         <div class="panel panel-col-cyan">
                                             <div class="panel-heading" role="tab" id="headingTwo_19">
                                                 <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo_19" aria-expanded="false" aria-controls="collapseTwo_19">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_19" href="#collapseTwo_19" aria-expanded="false" aria-controls="collapseTwo_19">
                                                         <i class="material-icons">cloud_download</i>Data MRT - IT Today
                                                     </a>
                                                 </h4>
@@ -66,7 +66,7 @@
                                         <div class="panel panel-col-teal">
                                             <div class="panel-heading" role="tab" id="headingThree_19">
                                                 <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapseThree_19" aria-expanded="false" aria-controls="collapseThree_19">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_19" href="#collapseThree_19" aria-expanded="false" aria-controls="collapseThree_19">
                                                         <i class="material-icons">contact_phone</i>Data MRT - IT All
                                                     </a>
                                                 </h4>

@@ -131,7 +131,7 @@
                             <div class="form-group form-float">
                                 <label class="form-label">NOTE Perbaikan</label>
                                 <div class="form-line">
-                                    <textarea name="noteperbaikan" class="form-control no-resize" rows="3" required><?php echo isset($data['noteperbaikan']) ? htmlspecialchars($data['noteperbaikan']) : ''; ?></textarea>
+                                    <textarea name="noteperbaikan" class="form-control no-resize" rows="3" required><?php echo htmlspecialchars((string)($data['noteperbaikan'] ?? '')); ?></textarea>
                                 </div>
                             </div>
                         </div>

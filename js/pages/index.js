@@ -1,17 +1,24 @@
-﻿$(function () {
-    //Widgets count
-    $('.count-to').countTo();
+$(function () {
+    if (typeof $.fn.countTo === 'function') {
+        $('.count-to').countTo();
 
-    //Sales count to
-    $('.sales-count-to').countTo({
-        formatter: function (value, options) {
-            return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, ' ').replace('.', ',');
-        }
-    });
+        //Sales count to
+        $('.sales-count-to').countTo({
+            formatter: function (value, options) {
+                return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, ' ').replace('.', ',');
+            }
+        });
+    }
 
-    initRealTimeChart();
-    initDonutChart();
-    initSparkline();
+    if ($('#real_time_chart').length > 0) {
+        initRealTimeChart();
+    }
+    if ($('#donut_chart').length > 0) {
+        initDonutChart();
+    }
+    if ($('.sparkline').length > 0) {
+        initSparkline();
+    }
 });
 
 var realtime = 'on';
