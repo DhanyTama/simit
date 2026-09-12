@@ -983,14 +983,14 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
         }
 
         /* Global Table Vertical Centering */
-        .table > thead > tr > th,
-        .table > tbody > tr > th,
-        .table > tfoot > tr > th,
-        .table > thead > tr > td,
-        .table > tbody > tr > td,
-        .table > tfoot > tr > td,
-        .table-bordered > thead > tr > th,
-        .table-bordered > tbody > tr > td {
+        .table>thead>tr>th,
+        .table>tbody>tr>th,
+        .table>tfoot>tr>th,
+        .table>thead>tr>td,
+        .table>tbody>tr>td,
+        .table>tfoot>tr>td,
+        .table-bordered>thead>tr>th,
+        .table-bordered>tbody>tr>td {
             vertical-align: middle !important;
         }
 
@@ -1118,10 +1118,11 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Call Search -->
-                    <li><a href="index.php?page=404"><i class="material-icons">home</i> <span class="icon-name"></span></a></li>
-                    <li><a href="index.php?page=data"><i class="material-icons">add_circle</i> <span class="icon-name"></span></a></li>
-                    <li><a href="index.php?page=alldata"><i class="material-icons">view_list</i> <span class="icon-name"></span></a></li>
+                    <!-- Navigation Icons -->
+                    <li><a href="index.php" title="Dashboard Utama"><i class="material-icons">dashboard</i> <span class="icon-name"></span></a></li>
+                    <li><a href="index.php?page=chartjs" title="Grafik & Statistik IT"><i class="material-icons">insert_chart</i> <span class="icon-name"></span></a></li>
+                    <li><a href="index.php?page=data" title="Data MRT Hari Ini"><i class="material-icons">today</i> <span class="icon-name"></span></a></li>
+                    <li><a href="index.php?page=alldata" title="Semua Data Riwayat MRT"><i class="material-icons">view_list</i> <span class="icon-name"></span></a></li>
                     <!-- Theme Toggle Button -->
                     <li>
                         <a href="javascript:void(0);" id="btn-theme-toggle" class="btn-theme-toggle" title="Ganti Mode Gelap / Terang">
@@ -1129,8 +1130,8 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
                             <span class="icon-name"></span>
                         </a>
                     </li>
-                    <li><a href="../logout.php" title="Keluar / Logout"><i class="material-icons">input</i> <span class="icon-name"></span></a></li>
-                    <!-- #END# Call Search -->
+                    <li><a href="../logout.php" title="Keluar / Logout"><i class="material-icons">power_settings_new</i> <span class="icon-name"></span></a></li>
+                    <!-- #END# Navigation Icons -->
 
                 </ul>
             </div>
@@ -1191,8 +1192,8 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
                                             $in = mysqli_query($connect, "select id_kriteria,nama from kriteria order by nama");
                                             while ($row1 = mysqli_fetch_array($in)) { ?>
                                                 <option value="<?php echo $row1['nama']; ?>"><?php echo $row1['nama']; ?></option><?php
-                                                                                                                            }
-                                                                                                                                ?>
+                                                                                                                                }
+                                                                                                                                    ?>
                                         </select>
                                     </div>
                                 </div>

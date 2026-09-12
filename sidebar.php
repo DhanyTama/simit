@@ -32,7 +32,7 @@ $currentPage = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : '
             </li>
             <li class="<?php echo ($currentPage === 'data') ? 'active' : ''; ?>">
                 <a href="index.php?page=data">
-                    <i class="material-icons">view_list</i>
+                    <i class="material-icons">today</i>
                     <span>Data MRT - IT Today</span>
                 </a>
             </li>

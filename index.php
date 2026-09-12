@@ -882,23 +882,23 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.php?page=tutorial">
+                        <a href="index.php?page=tutorial" title="Home / Tutorial">
                             <i class="material-icons">home</i>
                             <span class="icon-name"></span></a>
                     </li>
                     <li>
-                        <a href="" data-toggle="modal" data-target="#defaultModal">
+                        <a href="" data-toggle="modal" data-target="#defaultModal" title="Buat Permintaan MRT - IT">
                             <i class="material-icons">add_circle</i>
                             <span class="icon-name"></span></a>
                     </li>
 
                     <li>
-                        <a href="index.php?page=data">
-                            <i class="material-icons">data_usage</i>
+                        <a href="index.php?page=data" title="Data MRT Hari Ini">
+                            <i class="material-icons">today</i>
                             <span class="icon-name"></span></a>
                     </li>
                     <li>
-                        <a href="index.php?page=alldata">
+                        <a href="index.php?page=alldata" title="Semua Riwayat MRT Selesai">
                             <i class="material-icons">view_list</i>
                             <span class="icon-name"></span></a>
                     </li>
@@ -910,7 +910,7 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
                         </a>
                     </li>
                     <li>
-                        <a href="sign-in.php" title="Login Petugas">
+                        <a href="sign-in.php" title="Login Petugas IT">
                             <i class="material-icons">account_circle</i>
                             <span class="icon-name"></span></a>
                     </li>
