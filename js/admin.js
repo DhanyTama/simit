@@ -297,7 +297,13 @@ $.AdminBSB.input = {
 */
 $.AdminBSB.select = {
     activate: function () {
-        if ($.fn.selectpicker) { $('select:not(.ms)').selectpicker(); }
+        if ($.fn.selectpicker) {
+            $.fn.selectpicker.defaults = $.extend($.fn.selectpicker.defaults || {}, {
+                dropupAuto: false,
+                size: 6
+            });
+            $('select:not(.ms)').selectpicker();
+        }
     }
 }
 //==========================================================================================================================

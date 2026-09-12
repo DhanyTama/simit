@@ -798,17 +798,70 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
             border-left: 5px solid transparent !important;
         }
 
-        .bootstrap-select>.dropdown-menu {
+        .bootstrap-select>.dropdown-menu,
+        .bootstrap-select.open>.dropdown-menu,
+        .bootstrap-select.dropup>.dropdown-menu,
+        .bootstrap-select.dropup.open>.dropdown-menu {
             border-radius: 12px !important;
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12) !important;
             padding: 6px !important;
-            margin-top: 5px !important;
+            margin-top: 4px !important;
+            margin-bottom: 0 !important;
             border: 1px solid #e2e8f0 !important;
+            box-sizing: border-box !important;
+            min-width: 100% !important;
+            z-index: 1060 !important;
+            top: 100% !important;
+            bottom: auto !important;
         }
 
         body:not(.dark-mode) .bootstrap-select>.dropdown-menu {
             border: 1px solid #e2e8f0 !important;
             background-color: #ffffff !important;
+        }
+
+        /* Live Search Box Fix */
+        .bootstrap-select .bs-searchbox {
+            position: relative !important;
+            padding: 8px 10px !important;
+            margin: 0 0 6px 0 !important;
+            border-bottom: 1px solid #e2e8f0 !important;
+            box-sizing: border-box !important;
+            width: 100% !important;
+        }
+
+        .bootstrap-select .bs-searchbox:after,
+        .bootstrap-select .bs-searchbox:before {
+            content: none !important;
+            display: none !important;
+        }
+
+        .bootstrap-select .bs-searchbox .form-control {
+            margin: 0 !important;
+            margin-left: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            float: none !important;
+            height: 38px !important;
+            min-height: 38px !important;
+            padding: 6px 12px 6px 36px !important;
+            font-size: 13.5px !important;
+            border-radius: 8px !important;
+            box-sizing: border-box !important;
+            border: 1.5px solid #cbd5e1 !important;
+            background-color: #f8fafc !important;
+            color: #1e293b !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: 10px center !important;
+            background-size: 15px 15px !important;
+            box-shadow: none !important;
+        }
+
+        .bootstrap-select .bs-searchbox .form-control:focus {
+            border-color: #0284c7 !important;
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2) !important;
+            outline: none !important;
         }
 
         .bootstrap-select .dropdown-menu.inner,
@@ -820,20 +873,51 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
             padding: 0 !important;
             margin: 0 !important;
             background: transparent !important;
+            list-style: none !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
 
         .bootstrap-select .dropdown-menu li {
             border: none !important;
             box-shadow: none !important;
             margin: 2px 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            list-style: none !important;
+            position: relative !important;
         }
 
         .bootstrap-select .dropdown-menu li a {
-            padding: 9px 14px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 8px 14px !important;
             font-size: 13.5px !important;
+            line-height: 1.4 !important;
+            min-height: 38px !important;
+            box-sizing: border-box !important;
             border-radius: 8px !important;
             transition: all 0.15s ease !important;
             border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+            text-decoration: none !important;
+            cursor: pointer !important;
+            width: 100% !important;
+            position: relative !important;
+            background: transparent !important;
+        }
+
+        .bootstrap-select .dropdown-menu li a span.text {
+            display: inline-block !important;
+            flex: 1 1 auto !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            text-align: left !important;
+            white-space: normal !important;
+            word-break: break-word !important;
         }
 
         body:not(.dark-mode) .bootstrap-select .dropdown-menu li a {
@@ -845,17 +929,34 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
             background-color: #e0f2fe !important;
             color: #0284c7 !important;
             font-weight: 600 !important;
-            border-radius: 8px !important;
         }
 
         body:not(.dark-mode) .bootstrap-select .dropdown-menu li a:hover {
             background-color: #f1f5f9 !important;
             color: #0f172a !important;
-            border-radius: 8px !important;
         }
 
         .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
+            position: static !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-left: 10px !important;
+            margin-right: 0 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
             color: #0284c7 !important;
+            font-size: 18px !important;
+            line-height: 1 !important;
+            flex-shrink: 0 !important;
+        }
+
+        .bootstrap-select .dropdown-menu .no-results {
+            padding: 10px 14px !important;
+            background: transparent !important;
+            color: #64748b !important;
+            font-size: 13px !important;
+            text-align: center !important;
         }
 
         /* Sembunyikan tooltip pop-up hitam pada tombol dropdown select */
@@ -1186,7 +1287,7 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
 
                                 <div class="row clearfix">
                                     <div class="col-md-12">
-                                        <select class="form-control show-tick" name="depart" id="depart" required>
+                                        <select class="form-control show-tick" name="depart" id="depart" data-live-search="true" data-size="6" data-dropup-auto="false" required>
                                             <option value="">-- Pilih Departemen --</option>
                                             <?php
                                             $in = mysqli_query($connect, "select id_kriteria,nama from kriteria order by nama");
@@ -1314,6 +1415,14 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
 
     <script>
         $(function() {
+            // Konfigurasi Bootstrap-Select global
+            if ($.fn.selectpicker) {
+                $.fn.selectpicker.defaults = $.extend($.fn.selectpicker.defaults || {}, {
+                    dropupAuto: false,
+                    size: 6
+                });
+            }
+
             if (typeof initDashboardLineChart === 'function') {
                 initDashboardLineChart();
             }
