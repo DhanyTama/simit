@@ -1022,7 +1022,11 @@ if (!function_exists('renderPbPriorityBadge')) {
     }
 
     .prio-card-option input[type="radio"] {
-        display: none !important;
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        width: 1px;
+        height: 1px;
     }
 
     .prio-card-content {
@@ -1523,11 +1527,13 @@ if (!function_exists('renderPbPriorityBadge')) {
                         while ($data = mysqli_fetch_array($tampil)) {
                             $no++;
                             $cek_status = $data['status'];
+                            $cek_id = $data['id'];
                             $cekidx = $data['id'];
                             $petugas_raw = trim((string)($data['petugas'] ?? ''));
                             $petugas_filter_val = ($cek_status === 'Open' && strcasecmp($petugas_raw, 'Open') === 0) ? '' : $petugas_raw;
+                            $row_priority = ($cek_status === 'Open') ? '' : normalizePriorityName($data['nama_prioritas'] ?? '');
                         ?>
-                            <tr data-status="<?php echo htmlspecialchars((string)$cek_status); ?>" data-priority="<?php echo htmlspecialchars((string)normalizePriorityName($data['nama_prioritas'] ?? '')); ?>" data-petugas="<?php echo htmlspecialchars($petugas_filter_val); ?>">
+                            <tr data-status="<?php echo htmlspecialchars((string)$cek_status); ?>" data-priority="<?php echo htmlspecialchars((string)$row_priority); ?>" data-petugas="<?php echo htmlspecialchars($petugas_filter_val); ?>">
                                 <td align="center" style="font-weight: 600; color: #64748b;"><?php echo $no ?></td>
                                 <td>
                                     <span style="font-weight: 600; color: #1e293b;"><?php echo date('d M Y', strtotime($data['tgllapor'])); ?></span>
@@ -1546,7 +1552,7 @@ if (!function_exists('renderPbPriorityBadge')) {
                                     <div class="collapse" id="<?php echo $cekidx; ?>" style="margin-top: 6px; padding: 8px 12px; background: #f8fafc; border-radius: 6px; border-left: 3px solid #0284c7;">
                                         <small style="color: #475569; font-style: normal; display: block; line-height: 1.6;">
                                             <strong>Petugas IT:</strong> <?php echo htmlspecialchars(($cek_status === 'Open' && strcasecmp($petugas_raw, 'Open') === 0) ? 'Belum Di-assign' : ($petugas_raw ?: '-')); ?><br>
-                                            <strong>Prioritas:</strong> <?php echo htmlspecialchars((string)normalizePriorityName($data['nama_prioritas'] ?? '-')); ?><br>
+                                            <strong>Prioritas:</strong> <?php echo htmlspecialchars((string)($cek_status === 'Open' ? '-' : normalizePriorityName($data['nama_prioritas'] ?? '-'))); ?><br>
                                             <strong>Kategori:</strong> <?php echo htmlspecialchars((string)($data['jenis'] ?? '-')); ?><br>
                                             <strong>Jenis Kendala:</strong> <?php echo htmlspecialchars((string)($data['kendala'] ?? '-')); ?>
                                         </small>
@@ -1567,21 +1573,25 @@ if (!function_exists('renderPbPriorityBadge')) {
                                         }
                                         ?>
                                     </div>
-                                    <?php if ($cek_status != 'Open') { ?>
-                                        <div class="pb-priority-clickable <?php echo ($cek_status == 'In Progress') ? 'btn-ubah-prioritas' : ''; ?>"
-                                            data-id="<?php echo $cek_id; ?>"
+                                    <?php if ($cek_status == 'In Progress') { ?>
+                                        <div class="pb-priority-clickable btn-ubah-prioritas"
+                                            data-id="<?php echo $data['id']; ?>"
                                             data-nama="<?php echo htmlspecialchars((string)($data['nama'] ?? '')); ?>"
                                             data-kendala="<?php echo htmlspecialchars((string)($data['jnskendala'] ?? '')); ?>"
                                             data-prioritas="<?php echo htmlspecialchars((string)normalizePriorityName($data['nama_prioritas'] ?? '')); ?>"
-                                            <?php echo ($cek_status == 'In Progress') ? 'title="Klik untuk ubah prioritas"' : ''; ?>>
+                                            title="Klik untuk ubah prioritas">
                                             <?php
                                             $pbBadgeHtml = renderPbPriorityBadge($data['nama_prioritas'] ?? '');
                                             if (!empty($pbBadgeHtml)) {
                                                 echo $pbBadgeHtml;
-                                            } elseif ($cek_status == 'In Progress') {
+                                            } else {
                                                 echo '<span class="pb-badge pb-none" style="font-size:10px; cursor:pointer;" title="Klik untuk atur prioritas">+ Prioritas</span>';
                                             }
                                             ?>
+                                        </div>
+                                    <?php } elseif ($cek_status == 'Complete') { ?>
+                                        <div style="display: inline-block;">
+                                            <?php echo renderPbPriorityBadge($data['nama_prioritas'] ?? ''); ?>
                                         </div>
                                     <?php } ?>
                                 </td>
@@ -1692,7 +1702,7 @@ if (!function_exists('renderPbPriorityBadge')) {
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="formUbahPrioritas">
+            <form id="formUbahPrioritas" action="javascript:void(0);" method="POST">
                 <input type="hidden" name="ticket_id" id="modal-prio-input-id" value="">
                 <div class="modal-body">
                     <!-- Info Singkat Tiket -->
@@ -2425,50 +2435,109 @@ if (!function_exists('renderPbPriorityBadge')) {
             }
         });
 
-        document.addEventListener('submit', function(e) {
-            if (e.target && e.target.id === 'formUbahPrioritas') {
-                e.preventDefault();
+        // Pastikan klik card opsi memilih radio button
+        document.addEventListener('click', function(e) {
+            var cardOpt = e.target.closest('.prio-card-option');
+            if (!cardOpt) return;
+            var radio = cardOpt.querySelector('input[type="radio"]');
+            if (radio && !radio.checked) {
+                radio.checked = true;
+                var ev = new Event('change', { bubbles: true });
+                radio.dispatchEvent(ev);
+            }
+        });
 
-                var submitBtn = document.getElementById('btn-submit-prio');
-                var originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = '<i class="material-icons" style="font-size:16px;animation:spin 1s linear infinite;vertical-align:middle;margin-right:4px;">refresh</i> Menyimpan...';
+        // Close modal fallback untuk tombol data-dismiss="modal"
+        document.querySelectorAll('#modalUbahPrioritas [data-dismiss="modal"]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (window.jQuery && typeof window.jQuery.fn.modal === 'function') {
+                    window.jQuery('#modalUbahPrioritas').modal('hide');
+                } else {
+                    var modalEl = document.getElementById('modalUbahPrioritas');
+                    if (modalEl) {
+                        modalEl.classList.remove('in');
+                        modalEl.style.display = 'none';
+                    }
                 }
+            });
+        });
 
-                var ticketId = document.getElementById('modal-prio-input-id').value;
-                var selectedRadio = document.querySelector('input[name="prio_choice"]:checked');
-                var newPriority = selectedRadio ? selectedRadio.value : '';
+        // Fungsi submit update prioritas
+        function doSubmitPriority(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
 
-                var formData = new FormData();
-                formData.append('ticket_id', ticketId);
-                formData.append('nama_prioritas', newPriority);
+            var ticketId = document.getElementById('modal-prio-input-id') ? document.getElementById('modal-prio-input-id').value : '';
+            if (!ticketId) {
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'ID Tiket Tidak Valid',
+                        text: 'Silakan refresh halaman dan coba kembali.'
+                    });
+                } else {
+                    alert('ID Tiket Tidak Valid. Silakan refresh halaman dan coba kembali.');
+                }
+                return;
+            }
 
-                fetch('update_priority_handler.php', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(function(res) {
-                        return res.json();
-                    })
-                    .then(function(data) {
-                        if (submitBtn) {
-                            submitBtn.disabled = false;
-                            submitBtn.innerHTML = originalBtnHtml;
+            var selectedRadio = document.querySelector('input[name="prio_choice"]:checked');
+            if (!selectedRadio) {
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Pilih Prioritas',
+                        text: 'Silakan pilih salah satu tingkat prioritas terlebih dahulu.'
+                    });
+                } else {
+                    alert('Silakan pilih salah satu tingkat prioritas terlebih dahulu.');
+                }
+                return;
+            }
+
+            var newPriority = selectedRadio.value;
+            var submitBtn = document.getElementById('btn-submit-prio');
+            var originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="material-icons" style="font-size:16px;animation:spin 1s linear infinite;vertical-align:middle;margin-right:4px;">refresh</i> Menyimpan...';
+            }
+
+            var formData = new FormData();
+            formData.append('ticket_id', ticketId);
+            formData.append('nama_prioritas', newPriority);
+
+            fetch('update_priority_handler.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(function(res) {
+                    if (!res.ok) {
+                        throw new Error('HTTP ' + res.status + ' ' + res.statusText);
+                    }
+                    return res.json();
+                })
+                .then(function(data) {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+                    }
+
+                    if (data.success) {
+                        if (window.jQuery && typeof window.jQuery.fn.modal === 'function') {
+                            window.jQuery('#modalUbahPrioritas').modal('hide');
+                        } else {
+                            var modalEl = document.getElementById('modalUbahPrioritas');
+                            if (modalEl) {
+                                modalEl.classList.remove('in');
+                                modalEl.style.display = 'none';
+                            }
                         }
 
-                        if (data.success) {
-                            if (window.jQuery && typeof window.jQuery.fn.modal === 'function') {
-                                window.jQuery('#modalUbahPrioritas').modal('hide');
-                            } else {
-                                var modalEl = document.getElementById('modalUbahPrioritas');
-                                if (modalEl) {
-                                    modalEl.classList.remove('in');
-                                    modalEl.style.display = 'none';
-                                }
-                            }
-
-                            var labelPrioritas = newPriority || 'Belum Ditentukan';
+                        var labelPrioritas = newPriority || 'Belum Ditentukan';
+                        if (typeof Swal !== 'undefined') {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Prioritas Berhasil Diubah! 🎯',
@@ -2479,25 +2548,48 @@ if (!function_exists('renderPbPriorityBadge')) {
                                 window.location.reload();
                             });
                         } else {
+                            alert('Prioritas tiket #' + ticketId + ' berhasil diubah menjadi ' + labelPrioritas);
+                            window.location.reload();
+                        }
+                    } else {
+                        if (typeof Swal !== 'undefined') {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Gagal Mengubah Prioritas',
                                 text: data.message || 'Terjadi kesalahan saat menyimpan.'
                             });
+                        } else {
+                            alert('Gagal Mengubah Prioritas: ' + (data.message || 'Terjadi kesalahan saat menyimpan.'));
                         }
-                    })
-                    .catch(function(err) {
-                        if (submitBtn) {
-                            submitBtn.disabled = false;
-                            submitBtn.innerHTML = originalBtnHtml;
-                        }
+                    }
+                })
+                .catch(function(err) {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+                    }
+                    if (typeof Swal !== 'undefined') {
                         Swal.fire({
                             icon: 'error',
                             title: 'Error Jaringan',
                             text: 'Gagal menghubungi server: ' + err.message
                         });
-                    });
-            }
-        });
+                    } else {
+                        alert('Gagal menghubungi server: ' + err.message);
+                    }
+                });
+        }
+
+        var formPrio = document.getElementById('formUbahPrioritas');
+        if (formPrio) {
+            formPrio.addEventListener('submit', doSubmitPriority);
+        }
+        var btnSubmitPrio = document.getElementById('btn-submit-prio');
+        if (btnSubmitPrio) {
+            btnSubmitPrio.addEventListener('click', function(e) {
+                e.preventDefault();
+                doSubmitPriority(e);
+            });
+        }
     })();
 </script>
