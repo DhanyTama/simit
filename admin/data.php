@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Jakarta');
 $tanggal = date("Y-m-d");
-$tampil = mysqli_query($connect, "SELECT * FROM pengunjung WHERE tgllapor='$tanggal' OR status='In Progress' OR status='Open' ORDER BY CASE WHEN status='Open' THEN 1 WHEN status='In Progress' THEN 2 WHEN status='Complete' OR status='Completed' OR status='Selesai' THEN 3 ELSE 4 END ASC, CASE WHEN status='In Progress' AND UPPER(nama_prioritas) LIKE '%EMERG%' THEN 1 WHEN status='In Progress' AND UPPER(nama_prioritas) LIKE '%URGENT%' THEN 2 WHEN status='In Progress' AND UPPER(nama_prioritas) LIKE '%HIGH%' THEN 3 WHEN status='In Progress' AND UPPER(nama_prioritas) LIKE '%MED%' THEN 4 WHEN status='In Progress' AND UPPER(nama_prioritas) LIKE '%LOW%' THEN 5 WHEN status='In Progress' THEN 6 ELSE 7 END ASC, id DESC");
+$tampil = mysqli_query($connect, "SELECT * FROM pengunjung WHERE tgllapor='$tanggal' OR status='In Progress' OR status='Open' ORDER BY id DESC");
 
 if (!function_exists('normalizePriorityName')) {
     /**
@@ -86,226 +86,373 @@ if (!function_exists('renderPbPriorityBadge')) {
     /* ========================================================
    STATUS FILTER & PRIORITY STYLES
    ======================================================== */
+    /* ========================================================
+   STATUS FILTER & PRIORITY STYLES (PILL BUTTONS)
+   ======================================================== */
     .status-filter-toolbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 12px;
-        padding: 10px 16px;
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        margin-bottom: 16px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding: 12px 16px !important;
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 10px !important;
+        margin-bottom: 16px !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+        box-sizing: border-box !important;
+    }
+
+    .filter-toolbar-row {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        flex-wrap: wrap !important;
+        gap: 8px 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .filter-row-divider {
+        width: 100% !important;
+        height: 1px !important;
+        background: #f1f5f9 !important;
+        margin: 2px 0 !important;
     }
 
     .filter-group-wrapper {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
+        display: inline-flex !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        box-sizing: border-box !important;
     }
 
     .filter-label {
-        font-size: 13px;
-        font-weight: 700;
-        color: #1e293b;
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.2px;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        color: #64748b !important;
+        display: inline-block !important;
+        min-width: 72px !important;
+        width: 72px !important;
+        white-space: nowrap !important;
+        letter-spacing: 0.5px !important;
+        text-transform: uppercase !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
     }
 
-    .status-filter-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+    .filter-label-petugas {
+        min-width: auto !important;
+        width: auto !important;
+        margin-right: 2px !important;
     }
 
-    .btn-filter-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 5px 12px;
-        border-radius: 20px;
-        border: 1.5px solid #cbd5e1;
-        background: #ffffff;
-        color: #475569;
-        font-size: 12px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    .status-filter-pills,
+    .priority-filter-pills {
+        display: inline-flex !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
     }
 
-    .btn-filter-pill:hover {
-        transform: translateY(-1px);
+    .btn-filter-pill,
+    .btn-filter-pill-prio {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        max-height: 30px !important;
+        padding: 0 10px !important;
+        border-radius: 15px !important;
+        border-width: 1.5px !important;
+        border-style: solid !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        line-height: normal !important;
+        cursor: pointer !important;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+        box-sizing: border-box !important;
+        white-space: nowrap !important;
+    }
+
+    .btn-filter-pill:hover,
+    .btn-filter-pill-prio:hover {
+        transform: translateY(-1px) !important;
+    }
+
+    .btn-filter-pill:active,
+    .btn-filter-pill-prio:active {
+        transform: scale(0.97) !important;
     }
 
     /* Active Base */
-    .btn-filter-pill.active {
+    .btn-filter-pill.active,
+    .btn-filter-pill-prio.active {
         color: #ffffff !important;
     }
 
-    .btn-filter-pill.active .pill-count {
+    .btn-filter-pill.active .pill-count,
+    .btn-filter-pill-prio.active .pill-count {
         background: rgba(255, 255, 255, 0.28) !important;
         color: #ffffff !important;
     }
 
-    /* Dots warna pada pill status */
-    .pill-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        display: inline-block;
-        flex-shrink: 0;
+    /* Dots warna */
+    .pill-dot,
+    .prio-dot {
+        width: 8px !important;
+        height: 8px !important;
+        min-width: 8px !important;
+        min-height: 8px !important;
+        border-radius: 50% !important;
+        display: inline-block !important;
+        flex-shrink: 0 !important;
     }
 
     .pill-count {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 18px;
-        height: 18px;
-        padding: 0 5px;
-        border-radius: 9px;
-        font-size: 11px;
-        font-weight: 700;
-        line-height: 1;
-        transition: all 0.2s ease;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 18px !important;
+        height: 18px !important;
+        padding: 0 5px !important;
+        border-radius: 9px !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        line-height: 1 !important;
+        box-sizing: border-box !important;
+        transition: all 0.2s ease !important;
     }
 
-    /* --- LIGHT MODE SPESIFIK TIAP STATUS --- */
-    /* 1. SEMUA */
+    /* --- LIGHT MODE STATUS PILLS --- */
     .btn-filter-pill[data-status="ALL"] {
         background: #f8fafc;
         border-color: #cbd5e1;
         color: #334155;
     }
-
-    .btn-filter-pill[data-status="ALL"] .pill-dot {
-        background: #64748b;
-    }
-
-    .btn-filter-pill[data-status="ALL"] .pill-count {
-        background: #e2e8f0;
-        color: #334155;
-    }
-
-    .btn-filter-pill[data-status="ALL"]:hover {
-        background: #f1f5f9;
-        border-color: #94a3b8;
-        color: #0f172a;
-    }
-
+    .btn-filter-pill[data-status="ALL"] .pill-dot { background: #64748b; }
+    .btn-filter-pill[data-status="ALL"] .pill-count { background: #e2e8f0; color: #334155; }
+    .btn-filter-pill[data-status="ALL"]:hover { background: #f1f5f9; border-color: #94a3b8; color: #0f172a; }
     .btn-filter-pill[data-status="ALL"].active {
         background: #2563eb !important;
         border-color: #1d4ed8 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35) !important;
     }
+    .btn-filter-pill[data-status="ALL"].active .pill-dot { background: #93c5fd !important; }
 
-    .btn-filter-pill[data-status="ALL"].active .pill-dot {
-        background: #93c5fd !important;
-    }
-
-    /* 2. OPEN (Merah Muda / Crimson Rose) */
     .btn-filter-pill[data-status="Open"] {
         background: #fff5f7;
         border-color: #fecdd3;
         color: #be123c;
     }
-
-    .btn-filter-pill[data-status="Open"] .pill-dot {
-        background: #e11d48;
-    }
-
-    .btn-filter-pill[data-status="Open"] .pill-count {
-        background: #ffe4e6;
-        color: #be123c;
-    }
-
-    .btn-filter-pill[data-status="Open"]:hover {
-        background: #ffe4e6;
-        border-color: #fda4af;
-        color: #9f1239;
-    }
-
+    .btn-filter-pill[data-status="Open"] .pill-dot { background: #e11d48; }
+    .btn-filter-pill[data-status="Open"] .pill-count { background: #ffe4e6; color: #be123c; }
+    .btn-filter-pill[data-status="Open"]:hover { background: #ffe4e6; border-color: #fda4af; color: #9f1239; }
     .btn-filter-pill[data-status="Open"].active {
         background: #e11d48 !important;
         border-color: #be123c !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(225, 29, 72, 0.35) !important;
     }
+    .btn-filter-pill[data-status="Open"].active .pill-dot { background: #fecdd3 !important; }
 
-    .btn-filter-pill[data-status="Open"].active .pill-dot {
-        background: #fecdd3 !important;
-    }
-
-    /* 3. IN PROGRESS (Biru Muda / Sky Blue) */
     .btn-filter-pill[data-status="In Progress"] {
         background: #f0f9ff;
         border-color: #bae6fd;
         color: #0369a1;
     }
-
-    .btn-filter-pill[data-status="In Progress"] .pill-dot {
-        background: #0284c7;
-    }
-
-    .btn-filter-pill[data-status="In Progress"] .pill-count {
-        background: #e0f2fe;
-        color: #0369a1;
-    }
-
-    .btn-filter-pill[data-status="In Progress"]:hover {
-        background: #e0f2fe;
-        border-color: #7dd3fc;
-        color: #075985;
-    }
-
+    .btn-filter-pill[data-status="In Progress"] .pill-dot { background: #0284c7; }
+    .btn-filter-pill[data-status="In Progress"] .pill-count { background: #e0f2fe; color: #0369a1; }
+    .btn-filter-pill[data-status="In Progress"]:hover { background: #e0f2fe; border-color: #7dd3fc; color: #075985; }
     .btn-filter-pill[data-status="In Progress"].active {
         background: #0284c7 !important;
         border-color: #0369a1 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
     }
+    .btn-filter-pill[data-status="In Progress"].active .pill-dot { background: #bae6fd !important; }
 
-    .btn-filter-pill[data-status="In Progress"].active .pill-dot {
-        background: #bae6fd !important;
-    }
-
-    /* 4. COMPLETE (Hijau / Emerald) */
     .btn-filter-pill[data-status="Complete"] {
         background: #f0fdf4;
         border-color: #bbf7d0;
         color: #15803d;
     }
-
-    .btn-filter-pill[data-status="Complete"] .pill-dot {
-        background: #16a34a;
-    }
-
-    .btn-filter-pill[data-status="Complete"] .pill-count {
-        background: #dcfce7;
-        color: #15803d;
-    }
-
-    .btn-filter-pill[data-status="Complete"]:hover {
-        background: #dcfce7;
-        border-color: #86efac;
-        color: #166534;
-    }
-
+    .btn-filter-pill[data-status="Complete"] .pill-dot { background: #16a34a; }
+    .btn-filter-pill[data-status="Complete"] .pill-count { background: #dcfce7; color: #15803d; }
+    .btn-filter-pill[data-status="Complete"]:hover { background: #dcfce7; border-color: #86efac; color: #166534; }
     .btn-filter-pill[data-status="Complete"].active {
         background: #16a34a !important;
         border-color: #15803d !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(22, 163, 74, 0.35) !important;
     }
+    .btn-filter-pill[data-status="Complete"].active .pill-dot { background: #bbf7d0 !important; }
 
-    .btn-filter-pill[data-status="Complete"].active .pill-dot {
-        background: #bbf7d0 !important;
+    /* --- LIGHT MODE PRIORITAS PILLS --- */
+    .btn-filter-pill-prio[data-priority="ALL"] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+        color: #334155;
+    }
+    .btn-filter-pill-prio[data-priority="ALL"] .prio-dot { background: #64748b; }
+    .btn-filter-pill-prio[data-priority="ALL"] .pill-count { background: #e2e8f0; color: #334155; }
+    .btn-filter-pill-prio[data-priority="ALL"]:hover { background: #f1f5f9; border-color: #94a3b8; color: #0f172a; }
+    .btn-filter-pill-prio[data-priority="ALL"].active {
+        background: #475569 !important;
+        border-color: #334155 !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(71, 85, 105, 0.35) !important;
+    }
+    .btn-filter-pill-prio[data-priority="ALL"].active .prio-dot { background: #cbd5e1 !important; }
+
+    .btn-filter-pill-prio[data-priority="EMERGENCY"] {
+        background: #fef2f2;
+        border-color: #fecaca;
+        color: #b91c1c;
+    }
+    .btn-filter-pill-prio[data-priority="EMERGENCY"] .prio-dot { background: #ef4444; }
+    .btn-filter-pill-prio[data-priority="EMERGENCY"] .pill-count { background: #fee2e2; color: #b91c1c; }
+    .btn-filter-pill-prio[data-priority="EMERGENCY"]:hover { background: #fee2e2; border-color: #fca5a5; color: #991b1b; }
+    .btn-filter-pill-prio[data-priority="EMERGENCY"].active {
+        background: #dc2626 !important;
+        border-color: #b91c1c !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35) !important;
+    }
+    .btn-filter-pill-prio[data-priority="EMERGENCY"].active .prio-dot { background: #fecaca !important; }
+
+    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] {
+        background: #fffbeb;
+        border-color: #fde68a;
+        color: #b45309;
+    }
+    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .prio-dot { background: #f59e0b; }
+    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .pill-count { background: #fef3c7; color: #b45309; }
+    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"]:hover { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
+    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"].active {
+        background: #d97706 !important;
+        border-color: #b45309 !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35) !important;
+    }
+    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"].active .prio-dot { background: #fde68a !important; }
+
+    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+        color: #475569;
+    }
+    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .prio-dot { background: #64748b; }
+    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .pill-count { background: #e2e8f0; color: #475569; }
+    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"]:hover { background: #f1f5f9; border-color: #94a3b8; color: #1e293b; }
+    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"].active {
+        background: #475569 !important;
+        border-color: #334155 !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(71, 85, 105, 0.35) !important;
+    }
+    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"].active .prio-dot { background: #cbd5e1 !important; }
+
+    .btn-filter-pill-prio[data-priority="LOW PRIORITY"] {
+        background: #f0f9ff;
+        border-color: #bae6fd;
+        color: #0369a1;
+    }
+    .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .prio-dot { background: #0ea5e9; }
+    .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .pill-count { background: #e0f2fe; color: #0369a1; }
+    .btn-filter-pill-prio[data-priority="LOW PRIORITY"]:hover { background: #e0f2fe; border-color: #7dd3fc; color: #075985; }
+    .btn-filter-pill-prio[data-priority="LOW PRIORITY"].active {
+        background: #0284c7 !important;
+        border-color: #0369a1 !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
+    }
+    .btn-filter-pill-prio[data-priority="LOW PRIORITY"].active .prio-dot { background: #bae6fd !important; }
+
+    /* --- PETUGAS SELECT & RESET (LIGHT MODE) --- */
+    .petugas-filter-wrapper {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin-left: auto !important;
+    }
+
+    @media (max-width: 991px) {
+        .petugas-filter-wrapper {
+            margin-left: 0 !important;
+            width: 100% !important;
+            padding-top: 4px !important;
+        }
+    }
+
+    select.select-petugas-filter {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        max-height: 30px !important;
+        padding: 0 26px 0 12px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        line-height: 28px !important;
+        border-radius: 15px !important;
+        border: 1.5px solid #cbd5e1 !important;
+        background-color: #ffffff !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 8px center !important;
+        background-size: 12px 12px !important;
+        color: #334155 !important;
+        cursor: pointer !important;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+        min-width: 150px !important;
+        max-width: 200px !important;
+        display: inline-block !important;
+        box-sizing: border-box !important;
+        transition: all 0.2s ease !important;
+    }
+
+    select.select-petugas-filter:focus {
+        border-color: #2563eb !important;
+        outline: none !important;
+        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
+    }
+
+    .btn-filter-reset {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        max-height: 30px !important;
+        padding: 0 12px !important;
+        border-radius: 15px !important;
+        border: 1.5px solid #cbd5e1 !important;
+        background: #f8fafc !important;
+        color: #64748b !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        line-height: 28px !important;
+        cursor: pointer !important;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-sizing: border-box !important;
+        white-space: nowrap !important;
+    }
+
+    .btn-filter-reset:hover {
+        background: #e2e8f0 !important;
+        color: #0f172a !important;
+        border-color: #94a3b8 !important;
+    }
+
+    .btn-filter-reset:active {
+        transform: scale(0.97) !important;
     }
 
     /* PB Priority Badges */
@@ -449,141 +596,221 @@ if (!function_exists('renderPbPriorityBadge')) {
     }
 
     .dark-mode .status-filter-toolbar {
-        background: #1e293b;
-        border-color: #334155;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        background: #0f172a !important;
+        border-color: #334155 !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
     }
 
     .dark-mode .filter-label {
-        color: #f1f5f9;
+        color: #94a3b8 !important;
     }
 
+    .dark-mode .filter-row-divider {
+        background: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    /* --- DARK MODE STATUS PILLS --- */
     .dark-mode .btn-filter-pill[data-status="ALL"] {
-        background: #0f172a;
+        background: #141f32;
         border-color: #334155;
         color: #cbd5e1;
     }
-
-    .dark-mode .btn-filter-pill[data-status="ALL"] .pill-dot {
-        background: #64748b;
-    }
-
-    .dark-mode .btn-filter-pill[data-status="ALL"] .pill-count {
-        background: #334155;
-        color: #e2e8f0;
-    }
-
-    .dark-mode .btn-filter-pill[data-status="ALL"]:hover {
-        background: #1e293b;
-        border-color: #64748b;
-        color: #ffffff;
-    }
-
+    .dark-mode .btn-filter-pill[data-status="ALL"] .pill-dot { background: #64748b; }
+    .dark-mode .btn-filter-pill[data-status="ALL"] .pill-count { background: #334155; color: #e2e8f0; }
+    .dark-mode .btn-filter-pill[data-status="ALL"]:hover { background: #1e293b; border-color: #64748b; color: #ffffff; }
     .dark-mode .btn-filter-pill[data-status="ALL"].active {
-        background: #3b82f6 !important;
-        border-color: #2563eb !important;
+        background: #2563eb !important;
+        border-color: #3b82f6 !important;
         color: #ffffff !important;
-        box-shadow: 0 0 12px rgba(59, 130, 246, 0.5) !important;
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4) !important;
     }
-
-    .dark-mode .btn-filter-pill[data-status="ALL"].active .pill-dot {
-        background: #bfdbfe !important;
-    }
+    .dark-mode .btn-filter-pill[data-status="ALL"].active .pill-dot { background: #bfdbfe !important; }
 
     .dark-mode .btn-filter-pill[data-status="Open"] {
         background: #1a0f16;
         border-color: #4c0519;
         color: #fda4af;
     }
-
-    .dark-mode .btn-filter-pill[data-status="Open"] .pill-dot {
-        background: #f43f5e;
-    }
-
-    .dark-mode .btn-filter-pill[data-status="Open"] .pill-count {
-        background: #4c0519;
-        color: #fda4af;
-    }
-
-    .dark-mode .btn-filter-pill[data-status="Open"]:hover {
-        background: #2a121e;
-        border-color: #e11d48;
-        color: #ffffff;
-    }
-
+    .dark-mode .btn-filter-pill[data-status="Open"] .pill-dot { background: #f43f5e; }
+    .dark-mode .btn-filter-pill[data-status="Open"] .pill-count { background: #4c0519; color: #fda4af; }
+    .dark-mode .btn-filter-pill[data-status="Open"]:hover { background: #2a121e; border-color: #e11d48; color: #ffffff; }
     .dark-mode .btn-filter-pill[data-status="Open"].active {
         background: #e11d48 !important;
         border-color: #fb7185 !important;
         color: #ffffff !important;
-        box-shadow: 0 0 12px rgba(225, 29, 72, 0.5) !important;
+        box-shadow: 0 2px 8px rgba(225, 29, 72, 0.4) !important;
     }
-
-    .dark-mode .btn-filter-pill[data-status="Open"].active .pill-dot {
-        background: #fecdd3 !important;
-    }
+    .dark-mode .btn-filter-pill[data-status="Open"].active .pill-dot { background: #fecdd3 !important; }
 
     .dark-mode .btn-filter-pill[data-status="In Progress"] {
         background: #0b1a28;
         border-color: #075985;
         color: #7dd3fc;
     }
-
-    .dark-mode .btn-filter-pill[data-status="In Progress"] .pill-dot {
-        background: #38bdf8;
-    }
-
-    .dark-mode .btn-filter-pill[data-status="In Progress"] .pill-count {
-        background: #0c4a6e;
-        color: #7dd3fc;
-    }
-
-    .dark-mode .btn-filter-pill[data-status="In Progress"]:hover {
-        background: #0f2b42;
-        border-color: #0284c7;
-        color: #ffffff;
-    }
-
+    .dark-mode .btn-filter-pill[data-status="In Progress"] .pill-dot { background: #38bdf8; }
+    .dark-mode .btn-filter-pill[data-status="In Progress"] .pill-count { background: #0c4a6e; color: #7dd3fc; }
+    .dark-mode .btn-filter-pill[data-status="In Progress"]:hover { background: #0f2b42; border-color: #0284c7; color: #ffffff; }
     .dark-mode .btn-filter-pill[data-status="In Progress"].active {
         background: #0284c7 !important;
         border-color: #38bdf8 !important;
         color: #ffffff !important;
-        box-shadow: 0 0 12px rgba(2, 132, 199, 0.5) !important;
+        box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4) !important;
     }
-
-    .dark-mode .btn-filter-pill[data-status="In Progress"].active .pill-dot {
-        background: #bae6fd !important;
-    }
+    .dark-mode .btn-filter-pill[data-status="In Progress"].active .pill-dot { background: #bae6fd !important; }
 
     .dark-mode .btn-filter-pill[data-status="Complete"] {
         background: #0b1d16;
         border-color: #14532d;
         color: #86efac;
     }
-
-    .dark-mode .btn-filter-pill[data-status="Complete"] .pill-dot {
-        background: #4ade80;
-    }
-
-    .dark-mode .btn-filter-pill[data-status="Complete"] .pill-count {
-        background: #14532d;
-        color: #86efac;
-    }
-
-    .dark-mode .btn-filter-pill[data-status="Complete"]:hover {
-        background: #0f2e20;
-        border-color: #16a34a;
-        color: #ffffff;
-    }
-
+    .dark-mode .btn-filter-pill[data-status="Complete"] .pill-dot { background: #4ade80; }
+    .dark-mode .btn-filter-pill[data-status="Complete"] .pill-count { background: #14532d; color: #86efac; }
+    .dark-mode .btn-filter-pill[data-status="Complete"]:hover { background: #0f2e20; border-color: #16a34a; color: #ffffff; }
     .dark-mode .btn-filter-pill[data-status="Complete"].active {
         background: #16a34a !important;
         border-color: #4ade80 !important;
         color: #ffffff !important;
-        box-shadow: 0 0 12px rgba(22, 163, 74, 0.5) !important;
+        box-shadow: 0 2px 8px rgba(22, 163, 74, 0.4) !important;
+    }
+    .dark-mode .btn-filter-pill[data-status="Complete"].active .pill-dot { background: #bbf7d0 !important; }
+
+    /* --- DARK MODE PRIORITAS PILLS --- */
+    .dark-mode .btn-filter-pill-prio[data-priority="ALL"] {
+        background: #141f32;
+        border-color: #334155;
+        color: #cbd5e1;
+    }
+    .dark-mode .btn-filter-pill-prio[data-priority="ALL"] .prio-dot { background: #64748b; }
+    .dark-mode .btn-filter-pill-prio[data-priority="ALL"] .pill-count { background: #1e293b; color: #cbd5e1; }
+    .dark-mode .btn-filter-pill-prio[data-priority="ALL"]:hover { background: #1e293b; border-color: #475569; color: #ffffff; }
+    .dark-mode .btn-filter-pill-prio[data-priority="ALL"].active {
+        background: #334155 !important;
+        border-color: #475569 !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(51, 65, 85, 0.4) !important;
+    }
+    .dark-mode .btn-filter-pill-prio[data-priority="ALL"].active .prio-dot { background: #94a3b8 !important; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"] {
+        background: #1f0b0f;
+        border-color: #881337;
+        color: #fda4af;
+    }
+    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"] .prio-dot { background: #f43f5e; }
+    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"] .pill-count { background: #4c0519; color: #fda4af; }
+    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"]:hover { background: #2e0d16; border-color: #be123c; color: #ffffff; }
+    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"].active {
+        background: #be123c !important;
+        border-color: #f43f5e !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(244, 63, 94, 0.4) !important;
+    }
+    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"].active .prio-dot { background: #fecdd3 !important; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] {
+        background: #1c1305;
+        border-color: #78350f;
+        color: #fde68a;
+    }
+    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .prio-dot { background: #f59e0b; }
+    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .pill-count { background: #451a03; color: #fde68a; }
+    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"]:hover { background: #2e1d08; border-color: #b45309; color: #ffffff; }
+    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"].active {
+        background: #b45309 !important;
+        border-color: #f59e0b !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4) !important;
+    }
+    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"].active .prio-dot { background: #fef3c7 !important; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] {
+        background: #141f32;
+        border-color: #334155;
+        color: #cbd5e1;
+    }
+    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .prio-dot { background: #64748b; }
+    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .pill-count { background: #1e293b; color: #cbd5e1; }
+    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"]:hover { background: #1e293b; border-color: #475569; color: #ffffff; }
+    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"].active {
+        background: #475569 !important;
+        border-color: #64748b !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(100, 116, 139, 0.4) !important;
+    }
+    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"].active .prio-dot { background: #cbd5e1 !important; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"] {
+        background: #081726;
+        border-color: #075985;
+        color: #7dd3fc;
+    }
+    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .prio-dot { background: #38bdf8; }
+    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .pill-count { background: #0c4a6e; color: #7dd3fc; }
+    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"]:hover { background: #0f2b42; border-color: #0284c7; color: #ffffff; }
+    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"].active {
+        background: #0284c7 !important;
+        border-color: #38bdf8 !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4) !important;
+    }
+    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"].active .prio-dot { background: #bae6fd !important; }
+
+    /* --- DARK MODE PETUGAS SELECT & RESET (EXACT SAME SIZES) --- */
+    .dark-mode select.select-petugas-filter {
+        height: 30px !important;
+        min-height: 30px !important;
+        max-height: 30px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        line-height: 28px !important;
+        border-radius: 15px !important;
+        padding: 0 26px 0 12px !important;
+        background-color: #141f32 !important;
+        border: 1.5px solid #334155 !important;
+        color: #f1f5f9 !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 8px center !important;
+        background-size: 12px 12px !important;
+        box-sizing: border-box !important;
     }
 
-    .dark-mode .btn-filter-pill[data-status="Complete"].active .pill-dot {
-        background: #bbf7d0 !important;
+    .dark-mode select.select-petugas-filter:hover {
+        border-color: #475569 !important;
+    }
+
+    .dark-mode select.select-petugas-filter:focus {
+        border-color: #38bdf8 !important;
+        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25) !important;
+        outline: none !important;
+    }
+
+    .dark-mode select.select-petugas-filter option {
+        background-color: #0f172a !important;
+        color: #f1f5f9 !important;
+        padding: 4px 8px !important;
+        font-size: 12px !important;
+    }
+
+    .dark-mode .btn-filter-reset {
+        height: 30px !important;
+        min-height: 30px !important;
+        max-height: 30px !important;
+        padding: 0 12px !important;
+        border-radius: 15px !important;
+        border: 1.5px solid #334155 !important;
+        background: #141f32 !important;
+        color: #94a3b8 !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        line-height: 28px !important;
+        box-sizing: border-box !important;
+    }
+
+    .dark-mode .btn-filter-reset:hover {
+        background: #1e293b !important;
+        color: #ffffff !important;
+        border-color: #475569 !important;
     }
 
     .dark-mode .pb-legend-title {
@@ -1180,38 +1407,100 @@ if (!function_exists('renderPbPriorityBadge')) {
             <h2>DATA MAINTENANCE/TROUBLE/REQUEST IT TODAY</h2>
         </div>
         <div class="body">
-            <!-- 🔘 STATUS FILTER TOOLBAR -->
+            <!-- 🔘 MULTI-FILTER TOOLBAR (STATUS, PRIORITAS, PETUGAS IT - DUA BARIS RAPI) -->
             <div class="status-filter-toolbar">
-                <div class="filter-group-wrapper">
-                    <div class="filter-label">
-                        <i class="material-icons" style="font-size: 17px; vertical-align: middle; margin-right: 4px;">filter_list</i>
-                        <span>Filter Status:</span>
+                <!-- Baris 1: Filter Status & Petugas IT + Reset -->
+                <div class="filter-toolbar-row filter-row-status">
+                    <div class="filter-group-wrapper">
+                        <span class="filter-label">STATUS:</span>
+                        <div class="status-filter-pills" id="statusFilterPills">
+                            <button type="button" class="btn-filter-pill active" data-status="ALL">
+                                <span class="pill-dot dot-all"></span>
+                                <span>Semua</span>
+                                <span class="pill-count" id="count-all">0</span>
+                            </button>
+                            <button type="button" class="btn-filter-pill" data-status="Open">
+                                <span class="pill-dot dot-open"></span>
+                                <span>Open</span>
+                                <span class="pill-count" id="count-open">0</span>
+                            </button>
+                            <button type="button" class="btn-filter-pill" data-status="In Progress">
+                                <span class="pill-dot dot-progress"></span>
+                                <span>In Progress</span>
+                                <span class="pill-count" id="count-progress">0</span>
+                            </button>
+                            <button type="button" class="btn-filter-pill" data-status="Complete">
+                                <span class="pill-dot dot-complete"></span>
+                                <span>Complete</span>
+                                <span class="pill-count" id="count-complete">0</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="status-filter-pills" id="statusFilterPills">
-                        <button type="button" class="btn-filter-pill active" data-status="ALL">
-                            <span class="pill-dot dot-all"></span>
-                            <span>Semua</span>
-                            <span class="pill-count" id="count-all">0</span>
-                        </button>
-                        <button type="button" class="btn-filter-pill" data-status="Open">
-                            <span class="pill-dot dot-open"></span>
-                            <span>Open</span>
-                            <span class="pill-count" id="count-open">0</span>
-                        </button>
-                        <button type="button" class="btn-filter-pill" data-status="In Progress">
-                            <span class="pill-dot dot-progress"></span>
-                            <span>In Progress</span>
-                            <span class="pill-count" id="count-progress">0</span>
-                        </button>
-                        <button type="button" class="btn-filter-pill" data-status="Complete">
-                            <span class="pill-dot dot-complete"></span>
-                            <span>Complete</span>
-                            <span class="pill-count" id="count-complete">0</span>
+
+                    <div class="petugas-filter-wrapper">
+                        <span class="filter-label filter-label-petugas">PETUGAS:</span>
+                        <select id="filterSelectPetugas" class="ms select-petugas-filter">
+                            <option value="ALL">Semua Petugas</option>
+                            <option value="UNASSIGNED">Belum Di-assign</option>
+                            <?php
+                            $list_petugas_all = [];
+                            $q_petugas = mysqli_query($connect, "SELECT nama_petugas FROM tb_petugas ORDER BY nama_petugas ASC");
+                            if ($q_petugas) {
+                                while ($p = mysqli_fetch_assoc($q_petugas)) {
+                                    $np = trim((string)$p['nama_petugas']);
+                                    if (!empty($np) && !in_array($np, $list_petugas_all)) {
+                                        $list_petugas_all[] = $np;
+                                    }
+                                }
+                            }
+                            natcasesort($list_petugas_all);
+                            foreach ($list_petugas_all as $pet) {
+                                echo '<option value="' . htmlspecialchars($pet) . '">' . htmlspecialchars($pet) . '</option>';
+                            }
+                            ?>
+                        </select>
+                        <button type="button" id="btnResetFilters" class="btn-filter-reset" title="Reset Semua Filter">
+                            Reset
                         </button>
                     </div>
                 </div>
 
+                <!-- Pembatas Garis Horizontal Antar Baris -->
+                <div class="filter-row-divider"></div>
 
+                <!-- Baris 2: Filter Prioritas -->
+                <div class="filter-toolbar-row filter-row-priority">
+                    <div class="filter-group-wrapper">
+                        <span class="filter-label">PRIORITAS:</span>
+                        <div class="priority-filter-pills" id="priorityFilterPills">
+                            <button type="button" class="btn-filter-pill-prio active" data-priority="ALL">
+                                <span class="prio-dot dot-prio-all"></span>
+                                <span>Semua</span>
+                                <span class="pill-count" id="prio-count-all">0</span>
+                            </button>
+                            <button type="button" class="btn-filter-pill-prio" data-priority="EMERGENCY">
+                                <span class="prio-dot dot-prio-emergency"></span>
+                                <span>Emergency</span>
+                                <span class="pill-count" id="prio-count-emergency">0</span>
+                            </button>
+                            <button type="button" class="btn-filter-pill-prio" data-priority="HIGH PRIORITY">
+                                <span class="prio-dot dot-prio-high"></span>
+                                <span>High</span>
+                                <span class="pill-count" id="prio-count-high">0</span>
+                            </button>
+                            <button type="button" class="btn-filter-pill-prio" data-priority="MEDIUM PRIORITY">
+                                <span class="prio-dot dot-prio-medium"></span>
+                                <span>Medium</span>
+                                <span class="pill-count" id="prio-count-medium">0</span>
+                            </button>
+                            <button type="button" class="btn-filter-pill-prio" data-priority="LOW PRIORITY">
+                                <span class="prio-dot dot-prio-low"></span>
+                                <span>Low</span>
+                                <span class="pill-count" id="prio-count-low">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="table-responsive">
@@ -1235,8 +1524,10 @@ if (!function_exists('renderPbPriorityBadge')) {
                             $no++;
                             $cek_status = $data['status'];
                             $cekidx = $data['id'];
+                            $petugas_raw = trim((string)($data['petugas'] ?? ''));
+                            $petugas_filter_val = ($cek_status === 'Open' && strcasecmp($petugas_raw, 'Open') === 0) ? '' : $petugas_raw;
                         ?>
-                            <tr data-status="<?php echo htmlspecialchars((string)$cek_status); ?>" data-priority="<?php echo htmlspecialchars((string)normalizePriorityName($data['nama_prioritas'] ?? '')); ?>">
+                            <tr data-status="<?php echo htmlspecialchars((string)$cek_status); ?>" data-priority="<?php echo htmlspecialchars((string)normalizePriorityName($data['nama_prioritas'] ?? '')); ?>" data-petugas="<?php echo htmlspecialchars($petugas_filter_val); ?>">
                                 <td align="center" style="font-weight: 600; color: #64748b;"><?php echo $no ?></td>
                                 <td>
                                     <span style="font-weight: 600; color: #1e293b;"><?php echo date('d M Y', strtotime($data['tgllapor'])); ?></span>
@@ -1254,7 +1545,7 @@ if (!function_exists('renderPbPriorityBadge')) {
                                     <a class="waves-effect m-b-15" role="button" data-toggle="collapse" href="#<?php echo $cekidx; ?>" aria-expanded="false" aria-controls="collapseExample" style="font-size: 12px; font-weight: 600;">Detail...</a>
                                     <div class="collapse" id="<?php echo $cekidx; ?>" style="margin-top: 6px; padding: 8px 12px; background: #f8fafc; border-radius: 6px; border-left: 3px solid #0284c7;">
                                         <small style="color: #475569; font-style: normal; display: block; line-height: 1.6;">
-                                            <strong>Petugas IT:</strong> <?php echo htmlspecialchars((string)($data['petugas'] ?? '-')); ?><br>
+                                            <strong>Petugas IT:</strong> <?php echo htmlspecialchars(($cek_status === 'Open' && strcasecmp($petugas_raw, 'Open') === 0) ? 'Belum Di-assign' : ($petugas_raw ?: '-')); ?><br>
                                             <strong>Prioritas:</strong> <?php echo htmlspecialchars((string)normalizePriorityName($data['nama_prioritas'] ?? '-')); ?><br>
                                             <strong>Kategori:</strong> <?php echo htmlspecialchars((string)($data['jenis'] ?? '-')); ?><br>
                                             <strong>Jenis Kendala:</strong> <?php echo htmlspecialchars((string)($data['kendala'] ?? '-')); ?>
@@ -1330,16 +1621,6 @@ if (!function_exists('renderPbPriorityBadge')) {
                                                     </button>
                                                   </a>";
                                         } elseif ($cek_status == "In Progress") {
-                                            // Tombol Ganti Prioritas (Hanya untuk In Progress)
-                                            echo "<button type='button' 
-                                                    class='btn bg-purple waves-effect btn-ubah-prioritas' 
-                                                    data-id='$cek_id' 
-                                                    data-nama='" . htmlspecialchars((string)($data['nama'] ?? '')) . "' 
-                                                    data-kendala='" . htmlspecialchars((string)($data['jnskendala'] ?? '')) . "' 
-                                                    data-prioritas='" . htmlspecialchars((string)normalizePriorityName($data['nama_prioritas'] ?? '')) . "' 
-                                                    title='Ganti Prioritas'>
-                                                    <i class='material-icons'>flag</i>
-                                                  </button>";
                                             echo "<a href='index.php?page=solution&kd=$cek_id' title='Add Solution'>
                                                     <button type='button' class='btn bg-light-blue waves-effect'>
                                                         <i class='material-icons'>content_paste</i>
@@ -1783,10 +2064,12 @@ if (!function_exists('renderPbPriorityBadge')) {
     }
 
     // ========================================================
-    // STATUS FILTER INTERACTIVITY & REAL-TIME COUNTERS
+    // 🔘 MULTI-FILTER INTERACTIVITY (STATUS, PRIORITAS, PETUGAS IT)
     // ========================================================
     (function() {
         var currentStatusFilter = 'ALL';
+        var currentPriorityFilter = 'ALL';
+        var currentPetugasFilter = 'ALL';
 
         function normalizeStatus(st) {
             if (!st) return '';
@@ -1797,7 +2080,48 @@ if (!function_exists('renderPbPriorityBadge')) {
             return st.trim();
         }
 
-        // 1. Hitung counter langsung dari elemen DOM tabel
+        function normalizePriority(prio) {
+            if (!prio) return '';
+            var p = prio.toString().trim().toUpperCase();
+            if (p.indexOf('EMERG') !== -1) return 'EMERGENCY';
+            if (p.indexOf('URGENT') !== -1) return 'URGENT';
+            if (p.indexOf('HIGH') !== -1) return 'HIGH PRIORITY';
+            if (p.indexOf('MED') !== -1) return 'MEDIUM PRIORITY';
+            if (p.indexOf('LOW') !== -1) return 'LOW PRIORITY';
+            return p;
+        }
+
+        // 1. Evaluasi apakah baris memenuhi ketiga kriteria filter secara bersamaan
+        function rowMatchesAllFilters(rowStatus, rowPriority, rowPetugas) {
+            // A. Evaluasi Filter Status
+            if (currentStatusFilter && currentStatusFilter !== 'ALL') {
+                var normRowStatus = normalizeStatus(rowStatus).toLowerCase();
+                var normFilterStatus = normalizeStatus(currentStatusFilter).toLowerCase();
+                if (normRowStatus !== normFilterStatus) return false;
+            }
+
+            // B. Evaluasi Filter Prioritas
+            if (currentPriorityFilter && currentPriorityFilter !== 'ALL') {
+                var normRowPrio = normalizePriority(rowPriority);
+                var normFilterPrio = normalizePriority(currentPriorityFilter);
+                if (normRowPrio !== normFilterPrio) return false;
+            }
+
+            // C. Evaluasi Filter Petugas IT
+            if (currentPetugasFilter && currentPetugasFilter !== 'ALL') {
+                var cleanPetugas = (rowPetugas || '').toString().trim();
+                if (currentPetugasFilter === 'UNASSIGNED') {
+                    if (cleanPetugas !== '' && cleanPetugas !== '-' && cleanPetugas !== '0' && cleanPetugas.toLowerCase() !== 'open') return false;
+                } else {
+                    if (cleanPetugas.toLowerCase() !== currentPetugasFilter.trim().toLowerCase()) return false;
+                }
+            }
+
+            return true;
+        }
+
+        // 2. Hitung counter status langsung dari elemen DOM tabel
+        // 2. Hitung counter status langsung dari elemen DOM tabel
         function updateStatusCounters() {
             var tbl = document.getElementById('table-today');
             if (!tbl) return;
@@ -1826,16 +2150,73 @@ if (!function_exists('renderPbPriorityBadge')) {
 
             var elAll = document.getElementById('count-all');
             var elOpen = document.getElementById('count-open');
-            var elProg = document.getElementById('count-progress');
-            var elComp = document.getElementById('count-complete');
+            var elProgress = document.getElementById('count-progress');
+            var elComplete = document.getElementById('count-complete');
 
             if (elAll) elAll.textContent = counts.ALL;
             if (elOpen) elOpen.textContent = counts.Open;
-            if (elProg) elProg.textContent = counts['In Progress'];
-            if (elComp) elComp.textContent = counts.Complete;
+            if (elProgress) elProgress.textContent = counts['In Progress'];
+            if (elComplete) elComplete.textContent = counts.Complete;
         }
 
-        // 2. Re-index nomor urut kolom 'No' untuk baris yang tampak
+        // 3. Hitung counter prioritas langsung dari elemen DOM tabel
+        function updatePriorityCounters() {
+            var tbl = document.getElementById('table-today');
+            if (!tbl) return;
+
+            var rows = tbl.querySelectorAll('tbody tr');
+            var pCounts = {
+                ALL: 0,
+                EMERGENCY: 0,
+                'HIGH PRIORITY': 0,
+                'MEDIUM PRIORITY': 0,
+                'LOW PRIORITY': 0
+            };
+
+            rows.forEach(function(tr) {
+                if (tr.classList.contains('dataTables_empty')) return;
+                var p = tr.getAttribute('data-priority') || '';
+                var norm = normalizePriority(p);
+                pCounts.ALL++;
+                if (pCounts.hasOwnProperty(norm)) {
+                    pCounts[norm]++;
+                }
+            });
+
+            var elAll = document.getElementById('prio-count-all');
+            var elEmerg = document.getElementById('prio-count-emergency');
+            var elHigh = document.getElementById('prio-count-high');
+            var elMed = document.getElementById('prio-count-medium');
+            var elLow = document.getElementById('prio-count-low');
+
+            if (elAll) elAll.textContent = pCounts.ALL;
+            if (elEmerg) elEmerg.textContent = pCounts.EMERGENCY;
+            if (elHigh) elHigh.textContent = pCounts['HIGH PRIORITY'];
+            if (elMed) elMed.textContent = pCounts['MEDIUM PRIORITY'];
+            if (elLow) elLow.textContent = pCounts['LOW PRIORITY'];
+        }
+
+        // 4. Update status active pada pill buttons dan select petugas
+        function updateFilterActiveStates() {
+            var statusPills = document.querySelectorAll('.btn-filter-pill');
+            statusPills.forEach(function(pill) {
+                var s = pill.getAttribute('data-status') || 'ALL';
+                pill.classList.toggle('active', s === currentStatusFilter);
+            });
+
+            var prioPills = document.querySelectorAll('.btn-filter-pill-prio');
+            prioPills.forEach(function(pill) {
+                var p = pill.getAttribute('data-priority') || 'ALL';
+                pill.classList.toggle('active', p === currentPriorityFilter);
+            });
+
+            var selPetugas = document.getElementById('filterSelectPetugas');
+            if (selPetugas) {
+                selPetugas.value = currentPetugasFilter;
+            }
+        }
+
+        // 5. Re-index nomor urut kolom 'No' untuk baris yang tampak
         function reindexTableRows() {
             var tbl = document.getElementById('table-today');
             if (!tbl) return;
@@ -1853,25 +2234,11 @@ if (!function_exists('renderPbPriorityBadge')) {
             });
         }
 
-        // 3. Terapkan filter status ke tabel
-        function applyStatusFilter(status, clickedBtn) {
-            currentStatusFilter = status || 'ALL';
-
-            // Update status tombol aktif di toolbar
-            var pills = document.querySelectorAll('.btn-filter-pill');
-            pills.forEach(function(p) {
-                p.classList.remove('active');
-            });
-            if (clickedBtn) {
-                clickedBtn.classList.add('active');
-            }
-
-            // Jika DataTables sudah aktif di tabel, manfaatkan DataTables draw
+        // 6. Terapkan gabungan semua kriteria filter
+        function applyCombinedFilters() {
             if (window.jQuery && window.jQuery.fn && window.jQuery.fn.dataTable && window.jQuery.fn.dataTable.isDataTable('#table-today')) {
                 window.jQuery('#table-today').DataTable().draw();
             } else {
-                // Fallback instan jika DataTables belum siap
-                var normFilter = normalizeStatus(currentStatusFilter).toLowerCase();
                 var rows = document.querySelectorAll('#table-today tbody tr');
                 rows.forEach(function(tr) {
                     if (tr.classList.contains('dataTables_empty')) return;
@@ -1880,28 +2247,68 @@ if (!function_exists('renderPbPriorityBadge')) {
                         var lbl = tr.querySelector('.label');
                         if (lbl) st = lbl.textContent;
                     }
-                    var normRow = normalizeStatus(st).toLowerCase();
-                    if (normFilter === 'all' || normFilter === '' || normRow === normFilter) {
+                    var prio = tr.getAttribute('data-priority') || '';
+                    var pet = tr.getAttribute('data-petugas') || '';
+
+                    if (rowMatchesAllFilters(st, prio, pet)) {
                         tr.style.display = '';
                     } else {
                         tr.style.display = 'none';
                     }
                 });
             }
-
             reindexTableRows();
         }
 
-        // 4. Delegated Event Listener untuk klik tombol filter pill (bekerja instan tanpa dependensi)
+        // 7. Event Listener untuk klik Status Pills (delegated)
         document.addEventListener('click', function(e) {
             var btn = e.target.closest('.btn-filter-pill');
             if (!btn) return;
             e.preventDefault();
             var status = btn.getAttribute('data-status') || 'ALL';
-            applyStatusFilter(status, btn);
+            currentStatusFilter = status;
+            updateFilterActiveStates();
+            applyCombinedFilters();
         });
 
-        // 5. Integrasi DataTables saat jQuery & DataTables sudah siap
+        // 8. Event Listener untuk klik Prioritas Pills (delegated)
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('.btn-filter-pill-prio');
+            if (!btn) return;
+            e.preventDefault();
+            var prio = btn.getAttribute('data-priority') || 'ALL';
+            currentPriorityFilter = prio;
+            updateFilterActiveStates();
+            applyCombinedFilters();
+        });
+
+        // 9. Event Listener untuk select Petugas IT
+        var selectPetugas = document.getElementById('filterSelectPetugas');
+        if (selectPetugas) {
+            selectPetugas.addEventListener('change', function() {
+                currentPetugasFilter = this.value || 'ALL';
+                updateFilterActiveStates();
+                applyCombinedFilters();
+            });
+        }
+
+        // 10. Tombol Reset Semua Filter
+        var btnReset = document.getElementById('btnResetFilters');
+        if (btnReset) {
+            btnReset.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentStatusFilter = 'ALL';
+                currentPriorityFilter = 'ALL';
+                currentPetugasFilter = 'ALL';
+
+                if (selectPetugas) selectPetugas.value = 'ALL';
+
+                updateFilterActiveStates();
+                applyCombinedFilters();
+            });
+        }
+
+        // 10. Integrasi DataTables saat jQuery & DataTables sudah siap
         function initDataTablesSearchHook() {
             if (typeof window.jQuery === 'undefined' || !window.jQuery.fn || !window.jQuery.fn.dataTable) {
                 setTimeout(initDataTablesSearchHook, 50);
@@ -1917,26 +2324,27 @@ if (!function_exists('renderPbPriorityBadge')) {
                     if (settings.nTable.id !== 'table-today') {
                         return true;
                     }
-                    if (!currentStatusFilter || currentStatusFilter === 'ALL') {
-                        return true;
-                    }
 
                     var rowNode = settings.aoData[dataIndex].nTr;
                     var rowStatus = '';
+                    var rowPriority = '';
+                    var rowPetugas = '';
+
                     if (rowNode) {
                         rowStatus = $(rowNode).attr('data-status') || '';
                         if (!rowStatus) {
                             var lbl = rowNode.querySelector ? rowNode.querySelector('.label') : null;
                             if (lbl) rowStatus = lbl.textContent;
                         }
+                        rowPriority = $(rowNode).attr('data-priority') || '';
+                        rowPetugas = $(rowNode).attr('data-petugas') || '';
                     }
+
                     if (!rowStatus && data && data[4]) {
                         rowStatus = data[4];
                     }
 
-                    var normRow = normalizeStatus(rowStatus).toLowerCase();
-                    var normFilter = normalizeStatus(currentStatusFilter).toLowerCase();
-                    return normRow === normFilter;
+                    return rowMatchesAllFilters(rowStatus, rowPriority, rowPetugas);
                 });
             }
 
@@ -1947,6 +2355,7 @@ if (!function_exists('renderPbPriorityBadge')) {
                         reindexTableRows();
                     });
                     updateStatusCounters();
+                    updatePriorityCounters();
                     reindexTableRows();
                 } else {
                     setTimeout(bindTableDrawEvent, 100);
@@ -1956,16 +2365,18 @@ if (!function_exists('renderPbPriorityBadge')) {
         }
 
         // Inisialisasi awal saat dokumen siap
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                updateStatusCounters();
-                reindexTableRows();
-                initDataTablesSearchHook();
-            });
-        } else {
+        function initFilters() {
             updateStatusCounters();
+            updatePriorityCounters();
+            updateFilterActiveStates();
             reindexTableRows();
             initDataTablesSearchHook();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initFilters);
+        } else {
+            initFilters();
         }
 
         // ========================================================
