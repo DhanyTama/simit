@@ -19,7 +19,7 @@ if (!function_exists('normalizePriorityName')) {
 
 if (!function_exists('renderPbPriorityBadge')) {
     /**
-     * Menampilkan lambang prioritas bergaya Point Blank (PB)
+     * Menampilkan lambang prioritas bergaya
      * - EMERGENCY / EMERGANCY: 💀 Tengkorak (Skull)
      * - URGENT: 💀 Tengkorak (Skull)
      * - HIGH / HIGH PRIORITY: ⬆️ Panah Atas (Chevron Up tebal)
@@ -36,7 +36,7 @@ if (!function_exists('renderPbPriorityBadge')) {
         // 💀 Tengkorak (EMERGANCY / EMERGENCY)
         if ($prioClean === 'EMERGANCY' || $prioClean === 'EMERGENCY') {
             return '<div class="pb-priority-wrapper">'
-                . '<span class="pb-badge pb-emergency" title="Prioritas: EMERGENCY (Point Blank Grade)">'
+                . '<span class="pb-badge pb-emergency" title="Prioritas: EMERGENCY">'
                 . '<svg class="pb-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2a8 8 0 00-8 8c0 2.5 1.1 4.7 2.8 6.2.2.2.3.4.3.7V19a1 1 0 001 1h7.8a1 1 0 001-1v-2.1c0-.3.1-.5.3-.7C18.9 14.7 20 12.5 20 10a8 8 0 00-8-8zm-3.5 10a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5zm7 0a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5zm-5 4.5a.75.75 0 010-1.5h3a.75.75 0 010 1.5h-3zm-1.5 2.5v-1h6v1H9z"/></svg>'
                 . '</span></div>';
         }
@@ -44,7 +44,7 @@ if (!function_exists('renderPbPriorityBadge')) {
         // 💀 Tengkorak (URGENT)
         if ($prioClean === 'URGENT') {
             return '<div class="pb-priority-wrapper">'
-                . '<span class="pb-badge pb-urgent" title="Prioritas: URGENT (Point Blank Grade)">'
+                . '<span class="pb-badge pb-urgent" title="Prioritas: URGENT">'
                 . '<svg class="pb-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2a8 8 0 00-8 8c0 2.5 1.1 4.7 2.8 6.2.2.2.3.4.3.7V19a1 1 0 001 1h7.8a1 1 0 001-1v-2.1c0-.3.1-.5.3-.7C18.9 14.7 20 12.5 20 10a8 8 0 00-8-8zm-3.5 10a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5zm7 0a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5zm-5 4.5a.75.75 0 010-1.5h3a.75.75 0 010 1.5h-3zm-1.5 2.5v-1h6v1H9z"/></svg>'
                 . '</span></div>';
         }
@@ -52,7 +52,7 @@ if (!function_exists('renderPbPriorityBadge')) {
         // ⬆️ Panah Atas (HIGH / HIGH PRIORITY) - Chevron Up ala Pangkat Sersan PB
         if (strpos($prioClean, 'HIGH') !== false) {
             return '<div class="pb-priority-wrapper">'
-                . '<span class="pb-badge pb-high" title="Prioritas: HIGH (Point Blank Grade)">'
+                . '<span class="pb-badge pb-high" title="Prioritas: HIGH">'
                 . '<svg class="pb-svg-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="miter"><path d="M4.5 15.5L12 8L19.5 15.5"/></svg>'
                 . '</span></div>';
         }
@@ -60,7 +60,7 @@ if (!function_exists('renderPbPriorityBadge')) {
         // ➖ Minus (MEDIUM / MEDIUM PRIORITY) - Strip / Bar ala Pangkat Prajurit PB
         if (strpos($prioClean, 'MED') !== false) {
             return '<div class="pb-priority-wrapper">'
-                . '<span class="pb-badge pb-medium" title="Prioritas: MEDIUM (Point Blank Grade)">'
+                . '<span class="pb-badge pb-medium" title="Prioritas: MEDIUM">'
                 . '<svg class="pb-svg-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="4.8" stroke-linecap="round"><path d="M4 12h16"/></svg>'
                 . '</span></div>';
         }
@@ -68,7 +68,7 @@ if (!function_exists('renderPbPriorityBadge')) {
         // ⬇️ Panah Bawah (LOW / LOW PRIORITY) - Chevron Down ala Pangkat PB
         if (strpos($prioClean, 'LOW') !== false) {
             return '<div class="pb-priority-wrapper">'
-                . '<span class="pb-badge pb-low" title="Prioritas: LOW (Point Blank Grade)">'
+                . '<span class="pb-badge pb-low" title="Prioritas: LOW">'
                 . '<svg class="pb-svg-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="miter"><path d="M4.5 8.5L12 16L19.5 8.5"/></svg>'
                 . '</span></div>';
         }
@@ -84,7 +84,7 @@ if (!function_exists('renderPbPriorityBadge')) {
 
 <style>
     /* ========================================================
-   STATUS FILTER & POINT BLANK PRIORITY STYLES
+   STATUS FILTER & PRIORITY STYLES
    ======================================================== */
     .status-filter-toolbar {
         display: flex;
@@ -1180,7 +1180,7 @@ if (!function_exists('renderPbPriorityBadge')) {
             <h2>DATA MAINTENANCE/TROUBLE/REQUEST IT TODAY</h2>
         </div>
         <div class="body">
-            <!-- 🔘 STATUS FILTER & POINT BLANK LEGEND TOOLBAR -->
+            <!-- 🔘 STATUS FILTER TOOLBAR -->
             <div class="status-filter-toolbar">
                 <div class="filter-group-wrapper">
                     <div class="filter-label">
