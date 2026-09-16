@@ -26,7 +26,7 @@ $data2=mysqli_fetch_array($tampil2);
 $cek2=$data2['jml'];
 
 if($cek =='0'){
-if($fprioritas=='EMERGANCY'){
+if($fprioritas=='EMERGENCY' || $fprioritas=='EMERGANCY'){
 $query = mysqli_query($connect,"INSERT INTO tb_grafik_prioritas (tanggal,EMERGANCY,URGENT,HIGH,MEDIUM,LOW) VALUES ('$xtgl','1','0','0','0','0')");
 }
 else if($fprioritas=='URGENT'){
@@ -44,8 +44,8 @@ $query = mysqli_query($connect,"INSERT INTO tb_grafik_prioritas (tanggal,EMERGAN
 }
 
 else{
-if($fprioritas=='EMERGANCY'){
-$query = mysqli_query($connect,"UPDATE tb_grafik_prioritas SET EMERGANCY=(SELECT COUNT(nama_prioritas) FROM pengunjung WHERE nama_prioritas='EMERGANCY' AND tgllapor ='$xtgl') WHERE tanggal='$xtgl'");
+if($fprioritas=='EMERGENCY' || $fprioritas=='EMERGANCY'){
+$query = mysqli_query($connect,"UPDATE tb_grafik_prioritas SET EMERGANCY=(SELECT COUNT(nama_prioritas) FROM pengunjung WHERE (nama_prioritas='EMERGENCY' OR nama_prioritas='EMERGANCY') AND tgllapor ='$xtgl') WHERE tanggal='$xtgl'");
 }
 else if ($fprioritas=='URGENT'){
 $query = mysqli_query($connect,"UPDATE tb_grafik_prioritas SET URGENT=(SELECT COUNT(nama_prioritas) FROM pengunjung WHERE nama_prioritas='URGENT' AND tgllapor ='$xtgl') WHERE tanggal='$xtgl'");

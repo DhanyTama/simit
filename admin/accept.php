@@ -99,8 +99,10 @@
                                     <?php
                                     $in = mysqli_query($connect, "SELECT nama_prioritas FROM tb_prioritas ORDER BY id");
                                     while($row1 = mysqli_fetch_array($in)){
-                                        $selected = ($row1['nama_prioritas'] == $data['nama_prioritas']) ? 'selected' : '';
-                                        echo '<option value="'.$row1['nama_prioritas'].'" '.$selected.'>'.$row1['nama_prioritas'].'</option>';
+                                        $val = $row1['nama_prioritas'];
+                                        $label = ($val === 'EMERGANCY') ? 'EMERGENCY' : $val;
+                                        $selected = ($val == $data['nama_prioritas'] || ($data['nama_prioritas'] == 'EMERGENCY' && $val == 'EMERGANCY') || ($data['nama_prioritas'] == 'EMERGANCY' && $val == 'EMERGENCY')) ? 'selected' : '';
+                                        echo '<option value="'.$label.'" '.$selected.'>'.$label.'</option>';
                                     }
                                     ?>
                                 </select>

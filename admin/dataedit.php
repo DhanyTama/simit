@@ -52,7 +52,7 @@ $data  = mysqli_fetch_array($query);
                                         aria-controls="collapseExample"><?php echo $datax['jnskendala']; ?></a>
 
                                     <div class="collapse" id="<?php echo $cekidx; ?>">
-                                        <i><br>Petugas IT : [<?php echo $datax['petugas']; ?>]<br>Prioritas : [<?php echo $datax['nama_prioritas']; ?>]<br>
+                                        <i><br>Petugas IT : [<?php echo $datax['petugas']; ?>]<br>Prioritas : [<?php echo ($datax['nama_prioritas'] === 'EMERGANCY' ? 'EMERGENCY' : $datax['nama_prioritas']); ?>]<br>
                                             Kategori : [<?php echo $datax['jenis']; ?>]<br><br>Repair Date :<br><?php echo date('d F Y', strtotime($datax['tglperbaikan']));
                                                                                                                 echo " [";
                                                                                                                 echo $datax['jamperbaikan'];
@@ -106,7 +106,7 @@ $data  = mysqli_fetch_array($query);
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">Prioritas</label>
-                                <input type="text" value="<?php echo $data['nama_prioritas']; ?>" class="form-control">
+                                <input type="text" value="<?php echo ($data['nama_prioritas'] === 'EMERGANCY' ? 'EMERGENCY' : $data['nama_prioritas']); ?>" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6">
