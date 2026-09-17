@@ -94,6 +94,10 @@ $currentPage = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : '
                             <span class="skin-preview-dot skin-dot-tokyo"></span>
                             <span class="skin-name">Tokyo</span>
                         </button>
+                        <button type="button" class="skin-btn skin-btn-pb" data-skin="pb" title="Point Blank (Tactical Cyan & Amber)">
+                            <span class="skin-preview-dot skin-dot-pb"></span>
+                            <span class="skin-name">Point Blank</span>
+                        </button>
                     </div>
                 </div>
             </li> -->

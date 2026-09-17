@@ -7,7 +7,7 @@ if (empty($_SESSION['username'])) {
     $tanggal = date("Y-m-d");
 }
 $is_dark = (isset($_COOKIE['simit_theme']) && $_COOKIE['simit_theme'] === 'dark');
-$current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'], ['default', 'cappuccino', 'everforest', 'tokyo'])) ? $_COOKIE['simit_skin'] : 'default';
+$current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'], ['default', 'cappuccino', 'everforest', 'tokyo', 'pb', 'pointblank'])) ? ($_COOKIE['simit_skin'] === 'pointblank' ? 'pb' : $_COOKIE['simit_skin']) : 'default';
 ?>
 <!DOCTYPE html>
 <html class="<?php echo ($is_dark ? 'dark-mode ' : '') . 'skin-' . $current_skin; ?>">
@@ -88,10 +88,11 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
             }
             var skinMatch = document.cookie.match(/(?:^|;\s*)simit_skin=([^;]*)/);
             var s = localStorage.getItem('simit_skin') || (skinMatch ? skinMatch[1] : 'default');
-            ['default', 'cappuccino', 'everforest', 'tokyo'].forEach(function(sk) {
+            if (s === 'pointblank') s = 'pb';
+            ['default', 'cappuccino', 'everforest', 'tokyo', 'pb'].forEach(function(sk) {
                 document.documentElement.classList.remove('skin-' + sk);
             });
-            if (['default', 'cappuccino', 'everforest', 'tokyo'].indexOf(s) !== -1) {
+            if (['default', 'cappuccino', 'everforest', 'tokyo', 'pb'].indexOf(s) !== -1) {
                 document.documentElement.classList.add('skin-' + s);
             } else {
                 document.documentElement.classList.add('skin-default');

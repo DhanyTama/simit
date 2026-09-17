@@ -8,7 +8,7 @@
 
     var STORAGE_THEME_KEY = 'simit_theme';
     var STORAGE_SKIN_KEY = 'simit_skin';
-    var VALID_SKINS = ['default', 'cappuccino', 'everforest', 'tokyo'];
+    var VALID_SKINS = ['default', 'cappuccino', 'everforest', 'tokyo', 'pb'];
 
     /**
      * Get current theme ('dark' | 'light')
@@ -29,7 +29,7 @@
     }
 
     /**
-     * Get current skin ('default' | 'cappuccino' | 'everforest' | 'tokyo')
+     * Get current skin ('default' | 'cappuccino' | 'everforest' | 'tokyo' | 'pb')
      */
     function getStoredSkin() {
         var skin = localStorage.getItem(STORAGE_SKIN_KEY);
@@ -38,6 +38,9 @@
             if (m) {
                 skin = decodeURIComponent(m[1]);
             }
+        }
+        if (skin === 'pointblank') {
+            skin = 'pb';
         }
         if (VALID_SKINS.indexOf(skin) !== -1) {
             return skin;
@@ -145,6 +148,9 @@
      * Set skin and persist to localStorage + cookie
      */
     function setSkin(skin, animate) {
+        if (skin === 'pointblank') {
+            skin = 'pb';
+        }
         if (VALID_SKINS.indexOf(skin) === -1) {
             skin = 'default';
         }
