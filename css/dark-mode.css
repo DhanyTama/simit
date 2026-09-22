@@ -995,6 +995,77 @@ body:not(.dark-mode) .sidebar .legal .version b,
     color: #94a3b8 !important;
 }
 
+/* Cappuccino Loading State */
+html.skin-cappuccino.dark-mode #loading-alldata,
+body.skin-cappuccino.dark-mode #loading-alldata {
+    background-color: #231c17 !important;
+    border: 1px solid #3d2e24 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.skin-cappuccino.dark-mode #loading-alldata h4,
+body.skin-cappuccino.dark-mode #loading-alldata h4,
+html.skin-cappuccino.dark-mode #loading-alldata p,
+body.skin-cappuccino.dark-mode #loading-alldata p {
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode #loading-alldata small,
+body.skin-cappuccino.dark-mode #loading-alldata small {
+    color: #b59f93 !important;
+}
+
+/* Everforest Loading State */
+html.skin-everforest.dark-mode #loading-alldata,
+body.skin-everforest.dark-mode #loading-alldata {
+    background-color: #1e2522 !important;
+    border: 1px solid #2d3a34 !important;
+}
+
+html.skin-everforest.dark-mode #loading-alldata p,
+body.skin-everforest.dark-mode #loading-alldata p {
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode #loading-alldata small,
+body.skin-everforest.dark-mode #loading-alldata small {
+    color: #9da993 !important;
+}
+
+/* Tokyo Loading State */
+html.skin-tokyo.dark-mode #loading-alldata,
+body.skin-tokyo.dark-mode #loading-alldata {
+    background-color: #1a1b26 !important;
+    border: 1px solid #292e42 !important;
+}
+
+html.skin-tokyo.dark-mode #loading-alldata p,
+body.skin-tokyo.dark-mode #loading-alldata p {
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode #loading-alldata small,
+body.skin-tokyo.dark-mode #loading-alldata small {
+    color: #a9b1d6 !important;
+}
+
+/* PB Loading State */
+html.skin-pb.dark-mode #loading-alldata,
+body.skin-pb.dark-mode #loading-alldata {
+    background-color: #0d141e !important;
+    border: 1px solid rgba(0, 210, 255, 0.3) !important;
+}
+
+html.skin-pb.dark-mode #loading-alldata p,
+body.skin-pb.dark-mode #loading-alldata p {
+    color: #e2f1f8 !important;
+}
+
+html.skin-pb.dark-mode #loading-alldata small,
+body.skin-pb.dark-mode #loading-alldata small {
+    color: #88a4bc !important;
+}
+
 /* ==========================================================================
    Modals
    ========================================================================== */
@@ -1637,6 +1708,209 @@ div.bootstrap-select.form-control {
     color: #94a3b8 !important;
 }
 
+/* Cappuccino Dark - SweetAlert2 */
+html.skin-cappuccino.dark-mode .swal2-popup,
+body.skin-cappuccino.dark-mode .swal2-popup {
+    background-color: #231c17 !important;
+    color: #faedcd !important;
+    border: 1px solid #3d2e24 !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65) !important;
+}
+
+html.skin-cappuccino.dark-mode .swal2-title,
+body.skin-cappuccino.dark-mode .swal2-title {
+    color: #faedcd !important;
+}
+
+html.skin-cappuccino.dark-mode .swal2-html-container,
+body.skin-cappuccino.dark-mode .swal2-html-container {
+    color: #d4a373 !important;
+}
+
+html.skin-cappuccino.dark-mode .swal2-footer,
+body.skin-cappuccino.dark-mode .swal2-footer {
+    border-top-color: #3d2e24 !important;
+    color: #b59f93 !important;
+}
+
+/* Everforest Dark - SweetAlert2 */
+html.skin-everforest.dark-mode .swal2-popup,
+body.skin-everforest.dark-mode .swal2-popup {
+    background-color: #1e2522 !important;
+    color: #d3c6aa !important;
+    border: 1px solid #2d3a34 !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65) !important;
+}
+
+html.skin-everforest.dark-mode .swal2-title,
+body.skin-everforest.dark-mode .swal2-title {
+    color: #d3c6aa !important;
+}
+
+html.skin-everforest.dark-mode .swal2-html-container,
+body.skin-everforest.dark-mode .swal2-html-container {
+    color: #9da993 !important;
+}
+
+html.skin-everforest.dark-mode .swal2-footer,
+body.skin-everforest.dark-mode .swal2-footer {
+    border-top-color: #2d3a34 !important;
+    color: #9da993 !important;
+}
+
+/* Tokyo Dark - SweetAlert2 */
+html.skin-tokyo.dark-mode .swal2-popup,
+body.skin-tokyo.dark-mode .swal2-popup {
+    background-color: #1a1b26 !important;
+    color: #c0caf5 !important;
+    border: 1px solid #292e42 !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65) !important;
+}
+
+html.skin-tokyo.dark-mode .swal2-title,
+body.skin-tokyo.dark-mode .swal2-title {
+    color: #c0caf5 !important;
+}
+
+html.skin-tokyo.dark-mode .swal2-html-container,
+body.skin-tokyo.dark-mode .swal2-html-container {
+    color: #a9b1d6 !important;
+}
+
+html.skin-tokyo.dark-mode .swal2-footer,
+body.skin-tokyo.dark-mode .swal2-footer {
+    border-top-color: #292e42 !important;
+    color: #7aa2f7 !important;
+}
+
+/* PointBlank (PB) Dark - SweetAlert2 */
+html.skin-pb.dark-mode .swal2-popup,
+body.skin-pb.dark-mode .swal2-popup {
+    background-color: #0d141e !important;
+    color: #e2f1f8 !important;
+    border: 1px solid rgba(0, 210, 255, 0.3) !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7) !important;
+}
+
+html.skin-pb.dark-mode .swal2-title,
+body.skin-pb.dark-mode .swal2-title {
+    color: #00d2ff !important;
+}
+
+html.skin-pb.dark-mode .swal2-html-container,
+body.skin-pb.dark-mode .swal2-html-container {
+    color: #88a4bc !important;
+}
+
+html.skin-pb.dark-mode .swal2-footer,
+body.skin-pb.dark-mode .swal2-footer {
+    border-top-color: rgba(0, 210, 255, 0.3) !important;
+    color: #00d2ff !important;
+}
+
+/* ==========================================================================
+   SweetAlert2 Light Mode Skins
+   ========================================================================== */
+/* Cappuccino Light - SweetAlert2 */
+html.skin-cappuccino:not(.dark-mode) .swal2-popup,
+body.skin-cappuccino:not(.dark-mode) .swal2-popup {
+    background-color: #fcf9f6 !important;
+    color: #4a3b32 !important;
+    border: 1px solid #ebd9cb !important;
+    box-shadow: 0 20px 50px rgba(120, 80, 50, 0.15) !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .swal2-title,
+body.skin-cappuccino:not(.dark-mode) .swal2-title {
+    color: #382920 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .swal2-html-container,
+body.skin-cappuccino:not(.dark-mode) .swal2-html-container {
+    color: #6b5547 !important;
+}
+
+html.skin-cappuccino:not(.dark-mode) .swal2-confirm,
+body.skin-cappuccino:not(.dark-mode) .swal2-confirm {
+    background-color: #c48b56 !important;
+    color: #ffffff !important;
+}
+
+/* Everforest Light - SweetAlert2 */
+html.skin-everforest:not(.dark-mode) .swal2-popup,
+body.skin-everforest:not(.dark-mode) .swal2-popup {
+    background-color: #fbfaf5 !important;
+    color: #3a453e !important;
+    border: 1px solid #d8e2d4 !important;
+    box-shadow: 0 20px 50px rgba(60, 90, 70, 0.15) !important;
+}
+
+html.skin-everforest:not(.dark-mode) .swal2-title,
+body.skin-everforest:not(.dark-mode) .swal2-title {
+    color: #28332c !important;
+}
+
+html.skin-everforest:not(.dark-mode) .swal2-html-container,
+body.skin-everforest:not(.dark-mode) .swal2-html-container {
+    color: #516358 !important;
+}
+
+html.skin-everforest:not(.dark-mode) .swal2-confirm,
+body.skin-everforest:not(.dark-mode) .swal2-confirm {
+    background-color: #8da101 !important;
+    color: #ffffff !important;
+}
+
+/* Tokyo Light - SweetAlert2 */
+html.skin-tokyo:not(.dark-mode) .swal2-popup,
+body.skin-tokyo:not(.dark-mode) .swal2-popup {
+    background-color: #f6f7fb !important;
+    color: #343b58 !important;
+    border: 1px solid #d5d9ec !important;
+    box-shadow: 0 20px 50px rgba(70, 80, 140, 0.15) !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .swal2-title,
+body.skin-tokyo:not(.dark-mode) .swal2-title {
+    color: #24283b !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .swal2-html-container,
+body.skin-tokyo:not(.dark-mode) .swal2-html-container {
+    color: #565f89 !important;
+}
+
+html.skin-tokyo:not(.dark-mode) .swal2-confirm,
+body.skin-tokyo:not(.dark-mode) .swal2-confirm {
+    background-color: #3d59a1 !important;
+    color: #ffffff !important;
+}
+
+/* PointBlank (PB) Light - SweetAlert2 */
+html.skin-pb:not(.dark-mode) .swal2-popup,
+body.skin-pb:not(.dark-mode) .swal2-popup {
+    background-color: #f4f8fb !important;
+    color: #1a2c3d !important;
+    border: 1px solid #bce2f5 !important;
+    box-shadow: 0 20px 50px rgba(0, 150, 200, 0.15) !important;
+}
+
+html.skin-pb:not(.dark-mode) .swal2-title,
+body.skin-pb:not(.dark-mode) .swal2-title {
+    color: #0b1f30 !important;
+}
+
+html.skin-pb:not(.dark-mode) .swal2-html-container,
+body.skin-pb:not(.dark-mode) .swal2-html-container {
+    color: #2c4964 !important;
+}
+
+html.skin-pb:not(.dark-mode) .swal2-confirm,
+body.skin-pb:not(.dark-mode) .swal2-confirm {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+}
+
 /* ==========================================================================
    Skin Picker Widget in Sidebar
    ========================================================================== */
@@ -1947,7 +2221,7 @@ html.skin-cappuccino:not(.dark-mode) .card .header h2 {
 /* Cappuccino Light - Tables */
 html.skin-cappuccino:not(.dark-mode) .table>thead>tr>th,
 html.skin-cappuccino:not(.dark-mode) table.dataTable thead>tr>th {
-    background: linear-gradient(135deg, #583722 0%, #6f472d 100%) !important;
+    background: #6f472d !important;
     color: #fdfaf7 !important;
     border-bottom: 2px solid #8b5a38 !important;
 }
@@ -2060,7 +2334,11 @@ body.skin-cappuccino.dark-mode section.content {
 }
 
 html.skin-cappuccino.dark-mode .card,
-body.skin-cappuccino.dark-mode .card {
+body.skin-cappuccino.dark-mode .card,
+html.skin-cappuccino.dark-mode .card.filter-card,
+body.skin-cappuccino.dark-mode .card.filter-card,
+html.skin-cappuccino.dark-mode .stat-chip,
+body.skin-cappuccino.dark-mode .stat-chip {
     background-color: #241b16 !important;
     border: 1px solid rgba(212, 163, 115, 0.16) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
@@ -2271,7 +2549,13 @@ html.skin-cappuccino.dark-mode td small[style*="color: #64748b"] {
 
 /* Cappuccino Dark - Controls & Pagination */
 html.skin-cappuccino.dark-mode .dataTables_wrapper .dataTables_filter input,
-html.skin-cappuccino.dark-mode .dataTables_length select {
+body.skin-cappuccino.dark-mode .dataTables_wrapper .dataTables_filter input,
+html.skin-cappuccino.dark-mode div.dataTables_wrapper div.dataTables_length select,
+html.skin-cappuccino.dark-mode .dataTables_length select.form-control,
+html.skin-cappuccino.dark-mode .dataTables_length select,
+body.skin-cappuccino.dark-mode div.dataTables_wrapper div.dataTables_length select,
+body.skin-cappuccino.dark-mode .dataTables_length select.form-control,
+body.skin-cappuccino.dark-mode .dataTables_length select {
     background-color: #1b1411 !important;
     border-color: #382a22 !important;
     color: #faedcd !important;
@@ -2579,7 +2863,7 @@ html.skin-everforest:not(.dark-mode) .card .header h2 {
 /* Everforest Light - Tables */
 html.skin-everforest:not(.dark-mode) .table>thead>tr>th,
 html.skin-everforest:not(.dark-mode) table.dataTable thead>tr>th {
-    background: linear-gradient(135deg, #2e4a2b 0%, #3e6337 100%) !important;
+    background: #3e6337 !important;
     color: #f6faf2 !important;
     border-bottom: 2px solid #5d8a52 !important;
 }
@@ -2692,7 +2976,11 @@ body.skin-everforest.dark-mode section.content {
 }
 
 html.skin-everforest.dark-mode .card,
-body.skin-everforest.dark-mode .card {
+body.skin-everforest.dark-mode .card,
+html.skin-everforest.dark-mode .card.filter-card,
+body.skin-everforest.dark-mode .card.filter-card,
+html.skin-everforest.dark-mode .stat-chip,
+body.skin-everforest.dark-mode .stat-chip {
     background-color: #272e33 !important;
     border: 1px solid rgba(167, 192, 128, 0.14) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
@@ -2903,7 +3191,13 @@ html.skin-everforest.dark-mode td small[style*="color: #64748b"] {
 
 /* Everforest Dark - Controls & Pagination */
 html.skin-everforest.dark-mode .dataTables_wrapper .dataTables_filter input,
-html.skin-everforest.dark-mode .dataTables_length select {
+body.skin-everforest.dark-mode .dataTables_wrapper .dataTables_filter input,
+html.skin-everforest.dark-mode div.dataTables_wrapper div.dataTables_length select,
+html.skin-everforest.dark-mode .dataTables_length select.form-control,
+html.skin-everforest.dark-mode .dataTables_length select,
+body.skin-everforest.dark-mode div.dataTables_wrapper div.dataTables_length select,
+body.skin-everforest.dark-mode .dataTables_length select.form-control,
+body.skin-everforest.dark-mode .dataTables_length select {
     background-color: #1c2225 !important;
     border-color: #343e44 !important;
     color: #d3c6aa !important;
@@ -3212,7 +3506,7 @@ html.skin-tokyo:not(.dark-mode) .card .header h2 {
 /* Tokyo Light - Tables */
 html.skin-tokyo:not(.dark-mode) .table>thead>tr>th,
 html.skin-tokyo:not(.dark-mode) table.dataTable thead>tr>th {
-    background: linear-gradient(135deg, #242c4c 0%, #343e6a 100%) !important;
+    background: #343e6a !important;
     color: #f5f8ff !important;
     border-bottom: 2px solid #2e7de9 !important;
 }
@@ -3325,7 +3619,11 @@ body.skin-tokyo.dark-mode section.content {
 }
 
 html.skin-tokyo.dark-mode .card,
-body.skin-tokyo.dark-mode .card {
+body.skin-tokyo.dark-mode .card,
+html.skin-tokyo.dark-mode .card.filter-card,
+body.skin-tokyo.dark-mode .card.filter-card,
+html.skin-tokyo.dark-mode .stat-chip,
+body.skin-tokyo.dark-mode .stat-chip {
     background-color: #1a1b26 !important;
     border: 1px solid rgba(122, 162, 247, 0.16) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
@@ -3536,7 +3834,13 @@ html.skin-tokyo.dark-mode td small[style*="color: #64748b"] {
 
 /* Tokyo Dark - Controls & Pagination */
 html.skin-tokyo.dark-mode .dataTables_wrapper .dataTables_filter input,
-html.skin-tokyo.dark-mode .dataTables_length select {
+body.skin-tokyo.dark-mode .dataTables_wrapper .dataTables_filter input,
+html.skin-tokyo.dark-mode div.dataTables_wrapper div.dataTables_length select,
+html.skin-tokyo.dark-mode .dataTables_length select.form-control,
+html.skin-tokyo.dark-mode .dataTables_length select,
+body.skin-tokyo.dark-mode div.dataTables_wrapper div.dataTables_length select,
+body.skin-tokyo.dark-mode .dataTables_length select.form-control,
+body.skin-tokyo.dark-mode .dataTables_length select {
     background-color: #151622 !important;
     border-color: #25283c !important;
     color: #c0caf5 !important;
@@ -3921,7 +4225,11 @@ body.skin-pb.dark-mode section.content {
 }
 
 html.skin-pb.dark-mode .card,
-body.skin-pb.dark-mode .card {
+body.skin-pb.dark-mode .card,
+html.skin-pb.dark-mode .card.filter-card,
+body.skin-pb.dark-mode .card.filter-card,
+html.skin-pb.dark-mode .stat-chip,
+body.skin-pb.dark-mode .stat-chip {
     background-color: #111726 !important;
     border: 1px solid rgba(0, 210, 255, 0.22) !important;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(0, 210, 255, 0.08) !important;
@@ -4175,7 +4483,9 @@ html.skin-pb.dark-mode .btn-filter-reset:hover {
     box-shadow: 0 2px 12px rgba(255, 107, 0, 0.5) !important;
 }
 
-/* Point Blank Dark - Modal Ubah Prioritas */
+/* Point Blank Dark - Modals */
+html.skin-pb.dark-mode .modal-content,
+body.skin-pb.dark-mode .modal-content,
 html.skin-pb.dark-mode #modalUbahPrioritas .modal-content {
     background-color: #0f1624 !important;
     border: 1.5px solid rgba(0, 210, 255, 0.35) !important;
@@ -4225,7 +4535,13 @@ html.skin-pb.dark-mode #modalUbahPrioritas .btn-prio-simpan:hover {
 
 /* Point Blank Dark - Controls & Pagination */
 html.skin-pb.dark-mode .dataTables_wrapper .dataTables_filter input,
+body.skin-pb.dark-mode .dataTables_wrapper .dataTables_filter input,
+html.skin-pb.dark-mode div.dataTables_wrapper div.dataTables_length select,
+html.skin-pb.dark-mode .dataTables_length select.form-control,
 html.skin-pb.dark-mode .dataTables_length select,
+body.skin-pb.dark-mode div.dataTables_wrapper div.dataTables_length select,
+body.skin-pb.dark-mode .dataTables_length select.form-control,
+body.skin-pb.dark-mode .dataTables_length select,
 html.skin-pb.dark-mode .form-control {
     background-color: #0c121e !important;
     border-color: rgba(0, 210, 255, 0.22) !important;

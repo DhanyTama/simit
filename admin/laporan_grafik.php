@@ -108,7 +108,16 @@ if (isset($_SESSION['start_time'])) {
     $elapsed_time = time() - $_SESSION['start_time'];
     if ($elapsed_time >= $timeout) {
         session_destroy();
-        echo "<script>alert('Session Anda Telah Habis!'); window.location = '$logout_redirect_url'</script>";
+        echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+        Swal.fire({
+            title: 'Session Habis',
+            text: 'Session Anda Telah Habis! Silakan login kembali.',
+            icon: 'warning'
+        }).then(function() {
+            window.location = '$logout_redirect_url';
+        });
+        </script></body></html>";
+        exit;
     }
 }
 $_SESSION['start_time'] = time();

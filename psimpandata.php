@@ -18,7 +18,15 @@ $nohp       = trim($_POST['nohp'] ?? '');
 
 // Validasi field wajib
 if (empty($pelapor) || empty($departemen) || empty($desc)) {
-    echo "<script>alert('Nama, Departemen, dan Description wajib diisi!'); window.location = 'index.php';</script>";
+    echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+    Swal.fire({
+        title: 'Validasi Gagal',
+        text: 'Nama, Departemen, dan Description wajib diisi!',
+        icon: 'warning'
+    }).then(function() {
+        window.location.href = 'index.php';
+    });
+    </script></body></html>";
     exit();
 }
 
@@ -59,12 +67,30 @@ if ($query) {
             saveFormDataToJson($message);
         }
         
-        // Redirect dengan pesan sukses
-        echo "<script>alert('✅ Data Maintenance/Request/Trouble IT TERSIMPAN!'); window.location = 'index.php';</script>";
+        // Redirect dengan pesan sukses SweetAlert2 CDN
+        echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+        Swal.fire({
+            title: 'Berhasil Tersimpan',
+            text: 'Data Maintenance/Request/Trouble IT TERSIMPAN!',
+            icon: 'success',
+            timer: 1500,
+            showConfirmButton: false
+        }).then(function() {
+            window.location.href = 'index.php';
+        });
+        </script></body></html>";
     } else {
         // Log error database (tidak ditampilkan ke user)
         error_log("DB Insert Error: " . mysqli_stmt_error($query));
-        echo "<script>alert('❌ Gagal menyimpan ke database. Hubungi administrator.'); window.location = 'index.php';</script>";
+        echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+        Swal.fire({
+            title: 'Gagal Menyimpan',
+            text: 'Gagal menyimpan ke database. Hubungi administrator.',
+            icon: 'error'
+        }).then(function() {
+            window.location.href = 'index.php';
+        });
+        </script></body></html>";
     }
     
     // Close statement
@@ -72,7 +98,15 @@ if ($query) {
 } else {
     // Log error prepare
     error_log("DB Prepare Error: " . mysqli_error($connect));
-    echo "<script>alert('❌ System error. Hubungi administrator.'); window.location = 'index.php';</script>";
+    echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+    Swal.fire({
+        title: 'System Error',
+        text: 'System error. Hubungi administrator.',
+        icon: 'error'
+    }).then(function() {
+        window.location.href = 'index.php';
+    });
+    </script></body></html>";
 }
 
 // Close connection (opsional, akan auto-close di akhir script)

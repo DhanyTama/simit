@@ -230,6 +230,21 @@
         });
     }
 
+    // Intercept native window.alert to automatically use SweetAlert2 CDN everywhere
+    var originalAlert = window.alert;
+    window.alert = function (message) {
+        if (typeof Swal !== 'undefined') {
+            Swal.fire({
+                title: 'Pemberitahuan',
+                text: String(message),
+                icon: 'info',
+                confirmButtonText: 'OK'
+            });
+        } else {
+            if (originalAlert) originalAlert(message);
+        }
+    };
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

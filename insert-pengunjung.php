@@ -98,9 +98,27 @@ WHERE kendala='Lainnya' AND tgllapor ='$tgllapor') WHERE tanggal='$tgllapor'");
 
 
 if ($query3){
-	echo "<script>alert('Data Trouble/Maintenance IT TERSIMPAN!'); window.location = 'index.php'</script>";	
+    echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+    Swal.fire({
+        title: 'Berhasil Tersimpan',
+        text: 'Data Trouble/Maintenance IT TERSIMPAN!',
+        icon: 'success',
+        timer: 1500,
+        showConfirmButton: false
+    }).then(function() {
+        window.location.href = 'index.php';
+    });
+    </script></body></html>";
 } else {
-	echo "<script>alert('Data Trouble/Maintenance IT GAGAL TERSIMPAN!'); window.location = 'index.php'</script>";	
+    echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+    Swal.fire({
+        title: 'Gagal Menyimpan',
+        text: 'Data Trouble/Maintenance IT GAGAL TERSIMPAN!',
+        icon: 'error'
+    }).then(function() {
+        window.location.href = 'index.php';
+    });
+    </script></body></html>";
 }
 //}
 ?>

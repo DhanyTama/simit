@@ -233,64 +233,128 @@ if (!function_exists('renderPbPriorityBadge')) {
         border-color: #cbd5e1;
         color: #334155;
     }
-    .btn-filter-pill[data-status="ALL"] .pill-dot { background: #64748b; }
-    .btn-filter-pill[data-status="ALL"] .pill-count { background: #e2e8f0; color: #334155; }
-    .btn-filter-pill[data-status="ALL"]:hover { background: #f1f5f9; border-color: #94a3b8; color: #0f172a; }
+
+    .btn-filter-pill[data-status="ALL"] .pill-dot {
+        background: #64748b;
+    }
+
+    .btn-filter-pill[data-status="ALL"] .pill-count {
+        background: #e2e8f0;
+        color: #334155;
+    }
+
+    .btn-filter-pill[data-status="ALL"]:hover {
+        background: #f1f5f9;
+        border-color: #94a3b8;
+        color: #0f172a;
+    }
+
     .btn-filter-pill[data-status="ALL"].active {
         background: #2563eb !important;
         border-color: #1d4ed8 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35) !important;
     }
-    .btn-filter-pill[data-status="ALL"].active .pill-dot { background: #93c5fd !important; }
+
+    .btn-filter-pill[data-status="ALL"].active .pill-dot {
+        background: #93c5fd !important;
+    }
 
     .btn-filter-pill[data-status="Open"] {
         background: #fff5f7;
         border-color: #fecdd3;
         color: #be123c;
     }
-    .btn-filter-pill[data-status="Open"] .pill-dot { background: #e11d48; }
-    .btn-filter-pill[data-status="Open"] .pill-count { background: #ffe4e6; color: #be123c; }
-    .btn-filter-pill[data-status="Open"]:hover { background: #ffe4e6; border-color: #fda4af; color: #9f1239; }
+
+    .btn-filter-pill[data-status="Open"] .pill-dot {
+        background: #e11d48;
+    }
+
+    .btn-filter-pill[data-status="Open"] .pill-count {
+        background: #ffe4e6;
+        color: #be123c;
+    }
+
+    .btn-filter-pill[data-status="Open"]:hover {
+        background: #ffe4e6;
+        border-color: #fda4af;
+        color: #9f1239;
+    }
+
     .btn-filter-pill[data-status="Open"].active {
         background: #e11d48 !important;
         border-color: #be123c !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(225, 29, 72, 0.35) !important;
     }
-    .btn-filter-pill[data-status="Open"].active .pill-dot { background: #fecdd3 !important; }
+
+    .btn-filter-pill[data-status="Open"].active .pill-dot {
+        background: #fecdd3 !important;
+    }
 
     .btn-filter-pill[data-status="In Progress"] {
         background: #f0f9ff;
         border-color: #bae6fd;
         color: #0369a1;
     }
-    .btn-filter-pill[data-status="In Progress"] .pill-dot { background: #0284c7; }
-    .btn-filter-pill[data-status="In Progress"] .pill-count { background: #e0f2fe; color: #0369a1; }
-    .btn-filter-pill[data-status="In Progress"]:hover { background: #e0f2fe; border-color: #7dd3fc; color: #075985; }
+
+    .btn-filter-pill[data-status="In Progress"] .pill-dot {
+        background: #0284c7;
+    }
+
+    .btn-filter-pill[data-status="In Progress"] .pill-count {
+        background: #e0f2fe;
+        color: #0369a1;
+    }
+
+    .btn-filter-pill[data-status="In Progress"]:hover {
+        background: #e0f2fe;
+        border-color: #7dd3fc;
+        color: #075985;
+    }
+
     .btn-filter-pill[data-status="In Progress"].active {
         background: #0284c7 !important;
         border-color: #0369a1 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
     }
-    .btn-filter-pill[data-status="In Progress"].active .pill-dot { background: #bae6fd !important; }
+
+    .btn-filter-pill[data-status="In Progress"].active .pill-dot {
+        background: #bae6fd !important;
+    }
 
     .btn-filter-pill[data-status="Complete"] {
         background: #f0fdf4;
         border-color: #bbf7d0;
         color: #15803d;
     }
-    .btn-filter-pill[data-status="Complete"] .pill-dot { background: #16a34a; }
-    .btn-filter-pill[data-status="Complete"] .pill-count { background: #dcfce7; color: #15803d; }
-    .btn-filter-pill[data-status="Complete"]:hover { background: #dcfce7; border-color: #86efac; color: #166534; }
+
+    .btn-filter-pill[data-status="Complete"] .pill-dot {
+        background: #16a34a;
+    }
+
+    .btn-filter-pill[data-status="Complete"] .pill-count {
+        background: #dcfce7;
+        color: #15803d;
+    }
+
+    .btn-filter-pill[data-status="Complete"]:hover {
+        background: #dcfce7;
+        border-color: #86efac;
+        color: #166534;
+    }
+
     .btn-filter-pill[data-status="Complete"].active {
         background: #16a34a !important;
         border-color: #15803d !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(22, 163, 74, 0.35) !important;
     }
-    .btn-filter-pill[data-status="Complete"].active .pill-dot { background: #bbf7d0 !important; }
+
+    .btn-filter-pill[data-status="Complete"].active .pill-dot {
+        background: #bbf7d0 !important;
+    }
 
     /* --- LIGHT MODE PRIORITAS PILLS --- */
     .btn-filter-pill-prio[data-priority="ALL"] {
@@ -298,80 +362,160 @@ if (!function_exists('renderPbPriorityBadge')) {
         border-color: #cbd5e1;
         color: #334155;
     }
-    .btn-filter-pill-prio[data-priority="ALL"] .prio-dot { background: #64748b; }
-    .btn-filter-pill-prio[data-priority="ALL"] .pill-count { background: #e2e8f0; color: #334155; }
-    .btn-filter-pill-prio[data-priority="ALL"]:hover { background: #f1f5f9; border-color: #94a3b8; color: #0f172a; }
+
+    .btn-filter-pill-prio[data-priority="ALL"] .prio-dot {
+        background: #64748b;
+    }
+
+    .btn-filter-pill-prio[data-priority="ALL"] .pill-count {
+        background: #e2e8f0;
+        color: #334155;
+    }
+
+    .btn-filter-pill-prio[data-priority="ALL"]:hover {
+        background: #f1f5f9;
+        border-color: #94a3b8;
+        color: #0f172a;
+    }
+
     .btn-filter-pill-prio[data-priority="ALL"].active {
         background: #475569 !important;
         border-color: #334155 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(71, 85, 105, 0.35) !important;
     }
-    .btn-filter-pill-prio[data-priority="ALL"].active .prio-dot { background: #cbd5e1 !important; }
+
+    .btn-filter-pill-prio[data-priority="ALL"].active .prio-dot {
+        background: #cbd5e1 !important;
+    }
 
     .btn-filter-pill-prio[data-priority="EMERGENCY"] {
         background: #fef2f2;
         border-color: #fecaca;
         color: #b91c1c;
     }
-    .btn-filter-pill-prio[data-priority="EMERGENCY"] .prio-dot { background: #ef4444; }
-    .btn-filter-pill-prio[data-priority="EMERGENCY"] .pill-count { background: #fee2e2; color: #b91c1c; }
-    .btn-filter-pill-prio[data-priority="EMERGENCY"]:hover { background: #fee2e2; border-color: #fca5a5; color: #991b1b; }
+
+    .btn-filter-pill-prio[data-priority="EMERGENCY"] .prio-dot {
+        background: #ef4444;
+    }
+
+    .btn-filter-pill-prio[data-priority="EMERGENCY"] .pill-count {
+        background: #fee2e2;
+        color: #b91c1c;
+    }
+
+    .btn-filter-pill-prio[data-priority="EMERGENCY"]:hover {
+        background: #fee2e2;
+        border-color: #fca5a5;
+        color: #991b1b;
+    }
+
     .btn-filter-pill-prio[data-priority="EMERGENCY"].active {
         background: #dc2626 !important;
         border-color: #b91c1c !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35) !important;
     }
-    .btn-filter-pill-prio[data-priority="EMERGENCY"].active .prio-dot { background: #fecaca !important; }
+
+    .btn-filter-pill-prio[data-priority="EMERGENCY"].active .prio-dot {
+        background: #fecaca !important;
+    }
 
     .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] {
         background: #fffbeb;
         border-color: #fde68a;
         color: #b45309;
     }
-    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .prio-dot { background: #f59e0b; }
-    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .pill-count { background: #fef3c7; color: #b45309; }
-    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"]:hover { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
+
+    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .prio-dot {
+        background: #f59e0b;
+    }
+
+    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .pill-count {
+        background: #fef3c7;
+        color: #b45309;
+    }
+
+    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"]:hover {
+        background: #fef3c7;
+        border-color: #fcd34d;
+        color: #92400e;
+    }
+
     .btn-filter-pill-prio[data-priority="HIGH PRIORITY"].active {
         background: #d97706 !important;
         border-color: #b45309 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35) !important;
     }
-    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"].active .prio-dot { background: #fde68a !important; }
+
+    .btn-filter-pill-prio[data-priority="HIGH PRIORITY"].active .prio-dot {
+        background: #fde68a !important;
+    }
 
     .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] {
         background: #f8fafc;
         border-color: #cbd5e1;
         color: #475569;
     }
-    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .prio-dot { background: #64748b; }
-    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .pill-count { background: #e2e8f0; color: #475569; }
-    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"]:hover { background: #f1f5f9; border-color: #94a3b8; color: #1e293b; }
+
+    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .prio-dot {
+        background: #64748b;
+    }
+
+    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .pill-count {
+        background: #e2e8f0;
+        color: #475569;
+    }
+
+    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"]:hover {
+        background: #f1f5f9;
+        border-color: #94a3b8;
+        color: #1e293b;
+    }
+
     .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"].active {
         background: #475569 !important;
         border-color: #334155 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(71, 85, 105, 0.35) !important;
     }
-    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"].active .prio-dot { background: #cbd5e1 !important; }
+
+    .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"].active .prio-dot {
+        background: #cbd5e1 !important;
+    }
 
     .btn-filter-pill-prio[data-priority="LOW PRIORITY"] {
         background: #f0f9ff;
         border-color: #bae6fd;
         color: #0369a1;
     }
-    .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .prio-dot { background: #0ea5e9; }
-    .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .pill-count { background: #e0f2fe; color: #0369a1; }
-    .btn-filter-pill-prio[data-priority="LOW PRIORITY"]:hover { background: #e0f2fe; border-color: #7dd3fc; color: #075985; }
+
+    .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .prio-dot {
+        background: #0ea5e9;
+    }
+
+    .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .pill-count {
+        background: #e0f2fe;
+        color: #0369a1;
+    }
+
+    .btn-filter-pill-prio[data-priority="LOW PRIORITY"]:hover {
+        background: #e0f2fe;
+        border-color: #7dd3fc;
+        color: #075985;
+    }
+
     .btn-filter-pill-prio[data-priority="LOW PRIORITY"].active {
         background: #0284c7 !important;
         border-color: #0369a1 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
     }
-    .btn-filter-pill-prio[data-priority="LOW PRIORITY"].active .prio-dot { background: #bae6fd !important; }
+
+    .btn-filter-pill-prio[data-priority="LOW PRIORITY"].active .prio-dot {
+        background: #bae6fd !important;
+    }
 
     /* --- PETUGAS SELECT & RESET (LIGHT MODE) --- */
     .petugas-filter-wrapper {
@@ -615,64 +759,128 @@ if (!function_exists('renderPbPriorityBadge')) {
         border-color: #334155;
         color: #cbd5e1;
     }
-    .dark-mode .btn-filter-pill[data-status="ALL"] .pill-dot { background: #64748b; }
-    .dark-mode .btn-filter-pill[data-status="ALL"] .pill-count { background: #334155; color: #e2e8f0; }
-    .dark-mode .btn-filter-pill[data-status="ALL"]:hover { background: #1e293b; border-color: #64748b; color: #ffffff; }
+
+    .dark-mode .btn-filter-pill[data-status="ALL"] .pill-dot {
+        background: #64748b;
+    }
+
+    .dark-mode .btn-filter-pill[data-status="ALL"] .pill-count {
+        background: #334155;
+        color: #e2e8f0;
+    }
+
+    .dark-mode .btn-filter-pill[data-status="ALL"]:hover {
+        background: #1e293b;
+        border-color: #64748b;
+        color: #ffffff;
+    }
+
     .dark-mode .btn-filter-pill[data-status="ALL"].active {
         background: #2563eb !important;
         border-color: #3b82f6 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4) !important;
     }
-    .dark-mode .btn-filter-pill[data-status="ALL"].active .pill-dot { background: #bfdbfe !important; }
+
+    .dark-mode .btn-filter-pill[data-status="ALL"].active .pill-dot {
+        background: #bfdbfe !important;
+    }
 
     .dark-mode .btn-filter-pill[data-status="Open"] {
         background: #1a0f16;
         border-color: #4c0519;
         color: #fda4af;
     }
-    .dark-mode .btn-filter-pill[data-status="Open"] .pill-dot { background: #f43f5e; }
-    .dark-mode .btn-filter-pill[data-status="Open"] .pill-count { background: #4c0519; color: #fda4af; }
-    .dark-mode .btn-filter-pill[data-status="Open"]:hover { background: #2a121e; border-color: #e11d48; color: #ffffff; }
+
+    .dark-mode .btn-filter-pill[data-status="Open"] .pill-dot {
+        background: #f43f5e;
+    }
+
+    .dark-mode .btn-filter-pill[data-status="Open"] .pill-count {
+        background: #4c0519;
+        color: #fda4af;
+    }
+
+    .dark-mode .btn-filter-pill[data-status="Open"]:hover {
+        background: #2a121e;
+        border-color: #e11d48;
+        color: #ffffff;
+    }
+
     .dark-mode .btn-filter-pill[data-status="Open"].active {
         background: #e11d48 !important;
         border-color: #fb7185 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(225, 29, 72, 0.4) !important;
     }
-    .dark-mode .btn-filter-pill[data-status="Open"].active .pill-dot { background: #fecdd3 !important; }
+
+    .dark-mode .btn-filter-pill[data-status="Open"].active .pill-dot {
+        background: #fecdd3 !important;
+    }
 
     .dark-mode .btn-filter-pill[data-status="In Progress"] {
         background: #0b1a28;
         border-color: #075985;
         color: #7dd3fc;
     }
-    .dark-mode .btn-filter-pill[data-status="In Progress"] .pill-dot { background: #38bdf8; }
-    .dark-mode .btn-filter-pill[data-status="In Progress"] .pill-count { background: #0c4a6e; color: #7dd3fc; }
-    .dark-mode .btn-filter-pill[data-status="In Progress"]:hover { background: #0f2b42; border-color: #0284c7; color: #ffffff; }
+
+    .dark-mode .btn-filter-pill[data-status="In Progress"] .pill-dot {
+        background: #38bdf8;
+    }
+
+    .dark-mode .btn-filter-pill[data-status="In Progress"] .pill-count {
+        background: #0c4a6e;
+        color: #7dd3fc;
+    }
+
+    .dark-mode .btn-filter-pill[data-status="In Progress"]:hover {
+        background: #0f2b42;
+        border-color: #0284c7;
+        color: #ffffff;
+    }
+
     .dark-mode .btn-filter-pill[data-status="In Progress"].active {
         background: #0284c7 !important;
         border-color: #38bdf8 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4) !important;
     }
-    .dark-mode .btn-filter-pill[data-status="In Progress"].active .pill-dot { background: #bae6fd !important; }
+
+    .dark-mode .btn-filter-pill[data-status="In Progress"].active .pill-dot {
+        background: #bae6fd !important;
+    }
 
     .dark-mode .btn-filter-pill[data-status="Complete"] {
         background: #0b1d16;
         border-color: #14532d;
         color: #86efac;
     }
-    .dark-mode .btn-filter-pill[data-status="Complete"] .pill-dot { background: #4ade80; }
-    .dark-mode .btn-filter-pill[data-status="Complete"] .pill-count { background: #14532d; color: #86efac; }
-    .dark-mode .btn-filter-pill[data-status="Complete"]:hover { background: #0f2e20; border-color: #16a34a; color: #ffffff; }
+
+    .dark-mode .btn-filter-pill[data-status="Complete"] .pill-dot {
+        background: #4ade80;
+    }
+
+    .dark-mode .btn-filter-pill[data-status="Complete"] .pill-count {
+        background: #14532d;
+        color: #86efac;
+    }
+
+    .dark-mode .btn-filter-pill[data-status="Complete"]:hover {
+        background: #0f2e20;
+        border-color: #16a34a;
+        color: #ffffff;
+    }
+
     .dark-mode .btn-filter-pill[data-status="Complete"].active {
         background: #16a34a !important;
         border-color: #4ade80 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(22, 163, 74, 0.4) !important;
     }
-    .dark-mode .btn-filter-pill[data-status="Complete"].active .pill-dot { background: #bbf7d0 !important; }
+
+    .dark-mode .btn-filter-pill[data-status="Complete"].active .pill-dot {
+        background: #bbf7d0 !important;
+    }
 
     /* --- DARK MODE PRIORITAS PILLS --- */
     .dark-mode .btn-filter-pill-prio[data-priority="ALL"] {
@@ -680,80 +888,160 @@ if (!function_exists('renderPbPriorityBadge')) {
         border-color: #334155;
         color: #cbd5e1;
     }
-    .dark-mode .btn-filter-pill-prio[data-priority="ALL"] .prio-dot { background: #64748b; }
-    .dark-mode .btn-filter-pill-prio[data-priority="ALL"] .pill-count { background: #1e293b; color: #cbd5e1; }
-    .dark-mode .btn-filter-pill-prio[data-priority="ALL"]:hover { background: #1e293b; border-color: #475569; color: #ffffff; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="ALL"] .prio-dot {
+        background: #64748b;
+    }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="ALL"] .pill-count {
+        background: #1e293b;
+        color: #cbd5e1;
+    }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="ALL"]:hover {
+        background: #1e293b;
+        border-color: #475569;
+        color: #ffffff;
+    }
+
     .dark-mode .btn-filter-pill-prio[data-priority="ALL"].active {
         background: #334155 !important;
         border-color: #475569 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(51, 65, 85, 0.4) !important;
     }
-    .dark-mode .btn-filter-pill-prio[data-priority="ALL"].active .prio-dot { background: #94a3b8 !important; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="ALL"].active .prio-dot {
+        background: #94a3b8 !important;
+    }
 
     .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"] {
         background: #1f0b0f;
         border-color: #881337;
         color: #fda4af;
     }
-    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"] .prio-dot { background: #f43f5e; }
-    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"] .pill-count { background: #4c0519; color: #fda4af; }
-    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"]:hover { background: #2e0d16; border-color: #be123c; color: #ffffff; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"] .prio-dot {
+        background: #f43f5e;
+    }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"] .pill-count {
+        background: #4c0519;
+        color: #fda4af;
+    }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"]:hover {
+        background: #2e0d16;
+        border-color: #be123c;
+        color: #ffffff;
+    }
+
     .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"].active {
         background: #be123c !important;
         border-color: #f43f5e !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(244, 63, 94, 0.4) !important;
     }
-    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"].active .prio-dot { background: #fecdd3 !important; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="EMERGENCY"].active .prio-dot {
+        background: #fecdd3 !important;
+    }
 
     .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] {
         background: #1c1305;
         border-color: #78350f;
         color: #fde68a;
     }
-    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .prio-dot { background: #f59e0b; }
-    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .pill-count { background: #451a03; color: #fde68a; }
-    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"]:hover { background: #2e1d08; border-color: #b45309; color: #ffffff; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .prio-dot {
+        background: #f59e0b;
+    }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"] .pill-count {
+        background: #451a03;
+        color: #fde68a;
+    }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"]:hover {
+        background: #2e1d08;
+        border-color: #b45309;
+        color: #ffffff;
+    }
+
     .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"].active {
         background: #b45309 !important;
         border-color: #f59e0b !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4) !important;
     }
-    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"].active .prio-dot { background: #fef3c7 !important; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="HIGH PRIORITY"].active .prio-dot {
+        background: #fef3c7 !important;
+    }
 
     .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] {
         background: #141f32;
         border-color: #334155;
         color: #cbd5e1;
     }
-    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .prio-dot { background: #64748b; }
-    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .pill-count { background: #1e293b; color: #cbd5e1; }
-    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"]:hover { background: #1e293b; border-color: #475569; color: #ffffff; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .prio-dot {
+        background: #64748b;
+    }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"] .pill-count {
+        background: #1e293b;
+        color: #cbd5e1;
+    }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"]:hover {
+        background: #1e293b;
+        border-color: #475569;
+        color: #ffffff;
+    }
+
     .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"].active {
         background: #475569 !important;
         border-color: #64748b !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(100, 116, 139, 0.4) !important;
     }
-    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"].active .prio-dot { background: #cbd5e1 !important; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="MEDIUM PRIORITY"].active .prio-dot {
+        background: #cbd5e1 !important;
+    }
 
     .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"] {
         background: #081726;
         border-color: #075985;
         color: #7dd3fc;
     }
-    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .prio-dot { background: #38bdf8; }
-    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .pill-count { background: #0c4a6e; color: #7dd3fc; }
-    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"]:hover { background: #0f2b42; border-color: #0284c7; color: #ffffff; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .prio-dot {
+        background: #38bdf8;
+    }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"] .pill-count {
+        background: #0c4a6e;
+        color: #7dd3fc;
+    }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"]:hover {
+        background: #0f2b42;
+        border-color: #0284c7;
+        color: #ffffff;
+    }
+
     .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"].active {
         background: #0284c7 !important;
         border-color: #38bdf8 !important;
         color: #ffffff !important;
         box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4) !important;
     }
-    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"].active .prio-dot { background: #bae6fd !important; }
+
+    .dark-mode .btn-filter-pill-prio[data-priority="LOW PRIORITY"].active .prio-dot {
+        background: #bae6fd !important;
+    }
 
     /* --- DARK MODE PETUGAS SELECT & RESET (EXACT SAME SIZES) --- */
     .dark-mode select.select-petugas-filter {
@@ -811,6 +1099,301 @@ if (!function_exists('renderPbPriorityBadge')) {
         background: #1e293b !important;
         color: #ffffff !important;
         border-color: #475569 !important;
+    }
+
+    /* ==========================================================================
+       SKIN-SPECIFIC FILTER TOOLBAR (CAPPUCCINO, EVERFOREST, TOKYO, PB)
+       ========================================================================== */
+    /* --- CAPPUCCINO --- */
+    html.skin-cappuccino.dark-mode .status-filter-toolbar,
+    body.skin-cappuccino.dark-mode .status-filter-toolbar,
+    .skin-cappuccino.dark-mode .status-filter-toolbar {
+        background: #1b1411 !important;
+        border-color: #382a22 !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    html.skin-cappuccino.dark-mode .filter-label,
+    body.skin-cappuccino.dark-mode .filter-label,
+    .skin-cappuccino.dark-mode .filter-label {
+        color: #d4a373 !important;
+    }
+
+    html.skin-cappuccino.dark-mode .filter-row-divider,
+    body.skin-cappuccino.dark-mode .filter-row-divider,
+    .skin-cappuccino.dark-mode .filter-row-divider {
+        background: rgba(212, 163, 115, 0.15) !important;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"],
+    body.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"],
+    .skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"] {
+        background: #241b16;
+        border-color: #382a22;
+        color: #faedcd;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"] .pill-dot,
+    body.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"] .pill-dot {
+        background: #d4a373;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"] .pill-count,
+    body.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"] .pill-count {
+        background: #382a22;
+        color: #faedcd;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"]:hover,
+    body.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"]:hover {
+        background: #2f221c;
+        border-color: #d4a373;
+        color: #ffffff;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"].active,
+    body.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"].active,
+    .skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"].active {
+        background: #d4a373 !important;
+        border-color: #e9c46a !important;
+        color: #181310 !important;
+        box-shadow: 0 2px 8px rgba(212, 163, 115, 0.4) !important;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"].active .pill-dot,
+    body.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"].active .pill-dot {
+        background: #181310 !important;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"].active .pill-count,
+    body.skin-cappuccino.dark-mode .btn-filter-pill[data-status="ALL"].active .pill-count {
+        background: #181310 !important;
+        color: #d4a373 !important;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"],
+    body.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"],
+    .skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"] {
+        background: #241b16;
+        border-color: #382a22;
+        color: #faedcd;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"] .pill-dot,
+    body.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"] .pill-dot {
+        background: #d4a373;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"] .pill-count,
+    body.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"] .pill-count {
+        background: #382a22;
+        color: #faedcd;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"]:hover,
+    body.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"]:hover {
+        background: #2f221c;
+        border-color: #d4a373;
+        color: #ffffff;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active,
+    body.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active,
+    .skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active {
+        background: #d4a373 !important;
+        border-color: #e9c46a !important;
+        color: #181310 !important;
+        box-shadow: 0 2px 8px rgba(212, 163, 115, 0.4) !important;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active .pill-dot,
+    body.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active .pill-dot {
+        background: #181310 !important;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active .pill-count,
+    body.skin-cappuccino.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active .pill-count {
+        background: #181310 !important;
+        color: #d4a373 !important;
+    }
+
+    html.skin-cappuccino.dark-mode select.select-petugas-filter,
+    body.skin-cappuccino.dark-mode select.select-petugas-filter,
+    .skin-cappuccino.dark-mode select.select-petugas-filter {
+        background-color: #241b16 !important;
+        border-color: #382a22 !important;
+        color: #faedcd !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23d4a373' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    }
+
+    html.skin-cappuccino.dark-mode select.select-petugas-filter:hover,
+    body.skin-cappuccino.dark-mode select.select-petugas-filter:hover {
+        border-color: #d4a373 !important;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-reset,
+    body.skin-cappuccino.dark-mode .btn-filter-reset,
+    .skin-cappuccino.dark-mode .btn-filter-reset {
+        background: #241b16 !important;
+        border-color: #382a22 !important;
+        color: #d4a373 !important;
+    }
+
+    html.skin-cappuccino.dark-mode .btn-filter-reset:hover,
+    body.skin-cappuccino.dark-mode .btn-filter-reset:hover {
+        background: #2f221c !important;
+        color: #ffffff !important;
+        border-color: #d4a373 !important;
+    }
+
+    /* --- EVERFOREST --- */
+    html.skin-everforest.dark-mode .status-filter-toolbar,
+    body.skin-everforest.dark-mode .status-filter-toolbar,
+    .skin-everforest.dark-mode .status-filter-toolbar {
+        background: #171d1b !important;
+        border-color: #2d3a34 !important;
+    }
+
+    html.skin-everforest.dark-mode .filter-label,
+    body.skin-everforest.dark-mode .filter-label {
+        color: #a7c080 !important;
+    }
+
+    html.skin-everforest.dark-mode .filter-row-divider,
+    body.skin-everforest.dark-mode .filter-row-divider {
+        background: rgba(167, 192, 128, 0.15) !important;
+    }
+
+    html.skin-everforest.dark-mode .btn-filter-pill[data-status="ALL"],
+    body.skin-everforest.dark-mode .btn-filter-pill[data-status="ALL"] {
+        background: #1e2522;
+        border-color: #2d3a34;
+        color: #d3c6aa;
+    }
+
+    html.skin-everforest.dark-mode .btn-filter-pill[data-status="ALL"].active,
+    body.skin-everforest.dark-mode .btn-filter-pill[data-status="ALL"].active,
+    html.skin-everforest.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active,
+    body.skin-everforest.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active {
+        background: #a7c080 !important;
+        border-color: #83c092 !important;
+        color: #1e2326 !important;
+        box-shadow: 0 2px 8px rgba(167, 192, 128, 0.4) !important;
+    }
+
+    html.skin-everforest.dark-mode select.select-petugas-filter,
+    body.skin-everforest.dark-mode select.select-petugas-filter {
+        background-color: #1e2522 !important;
+        border-color: #2d3a34 !important;
+        color: #d3c6aa !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a7c080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    }
+
+    html.skin-everforest.dark-mode .btn-filter-reset,
+    body.skin-everforest.dark-mode .btn-filter-reset {
+        background: #1e2522 !important;
+        border-color: #2d3a34 !important;
+        color: #a7c080 !important;
+    }
+
+    /* --- TOKYO --- */
+    html.skin-tokyo.dark-mode .status-filter-toolbar,
+    body.skin-tokyo.dark-mode .status-filter-toolbar,
+    .skin-tokyo.dark-mode .status-filter-toolbar {
+        background: #16161e !important;
+        border-color: #292e42 !important;
+    }
+
+    html.skin-tokyo.dark-mode .filter-label,
+    body.skin-tokyo.dark-mode .filter-label {
+        color: #7aa2f7 !important;
+    }
+
+    html.skin-tokyo.dark-mode .filter-row-divider,
+    body.skin-tokyo.dark-mode .filter-row-divider {
+        background: rgba(122, 162, 247, 0.15) !important;
+    }
+
+    html.skin-tokyo.dark-mode .btn-filter-pill[data-status="ALL"],
+    body.skin-tokyo.dark-mode .btn-filter-pill[data-status="ALL"] {
+        background: #1a1b26;
+        border-color: #292e42;
+        color: #c0caf5;
+    }
+
+    html.skin-tokyo.dark-mode .btn-filter-pill[data-status="ALL"].active,
+    body.skin-tokyo.dark-mode .btn-filter-pill[data-status="ALL"].active,
+    html.skin-tokyo.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active,
+    body.skin-tokyo.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active {
+        background: #7aa2f7 !important;
+        border-color: #bb9af7 !important;
+        color: #13141f !important;
+        box-shadow: 0 2px 8px rgba(122, 162, 247, 0.4) !important;
+    }
+
+    html.skin-tokyo.dark-mode select.select-petugas-filter,
+    body.skin-tokyo.dark-mode select.select-petugas-filter {
+        background-color: #1a1b26 !important;
+        border-color: #292e42 !important;
+        color: #c0caf5 !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237aa2f7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    }
+
+    html.skin-tokyo.dark-mode .btn-filter-reset,
+    body.skin-tokyo.dark-mode .btn-filter-reset {
+        background: #1a1b26 !important;
+        border-color: #292e42 !important;
+        color: #7aa2f7 !important;
+    }
+
+    /* --- PB --- */
+    html.skin-pb.dark-mode .status-filter-toolbar,
+    body.skin-pb.dark-mode .status-filter-toolbar,
+    .skin-pb.dark-mode .status-filter-toolbar {
+        background: #090e16 !important;
+        border-color: rgba(0, 210, 255, 0.3) !important;
+    }
+
+    html.skin-pb.dark-mode .filter-label,
+    body.skin-pb.dark-mode .filter-label {
+        color: #00d2ff !important;
+    }
+
+    html.skin-pb.dark-mode .filter-row-divider,
+    body.skin-pb.dark-mode .filter-row-divider {
+        background: rgba(0, 210, 255, 0.2) !important;
+    }
+
+    html.skin-pb.dark-mode .btn-filter-pill[data-status="ALL"],
+    body.skin-pb.dark-mode .btn-filter-pill[data-status="ALL"] {
+        background: #0d141e;
+        border-color: rgba(0, 210, 255, 0.3);
+        color: #e2f1f8;
+    }
+
+    html.skin-pb.dark-mode .btn-filter-pill[data-status="ALL"].active,
+    body.skin-pb.dark-mode .btn-filter-pill[data-status="ALL"].active,
+    html.skin-pb.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active,
+    body.skin-pb.dark-mode .btn-filter-pill-prio[data-priority="ALL"].active {
+        background: #00d2ff !important;
+        border-color: #00e5ff !important;
+        color: #090e16 !important;
+        box-shadow: 0 2px 8px rgba(0, 210, 255, 0.4) !important;
+    }
+
+    html.skin-pb.dark-mode select.select-petugas-filter,
+    body.skin-pb.dark-mode select.select-petugas-filter {
+        background-color: #0d141e !important;
+        border-color: rgba(0, 210, 255, 0.3) !important;
+        color: #e2f1f8 !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300d2ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    }
+
+    html.skin-pb.dark-mode .btn-filter-reset,
+    body.skin-pb.dark-mode .btn-filter-reset {
+        background: #0d141e !important;
+        border-color: rgba(0, 210, 255, 0.3) !important;
+        color: #00d2ff !important;
     }
 
     .dark-mode .pb-legend-title {
@@ -1412,9 +1995,9 @@ if (!function_exists('renderPbPriorityBadge')) {
         </div>
         <div class="body">
             <!-- 🔘 MULTI-FILTER TOOLBAR (STATUS, PRIORITAS, PETUGAS IT - DUA BARIS RAPI) -->
-            <div class="status-filter-toolbar">
-                <!-- Baris 1: Filter Status & Petugas IT + Reset -->
-                <div class="filter-toolbar-row filter-row-status">
+            <!-- <div class="status-filter-toolbar"> -->
+            <!-- Baris 1: Filter Status & Petugas IT + Reset -->
+            <!-- <div class="filter-toolbar-row filter-row-status">
                     <div class="filter-group-wrapper">
                         <span class="filter-label">STATUS:</span>
                         <div class="status-filter-pills" id="statusFilterPills">
@@ -1467,13 +2050,13 @@ if (!function_exists('renderPbPriorityBadge')) {
                             Reset
                         </button>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- Pembatas Garis Horizontal Antar Baris -->
-                <div class="filter-row-divider"></div>
+            <!-- Pembatas Garis Horizontal Antar Baris -->
+            <!-- <div class="filter-row-divider"></div> -->
 
-                <!-- Baris 2: Filter Prioritas -->
-                <div class="filter-toolbar-row filter-row-priority">
+            <!-- Baris 2: Filter Prioritas -->
+            <!-- <div class="filter-toolbar-row filter-row-priority">
                     <div class="filter-group-wrapper">
                         <span class="filter-label">PRIORITAS:</span>
                         <div class="priority-filter-pills" id="priorityFilterPills">
@@ -1504,8 +2087,8 @@ if (!function_exists('renderPbPriorityBadge')) {
                             </button>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
 
             <div class="table-responsive">
                 <table id="table-today" class="table table-bordered table-striped table-hover js-basic-example no-paging dataTable" data-paging="false" data-order="[[0, &quot;asc&quot;]]">
@@ -1580,19 +2163,19 @@ if (!function_exists('renderPbPriorityBadge')) {
                                             data-kendala="<?php echo htmlspecialchars((string)($data['jnskendala'] ?? '')); ?>"
                                             data-prioritas="<?php echo htmlspecialchars((string)normalizePriorityName($data['nama_prioritas'] ?? '')); ?>"
                                             title="Klik untuk ubah prioritas">
-                                            <?php
-                                            $pbBadgeHtml = renderPbPriorityBadge($data['nama_prioritas'] ?? '');
-                                            if (!empty($pbBadgeHtml)) {
-                                                echo $pbBadgeHtml;
-                                            } else {
-                                                echo '<span class="pb-badge pb-none" style="font-size:10px; cursor:pointer;" title="Klik untuk atur prioritas">+ Prioritas</span>';
-                                            }
-                                            ?>
+                                            <!-- <?php
+                                                    $pbBadgeHtml = renderPbPriorityBadge($data['nama_prioritas'] ?? '');
+                                                    if (!empty($pbBadgeHtml)) {
+                                                        echo $pbBadgeHtml;
+                                                    } else {
+                                                        echo '<span class="pb-badge pb-none" style="font-size:10px; cursor:pointer;" title="Klik untuk atur prioritas">+ Prioritas</span>';
+                                                    }
+                                                    ?> -->
                                         </div>
                                     <?php } elseif ($cek_status == 'Complete') { ?>
-                                        <div style="display: inline-block;">
+                                        <!-- <div style="display: inline-block;">
                                             <?php echo renderPbPriorityBadge($data['nama_prioritas'] ?? ''); ?>
-                                        </div>
+                                        </div> -->
                                     <?php } ?>
                                 </td>
                                 <td>
@@ -1826,14 +2409,37 @@ if (!function_exists('renderPbPriorityBadge')) {
             const nohp = btn.dataset.nohp;
 
             // Konfirmasi sebelum kirim via SweetAlert2
+            const isDark = document.documentElement.classList.contains('dark-mode') ||
+                document.body.classList.contains('dark-mode') ||
+                localStorage.getItem('simit_theme') === 'dark';
+
+            let currentSkin = localStorage.getItem('simit_skin') || 'default';
+            if (currentSkin === 'pointblank') currentSkin = 'pb';
+
+            ['cappuccino', 'everforest', 'tokyo', 'pb'].forEach(function(s) {
+                if (document.documentElement.classList.contains('skin-' + s) || document.body.classList.contains('skin-' + s)) {
+                    currentSkin = s;
+                }
+            });
+
+            const skinPopupBgs = {
+                default: '#1e293b',
+                cappuccino: '#231c17',
+                everforest: '#1e2522',
+                tokyo: '#1a1b26',
+                pb: '#0d141e'
+            };
+            const currentPopupBg = isDark ? (skinPopupBgs[currentSkin] || skinPopupBgs.default) : '#ffffff';
+
             Swal.fire({
                 title: '📱 Kirim WhatsApp?',
                 html: `Kirim notifikasi penyelesaian ke <b>${namaPelapor}</b>?<br>
                    <small>Nomor: ${nohp}<br>Pesan akan berisi link feedback profesional.</small>`,
                 icon: 'question',
                 showCancelButton: true,
+                background: currentPopupBg,
                 confirmButtonText: '✅ Kirim Sekarang',
-                cancelButtonText: '❌ Batal',
+                cancelButtonText: '<svg style="width:14px;height:14px;vertical-align:middle;margin-right:4px;display:inline-block;" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>Batal',
                 confirmButtonColor: '#25D366',
                 cancelButtonColor: '#f44336',
                 reverseButtons: true,
@@ -1843,7 +2449,7 @@ if (!function_exists('renderPbPriorityBadge')) {
                     // Tampilkan loading state pada tombol
                     const originalIcon = btn.innerHTML;
                     btn.disabled = true;
-                    btn.innerHTML = '<i class="material-icons" style="font-size:18px;animation:spin 1s linear infinite;">refresh</i>';
+                    btn.innerHTML = '<svg style="width:18px;height:18px;animation:spin 0.8s linear infinite;vertical-align:middle;display:inline-block;" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.3)" stroke-width="3"></circle><path d="M12 2a10 10 0 0 1 10 10" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg>';
 
                     // Siapkan data untuk AJAX
                     const formData = new FormData();
@@ -1897,10 +2503,160 @@ if (!function_exists('renderPbPriorityBadge')) {
                                 const messageText = data.message_text || '';
                                 const targetNohp = data.nohp || nohp;
 
-                                // Build error content dengan preview text + tombol copy
+                                // Deteksi Dark Mode & Skin saat ini agar tampilan modal mengikuti tema & skin
+                                const isDark = document.documentElement.classList.contains('dark-mode') ||
+                                    document.body.classList.contains('dark-mode') ||
+                                    localStorage.getItem('simit_theme') === 'dark';
+
+                                let currentSkin = localStorage.getItem('simit_skin') || 'default';
+                                if (currentSkin === 'pointblank') currentSkin = 'pb';
+
+                                ['cappuccino', 'everforest', 'tokyo', 'pb'].forEach(function(s) {
+                                    if (document.documentElement.classList.contains('skin-' + s) || document.body.classList.contains('skin-' + s)) {
+                                        currentSkin = s;
+                                    }
+                                });
+
+                                // Palet warna per tema & skin
+                                const skinPalettes = {
+                                    default: {
+                                        dark: {
+                                            popupBg: '#1e293b',
+                                            previewBg: '#0f172a',
+                                            previewBorder: '#334155',
+                                            previewText: '#f1f5f9',
+                                            fallbackBg: 'rgba(15, 23, 42, 0.75)',
+                                            fallbackBorder: '#334155',
+                                            fallbackAccent: '#38bdf8',
+                                            label: '#cbd5e1',
+                                            sub: '#94a3b8',
+                                            nohp: '#38bdf8'
+                                        },
+                                        light: {
+                                            popupBg: '#ffffff',
+                                            previewBg: '#f8fafc',
+                                            previewBorder: '#cbd5e1',
+                                            previewText: '#1e293b',
+                                            fallbackBg: '#f8fafc',
+                                            fallbackBorder: '#e2e8f0',
+                                            fallbackAccent: '#0284c7',
+                                            label: '#475569',
+                                            sub: '#64748b',
+                                            nohp: '#0284c7'
+                                        }
+                                    },
+                                    cappuccino: {
+                                        dark: {
+                                            popupBg: '#231c17',
+                                            previewBg: '#1b1411',
+                                            previewBorder: '#382a22',
+                                            previewText: '#faedcd',
+                                            fallbackBg: 'rgba(27, 20, 17, 0.85)',
+                                            fallbackBorder: '#382a22',
+                                            fallbackAccent: '#d4a373',
+                                            label: '#d4a373',
+                                            sub: '#d4a373',
+                                            nohp: '#e9c46a'
+                                        },
+                                        light: {
+                                            popupBg: '#fffdfa',
+                                            previewBg: '#fdfaf6',
+                                            previewBorder: '#ebdcd0',
+                                            previewText: '#4a3427',
+                                            fallbackBg: '#fbf5ee',
+                                            fallbackBorder: '#ebdcd0',
+                                            fallbackAccent: '#9c6742',
+                                            label: '#6f4e37',
+                                            sub: '#8c674b',
+                                            nohp: '#6f4e37'
+                                        }
+                                    },
+                                    everforest: {
+                                        dark: {
+                                            popupBg: '#1e2522',
+                                            previewBg: '#171d1b',
+                                            previewBorder: '#2d3a34',
+                                            previewText: '#d3c6aa',
+                                            fallbackBg: 'rgba(23, 29, 27, 0.85)',
+                                            fallbackBorder: '#2d3a34',
+                                            fallbackAccent: '#a7c080',
+                                            label: '#a7c080',
+                                            sub: '#9da993',
+                                            nohp: '#a7c080'
+                                        },
+                                        light: {
+                                            popupBg: '#fdfaf4',
+                                            previewBg: '#f4edd9',
+                                            previewBorder: '#d3c6aa',
+                                            previewText: '#2d353b',
+                                            fallbackBg: '#f7efe0',
+                                            fallbackBorder: '#e2d9c6',
+                                            fallbackAccent: '#4a7a40',
+                                            label: '#4a7a40',
+                                            sub: '#5c6a72',
+                                            nohp: '#4a7a40'
+                                        }
+                                    },
+                                    tokyo: {
+                                        dark: {
+                                            popupBg: '#1a1b26',
+                                            previewBg: '#16161e',
+                                            previewBorder: '#292e42',
+                                            previewText: '#c0caf5',
+                                            fallbackBg: 'rgba(22, 22, 30, 0.85)',
+                                            fallbackBorder: '#414868',
+                                            fallbackAccent: '#7aa2f7',
+                                            label: '#7aa2f7',
+                                            sub: '#a9b1d6',
+                                            nohp: '#7aa2f7'
+                                        },
+                                        light: {
+                                            popupBg: '#ffffff',
+                                            previewBg: '#edf0f7',
+                                            previewBorder: '#cfd5e5',
+                                            previewText: '#24283b',
+                                            fallbackBg: '#f0f2f9',
+                                            fallbackBorder: '#e1e4ed',
+                                            fallbackAccent: '#2e7de9',
+                                            label: '#2e7de9',
+                                            sub: '#617292',
+                                            nohp: '#2e7de9'
+                                        }
+                                    },
+                                    pb: {
+                                        dark: {
+                                            popupBg: '#0d141e',
+                                            previewBg: '#090e16',
+                                            previewBorder: 'rgba(0, 210, 255, 0.3)',
+                                            previewText: '#e2f1f8',
+                                            fallbackBg: 'rgba(9, 14, 22, 0.85)',
+                                            fallbackBorder: 'rgba(0, 210, 255, 0.3)',
+                                            fallbackAccent: '#00d2ff',
+                                            label: '#00d2ff',
+                                            sub: '#88a4bc',
+                                            nohp: '#00d2ff'
+                                        },
+                                        light: {
+                                            popupBg: '#0d141e',
+                                            previewBg: '#090e16',
+                                            previewBorder: 'rgba(0, 210, 255, 0.3)',
+                                            previewText: '#e2f1f8',
+                                            fallbackBg: 'rgba(9, 14, 22, 0.85)',
+                                            fallbackBorder: 'rgba(0, 210, 255, 0.3)',
+                                            fallbackAccent: '#00d2ff',
+                                            label: '#00d2ff',
+                                            sub: '#88a4bc',
+                                            nohp: '#00d2ff'
+                                        }
+                                    }
+                                };
+
+                                const pal = (skinPalettes[currentSkin] || skinPalettes.default)[isDark ? 'dark' : 'light'];
+
+                                // Build error content dengan tema & skin adaptif
                                 let errorContent = `<b>${data?.message || 'Gagal mengirim via API'}</b>`;
                                 if (data?.data?.error) {
-                                    errorContent += `<br><small style="color:#666">${data.data.error}</small>`;
+                                    errorContent += `<br><small style="color:${pal.sub};word-break:break-all;">${data.data.error}</small>`;
                                 }
 
                                 // Jika ada message_text, tampilkan preview + tombol copy
@@ -1913,40 +2669,40 @@ if (!function_exists('renderPbPriorityBadge')) {
                                         .replace(/\n/g, '<br>');
 
                                     errorContent += `
-                                <div style="margin-top:15px">
+                                <div style="margin-top:15px;text-align:left;">
                                     <!-- Preview Box (Scrollable) -->
                                     <div style="margin-bottom:10px">
-                                        <small style="display:block;margin-bottom:5px;color:#555;font-weight:500">
+                                        <small style="display:block;margin-bottom:5px;color:${pal.label};font-weight:600">
                                             📝 Preview Pesan:
                                         </small>
                                         <div style="
                                             max-height:200px;
                                             overflow-y:auto;
-                                            background:#fff;
-                                            border:1px solid #ddd;
-                                            border-radius:4px;
+                                            background:${pal.previewBg};
+                                            border:1px solid ${pal.previewBorder};
+                                            border-radius:6px;
                                             padding:10px;
                                             font-size:12px;
                                             line-height:1.5;
                                             white-space:pre-wrap;
                                             font-family:monospace;
-                                            color:#333;
+                                            color:${pal.previewText};
                                         ">${escapedText}</div>
                                     </div>
                                     
                                     <!-- Copy Button Section -->
-                                    <div style="padding:12px;background:#f8f9fa;border-radius:6px;border-left:4px solid #ffc107">
-                                        <small style="display:block;margin-bottom:8px;color:#555;font-weight:500">
+                                    <div style="padding:12px;background:${pal.fallbackBg};border:1px solid ${pal.fallbackBorder};border-left:4px solid ${pal.fallbackAccent};border-radius:6px">
+                                        <small style="display:block;margin-bottom:8px;color:${pal.label};font-weight:600">
                                             📋 Fallback Manual:
                                         </small>
                                         <button id="swal-copy-btn" class="btn btn-primary" 
-                                                style="width:100%;background:#25D366;border-color:#25D366;color:#fff;font-weight:500">
-                                            <i class="material-icons" style="font-size:16px;vertical-align:middle;margin-right:4px">content_copy</i>
+                                                style="width:100%;background:#25D366;border-color:#25D366;color:#fff;font-weight:600">
+                                            <i class="material-icons" style="font-size:16px;vertical-align:middle;margin-right:4px;color:#fff;">content_copy</i>
                                             Copy Pesan untuk Kirim Manual
                                         </button>
-                                        <small style="display:block;margin-top:8px;color:#777;font-size:11px">
+                                        <small style="display:block;margin-top:8px;color:${pal.sub};font-size:11px;text-align:center;">
                                             Klik tombol di atas, lalu paste di WhatsApp Web/App ke nomor:<br>
-                                            <b style="color:#333">${targetNohp}</b>
+                                            <b style="color:${pal.nohp};font-size:12.5px;">${targetNohp}</b>
                                         </small>
                                     </div>
                                 </div>
@@ -1959,9 +2715,10 @@ if (!function_exists('renderPbPriorityBadge')) {
 
                                 Swal.fire({
                                     icon: 'warning',
-                                    title: 'Gagal Mengirim ❌',
+                                    title: 'Gagal Mengirim',
                                     html: errorContent,
-                                    confirmButtonText: '❌ Tutup',
+                                    background: pal.popupBg,
+                                    confirmButtonText: '<svg style="width:16px;height:16px;vertical-align:middle;margin-right:6px;display:inline-block;" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>Tutup',
                                     confirmButtonColor: '#f44336',
                                     backdrop: true,
                                     width: '500px', // Lebar lebih besar untuk preview
@@ -2442,7 +3199,9 @@ if (!function_exists('renderPbPriorityBadge')) {
             var radio = cardOpt.querySelector('input[type="radio"]');
             if (radio && !radio.checked) {
                 radio.checked = true;
-                var ev = new Event('change', { bubbles: true });
+                var ev = new Event('change', {
+                    bubbles: true
+                });
                 radio.dispatchEvent(ev);
             }
         });
@@ -2471,29 +3230,21 @@ if (!function_exists('renderPbPriorityBadge')) {
 
             var ticketId = document.getElementById('modal-prio-input-id') ? document.getElementById('modal-prio-input-id').value : '';
             if (!ticketId) {
-                if (typeof Swal !== 'undefined') {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'ID Tiket Tidak Valid',
-                        text: 'Silakan refresh halaman dan coba kembali.'
-                    });
-                } else {
-                    alert('ID Tiket Tidak Valid. Silakan refresh halaman dan coba kembali.');
-                }
+                Swal.fire({
+                    icon: 'error',
+                    title: 'ID Tiket Tidak Valid',
+                    text: 'Silakan refresh halaman dan coba kembali.'
+                });
                 return;
             }
 
             var selectedRadio = document.querySelector('input[name="prio_choice"]:checked');
             if (!selectedRadio) {
-                if (typeof Swal !== 'undefined') {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Pilih Prioritas',
-                        text: 'Silakan pilih salah satu tingkat prioritas terlebih dahulu.'
-                    });
-                } else {
-                    alert('Silakan pilih salah satu tingkat prioritas terlebih dahulu.');
-                }
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Pilih Prioritas',
+                    text: 'Silakan pilih salah satu tingkat prioritas terlebih dahulu.'
+                });
                 return;
             }
 
@@ -2537,30 +3288,21 @@ if (!function_exists('renderPbPriorityBadge')) {
                         }
 
                         var labelPrioritas = newPriority || 'Belum Ditentukan';
-                        if (typeof Swal !== 'undefined') {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Prioritas Berhasil Diubah! 🎯',
-                                text: 'Prioritas tiket #' + ticketId + ' berhasil diubah menjadi ' + labelPrioritas,
-                                timer: 1100,
-                                showConfirmButton: false
-                            }).then(function() {
-                                window.location.reload();
-                            });
-                        } else {
-                            alert('Prioritas tiket #' + ticketId + ' berhasil diubah menjadi ' + labelPrioritas);
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Prioritas Berhasil Diubah! 🎯',
+                            text: 'Prioritas tiket #' + ticketId + ' berhasil diubah menjadi ' + labelPrioritas,
+                            timer: 1100,
+                            showConfirmButton: false
+                        }).then(function() {
                             window.location.reload();
-                        }
+                        });
                     } else {
-                        if (typeof Swal !== 'undefined') {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Gagal Mengubah Prioritas',
-                                text: data.message || 'Terjadi kesalahan saat menyimpan.'
-                            });
-                        } else {
-                            alert('Gagal Mengubah Prioritas: ' + (data.message || 'Terjadi kesalahan saat menyimpan.'));
-                        }
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal Mengubah Prioritas',
+                            text: data.message || 'Terjadi kesalahan saat menyimpan.'
+                        });
                     }
                 })
                 .catch(function(err) {
@@ -2568,15 +3310,11 @@ if (!function_exists('renderPbPriorityBadge')) {
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = originalBtnHtml;
                     }
-                    if (typeof Swal !== 'undefined') {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error Jaringan',
-                            text: 'Gagal menghubungi server: ' + err.message
-                        });
-                    } else {
-                        alert('Gagal menghubungi server: ' + err.message);
-                    }
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error Jaringan',
+                        text: 'Gagal menghubungi server: ' + err.message
+                    });
                 });
         }
 

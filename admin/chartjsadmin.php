@@ -175,6 +175,9 @@ $total_today = isset($d_today['total']) ? (int)$d_today['total'] : 0;
         overflow: hidden !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
         margin-bottom: 25px !important;
+    }
+
+    body:not(.dark-mode) .card {
         background: #ffffff !important;
     }
 
@@ -281,13 +284,79 @@ if ($query_chart) {
 ?>
 
 <script type="text/javascript">
+var dashboardLineChartInstance = null;
+
+function isDashboardDarkModeActive() {
+    return document.documentElement.classList.contains('dark-mode') ||
+        document.body.classList.contains('dark-mode');
+}
+
+function getDashboardCurrentSkin() {
+    var html = document.documentElement;
+    var body = document.body;
+    if (html.classList.contains('skin-cappuccino') || body.classList.contains('skin-cappuccino')) return 'cappuccino';
+    if (html.classList.contains('skin-everforest') || body.classList.contains('skin-everforest')) return 'everforest';
+    if (html.classList.contains('skin-tokyo') || body.classList.contains('skin-tokyo')) return 'tokyo';
+    if (html.classList.contains('skin-pb') || body.classList.contains('skin-pb')) return 'pb';
+    var stored = localStorage.getItem('simit_skin');
+    if (stored) return stored;
+    var m = document.cookie.match(/(?:^|;\s*)simit_skin=([^;]*)/);
+    return m ? m[1] : 'default';
+}
+
+function getDashboardThemePalette() {
+    var isDark = isDashboardDarkModeActive();
+    var skin = getDashboardCurrentSkin();
+
+    var cardBg = '#111c38';
+    var textSec = '#94a3b8';
+    var legend = '#cbd5e1';
+    var tooltip = 'rgba(15, 23, 42, 0.95)';
+
+    if (isDark) {
+        if (skin === 'cappuccino') {
+            cardBg = '#241b16';
+            textSec = '#bfa594';
+            legend = '#dfd4cb';
+            tooltip = 'rgba(36, 27, 22, 0.96)';
+        } else if (skin === 'everforest') {
+            cardBg = '#272e33';
+            textSec = '#9da9a0';
+            legend = '#d3c6aa';
+            tooltip = 'rgba(39, 46, 51, 0.96)';
+        } else if (skin === 'tokyo') {
+            cardBg = '#1a1b26';
+            textSec = '#9aa5ce';
+            legend = '#c0caf5';
+            tooltip = 'rgba(26, 27, 38, 0.96)';
+        } else if (skin === 'pb') {
+            cardBg = '#111726';
+            textSec = '#78909c';
+            legend = '#cbd5e1';
+            tooltip = 'rgba(17, 23, 38, 0.96)';
+        }
+    }
+
+    return {
+        isDark: isDark,
+        skin: skin,
+        textPrimary: isDark ? '#f8fafc' : '#1e293b',
+        textSecondary: isDark ? textSec : '#64748b',
+        legendText: isDark ? legend : '#475569',
+        gridLine: isDark ? 'rgba(255, 255, 255, 0.07)' : 'rgba(0, 0, 0, 0.05)',
+        zeroLine: isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.12)',
+        pointBg: isDark ? cardBg : '#ffffff',
+        tooltipBg: isDark ? tooltip : 'rgba(15, 23, 42, 0.88)'
+    };
+}
+
 function initDashboardLineChart() {
     var lineChartElem = document.getElementById("line_chart");
     if (!lineChartElem) return;
     if (typeof Chart === 'undefined') return;
-    if (lineChartElem.getAttribute('data-chart-rendered') === 'true') return;
+    if (dashboardLineChartInstance) return;
 
-    lineChartElem.setAttribute('data-chart-rendered', 'true');
+    var theme = getDashboardThemePalette();
 
     var config = {
         type: 'line',
@@ -299,12 +368,12 @@ function initDashboardLineChart() {
                 borderColor: 'rgba(54, 162, 235, 1)',
                 backgroundColor: 'rgba(54, 162, 235, 0.15)',
                 pointBorderColor: 'rgba(54, 162, 235, 1)',
-                pointBackgroundColor: '#ffffff',
+                pointBackgroundColor: theme.pointBg,
                 pointBorderWidth: 2,
                 pointRadius: 5,
                 pointHoverRadius: 8,
                 pointHitRadius: 15,
-                pointHoverBackgroundColor: '#ffffff',
+                pointHoverBackgroundColor: theme.pointBg,
                 pointHoverBorderColor: 'rgba(54, 162, 235, 1)',
                 pointHoverBorderWidth: 2,
                 lineTension: 0.3,
@@ -315,12 +384,12 @@ function initDashboardLineChart() {
                 borderColor: 'rgba(233, 30, 99, 1)',
                 backgroundColor: 'rgba(233, 30, 99, 0.15)',
                 pointBorderColor: 'rgba(233, 30, 99, 1)',
-                pointBackgroundColor: '#ffffff',
+                pointBackgroundColor: theme.pointBg,
                 pointBorderWidth: 2,
                 pointRadius: 5,
                 pointHoverRadius: 8,
                 pointHitRadius: 15,
-                pointHoverBackgroundColor: '#ffffff',
+                pointHoverBackgroundColor: theme.pointBg,
                 pointHoverBorderColor: 'rgba(233, 30, 99, 1)',
                 pointHoverBorderWidth: 2,
                 lineTension: 0.3,
@@ -331,12 +400,12 @@ function initDashboardLineChart() {
                 borderColor: 'rgba(255, 193, 7, 1)',
                 backgroundColor: 'rgba(255, 193, 7, 0.15)',
                 pointBorderColor: 'rgba(255, 193, 7, 1)',
-                pointBackgroundColor: '#ffffff',
+                pointBackgroundColor: theme.pointBg,
                 pointBorderWidth: 2,
                 pointRadius: 5,
                 pointHoverRadius: 8,
                 pointHitRadius: 15,
-                pointHoverBackgroundColor: '#ffffff',
+                pointHoverBackgroundColor: theme.pointBg,
                 pointHoverBorderColor: 'rgba(255, 193, 7, 1)',
                 pointHoverBorderWidth: 2,
                 lineTension: 0.3,
@@ -351,7 +420,7 @@ function initDashboardLineChart() {
                 position: 'top',
                 labels: {
                     boxWidth: 15,
-                    fontColor: '#475569',
+                    fontColor: theme.legendText,
                     fontFamily: "'Segoe UI', Roboto, sans-serif",
                     fontSize: 12,
                     padding: 15
@@ -364,7 +433,7 @@ function initDashboardLineChart() {
             tooltips: {
                 enabled: true,
                 mode: 'single',
-                backgroundColor: 'rgba(15, 23, 42, 0.88)',
+                backgroundColor: theme.tooltipBg,
                 titleFontFamily: "'Segoe UI', Roboto, sans-serif",
                 titleFontSize: 13,
                 titleFontStyle: 'bold',
@@ -384,7 +453,7 @@ function initDashboardLineChart() {
                         drawBorder: false
                     },
                     ticks: {
-                        fontColor: '#64748b',
+                        fontColor: theme.textSecondary,
                         fontSize: 11
                     }
                 }],
@@ -392,11 +461,11 @@ function initDashboardLineChart() {
                     ticks: {
                         beginAtZero: true,
                         stepSize: 2,
-                        fontColor: '#64748b',
+                        fontColor: theme.textSecondary,
                         fontSize: 11
                     },
                     gridLines: {
-                        color: 'rgba(0, 0, 0, 0.05)',
+                        color: theme.gridLine,
                         drawBorder: false
                     }
                 }]
@@ -404,10 +473,37 @@ function initDashboardLineChart() {
         }
     };
 
-    new Chart(lineChartElem.getContext("2d"), config);
+    dashboardLineChartInstance = new Chart(lineChartElem.getContext("2d"), config);
 }
 
-// Ensure chart initializes regardless of script loading order
+function updateDashboardChartTheme() {
+    if (!dashboardLineChartInstance) return;
+    var theme = getDashboardThemePalette();
+    dashboardLineChartInstance.options.legend.labels.fontColor = theme.legendText;
+    dashboardLineChartInstance.options.scales.xAxes[0].ticks.fontColor = theme.textSecondary;
+    dashboardLineChartInstance.options.scales.yAxes[0].ticks.fontColor = theme.textSecondary;
+    dashboardLineChartInstance.options.scales.yAxes[0].gridLines.color = theme.gridLine;
+    if (dashboardLineChartInstance.options.tooltips) {
+        dashboardLineChartInstance.options.tooltips.backgroundColor = theme.tooltipBg;
+    }
+    dashboardLineChartInstance.data.datasets.forEach(function(ds) {
+        ds.pointBackgroundColor = theme.pointBg;
+        ds.pointHoverBackgroundColor = theme.pointBg;
+    });
+    dashboardLineChartInstance.update();
+}
+
+var dashObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+            updateDashboardChartTheme();
+        }
+    });
+});
+dashObserver.observe(document.documentElement, { attributes: true });
+dashObserver.observe(document.body, { attributes: true });
+window.addEventListener('skinChanged', updateDashboardChartTheme);
+
 if (document.readyState === 'complete') {
     initDashboardLineChart();
 } else {

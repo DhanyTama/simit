@@ -159,6 +159,32 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
     }
 
+    /* Skin Overrides for Filter Card */
+    html.skin-cappuccino.dark-mode .card.filter-card,
+    body.skin-cappuccino.dark-mode .card.filter-card {
+        background: #241b16 !important;
+        border: 1px solid rgba(212, 163, 115, 0.16) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+    }
+    html.skin-everforest.dark-mode .card.filter-card,
+    body.skin-everforest.dark-mode .card.filter-card {
+        background: #272e33 !important;
+        border: 1px solid rgba(167, 192, 128, 0.14) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+    }
+    html.skin-tokyo.dark-mode .card.filter-card,
+    body.skin-tokyo.dark-mode .card.filter-card {
+        background: #1a1b26 !important;
+        border: 1px solid rgba(122, 162, 247, 0.16) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+    }
+    html.skin-pb.dark-mode .card.filter-card,
+    body.skin-pb.dark-mode .card.filter-card {
+        background: #111726 !important;
+        border: 1px solid rgba(0, 210, 255, 0.22) !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(0, 210, 255, 0.08) !important;
+    }
+
     .filter-card-body {
         padding: 12px 20px !important;
         display: flex !important;
@@ -182,6 +208,38 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
     body.dark-mode .filter-card-body .title-area h2 {
         color: #f8fafc !important;
     }
+
+    .chart-header-icon {
+        color: #0284c7;
+        font-size: 22px;
+        transition: color 0.25s ease;
+    }
+    html.dark-mode .chart-header-icon,
+    body.dark-mode .chart-header-icon {
+        color: #38bdf8 !important;
+    }
+    html.skin-cappuccino .chart-header-icon { color: #8c5b36 !important; }
+    html.skin-cappuccino.dark-mode .chart-header-icon,
+    body.skin-cappuccino.dark-mode .chart-header-icon { color: #d4a373 !important; }
+    html.skin-everforest .chart-header-icon { color: #8da101 !important; }
+    html.skin-everforest.dark-mode .chart-header-icon,
+    body.skin-everforest.dark-mode .chart-header-icon { color: #a7c080 !important; }
+    html.skin-tokyo .chart-header-icon { color: #3d59a1 !important; }
+    html.skin-tokyo.dark-mode .chart-header-icon,
+    body.skin-tokyo.dark-mode .chart-header-icon { color: #7aa2f7 !important; }
+    html.skin-pb .chart-header-icon { color: #0284c7 !important; }
+    html.skin-pb.dark-mode .chart-header-icon,
+    body.skin-pb.dark-mode .chart-header-icon { color: #00d2ff !important; text-shadow: 0 0 8px rgba(0, 210, 255, 0.5) !important; }
+
+    /* Skin Title Area Text */
+    html.skin-cappuccino.dark-mode .filter-card-body .title-area h2 { color: #faedcd !important; }
+    html.skin-cappuccino.dark-mode .filter-card-body .title-area p { color: #bfa594 !important; }
+    html.skin-everforest.dark-mode .filter-card-body .title-area h2 { color: #d3c6aa !important; }
+    html.skin-everforest.dark-mode .filter-card-body .title-area p { color: #9da9a0 !important; }
+    html.skin-tokyo.dark-mode .filter-card-body .title-area h2 { color: #c0caf5 !important; }
+    html.skin-tokyo.dark-mode .filter-card-body .title-area p { color: #9aa5ce !important; }
+    html.skin-pb.dark-mode .filter-card-body .title-area h2 { color: #00d2ff !important; text-shadow: 0 0 10px rgba(0, 210, 255, 0.35) !important; }
+    html.skin-pb.dark-mode .filter-card-body .title-area p { color: #78909c !important; }
 
     .filter-card-body .title-area p {
         font-size: 11.5px;
@@ -212,6 +270,12 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
         color: #94a3b8 !important;
     }
 
+    /* Skin filter labels */
+    html.skin-cappuccino.dark-mode .filter-form .filter-label { color: #bfa594 !important; }
+    html.skin-everforest.dark-mode .filter-form .filter-label { color: #9da9a0 !important; }
+    html.skin-tokyo.dark-mode .filter-form .filter-label { color: #9aa5ce !important; }
+    html.skin-pb.dark-mode .filter-form .filter-label { color: #78909c !important; }
+
     .filter-form input[type="month"] {
         padding: 6px 12px;
         border-radius: 8px;
@@ -237,6 +301,44 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
         box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
     }
 
+    /* Skin month input */
+    html.skin-cappuccino.dark-mode .filter-form input[type="month"] {
+        background: #1b1411 !important;
+        border-color: #382a22 !important;
+        color: #faedcd !important;
+    }
+    html.skin-cappuccino.dark-mode .filter-form input[type="month"]:focus {
+        border-color: #d4a373 !important;
+        box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.25) !important;
+    }
+    html.skin-everforest.dark-mode .filter-form input[type="month"] {
+        background: #1e2326 !important;
+        border-color: #343e44 !important;
+        color: #d3c6aa !important;
+    }
+    html.skin-everforest.dark-mode .filter-form input[type="month"]:focus {
+        border-color: #a7c080 !important;
+        box-shadow: 0 0 0 3px rgba(167, 192, 128, 0.25) !important;
+    }
+    html.skin-tokyo.dark-mode .filter-form input[type="month"] {
+        background: #16161e !important;
+        border-color: #25283c !important;
+        color: #c0caf5 !important;
+    }
+    html.skin-tokyo.dark-mode .filter-form input[type="month"]:focus {
+        border-color: #7aa2f7 !important;
+        box-shadow: 0 0 0 3px rgba(122, 162, 247, 0.25) !important;
+    }
+    html.skin-pb.dark-mode .filter-form input[type="month"] {
+        background: #090d14 !important;
+        border-color: #1b2838 !important;
+        color: #e2f1f8 !important;
+    }
+    html.skin-pb.dark-mode .filter-form input[type="month"]:focus {
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.25) !important;
+    }
+
     .btn-filter-action {
         border-radius: 8px !important;
         font-size: 11.5px !important;
@@ -260,6 +362,48 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
         background: #1e293b !important;
         color: #cbd5e1 !important;
         border-color: #334155 !important;
+    }
+
+    /* Skin reset button */
+    html.skin-cappuccino.dark-mode .btn-filter-reset {
+        background: #2b1e18 !important;
+        color: #faedcd !important;
+        border-color: #382a22 !important;
+    }
+    html.skin-cappuccino.dark-mode .btn-filter-reset:hover {
+        background: #382a22 !important;
+        color: #ffffff !important;
+        border-color: #d4a373 !important;
+    }
+    html.skin-everforest.dark-mode .btn-filter-reset {
+        background: #272e33 !important;
+        color: #d3c6aa !important;
+        border-color: #343e44 !important;
+    }
+    html.skin-everforest.dark-mode .btn-filter-reset:hover {
+        background: #343e44 !important;
+        color: #ffffff !important;
+        border-color: #a7c080 !important;
+    }
+    html.skin-tokyo.dark-mode .btn-filter-reset {
+        background: #1f2335 !important;
+        color: #c0caf5 !important;
+        border-color: #292e42 !important;
+    }
+    html.skin-tokyo.dark-mode .btn-filter-reset:hover {
+        background: #292e42 !important;
+        color: #ffffff !important;
+        border-color: #7aa2f7 !important;
+    }
+    html.skin-pb.dark-mode .btn-filter-reset {
+        background: #151f30 !important;
+        color: #e2f1f8 !important;
+        border-color: #1b2838 !important;
+    }
+    html.skin-pb.dark-mode .btn-filter-reset:hover {
+        background: #ff6b00 !important;
+        border-color: #ff8533 !important;
+        color: #ffffff !important;
     }
 
     /* MINI STAT CARDS (MATCHING TOP FILTER SIZE) */
@@ -290,6 +434,43 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
         background: #111c38 !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
     }
+
+    /* Skin overrides for Stat Chips */
+    html.skin-cappuccino.dark-mode .stat-chip,
+    body.skin-cappuccino.dark-mode .stat-chip {
+        background: #241b16 !important;
+        border: 1px solid rgba(212, 163, 115, 0.16) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+    }
+    html.skin-cappuccino.dark-mode .stat-chip .chip-label { color: #bfa594 !important; }
+    html.skin-cappuccino.dark-mode .stat-chip .chip-val { color: #faedcd !important; }
+
+    html.skin-everforest.dark-mode .stat-chip,
+    body.skin-everforest.dark-mode .stat-chip {
+        background: #272e33 !important;
+        border: 1px solid rgba(167, 192, 128, 0.14) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+    }
+    html.skin-everforest.dark-mode .stat-chip .chip-label { color: #9da9a0 !important; }
+    html.skin-everforest.dark-mode .stat-chip .chip-val { color: #d3c6aa !important; }
+
+    html.skin-tokyo.dark-mode .stat-chip,
+    body.skin-tokyo.dark-mode .stat-chip {
+        background: #1a1b26 !important;
+        border: 1px solid rgba(122, 162, 247, 0.16) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+    }
+    html.skin-tokyo.dark-mode .stat-chip .chip-label { color: #9aa5ce !important; }
+    html.skin-tokyo.dark-mode .stat-chip .chip-val { color: #c0caf5 !important; }
+
+    html.skin-pb.dark-mode .stat-chip,
+    body.skin-pb.dark-mode .stat-chip {
+        background: #111726 !important;
+        border: 1px solid rgba(0, 210, 255, 0.22) !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(0, 210, 255, 0.08) !important;
+    }
+    html.skin-pb.dark-mode .stat-chip .chip-label { color: #78909c !important; }
+    html.skin-pb.dark-mode .stat-chip .chip-val { color: #e2f1f8 !important; }
 
     .stat-chip .chip-icon {
         width: 40px;
@@ -365,6 +546,47 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
     }
 
+    /* Skin overrides for Cards */
+    html.skin-cappuccino.dark-mode .card,
+    body.skin-cappuccino.dark-mode .card {
+        background: #241b16 !important;
+        border: 1px solid rgba(212, 163, 115, 0.16) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+    }
+    html.skin-cappuccino.dark-mode .card .header { border-bottom: 1px solid #382a22 !important; }
+    html.skin-cappuccino.dark-mode .card .header h2 { color: #faedcd !important; }
+    html.skin-cappuccino.dark-mode .card .header small { color: #bfa594 !important; }
+
+    html.skin-everforest.dark-mode .card,
+    body.skin-everforest.dark-mode .card {
+        background: #272e33 !important;
+        border: 1px solid rgba(167, 192, 128, 0.14) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+    }
+    html.skin-everforest.dark-mode .card .header { border-bottom: 1px solid #343e44 !important; }
+    html.skin-everforest.dark-mode .card .header h2 { color: #d3c6aa !important; }
+    html.skin-everforest.dark-mode .card .header small { color: #9da9a0 !important; }
+
+    html.skin-tokyo.dark-mode .card,
+    body.skin-tokyo.dark-mode .card {
+        background: #1a1b26 !important;
+        border: 1px solid rgba(122, 162, 247, 0.16) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+    }
+    html.skin-tokyo.dark-mode .card .header { border-bottom: 1px solid #25283c !important; }
+    html.skin-tokyo.dark-mode .card .header h2 { color: #c0caf5 !important; }
+    html.skin-tokyo.dark-mode .card .header small { color: #9aa5ce !important; }
+
+    html.skin-pb.dark-mode .card,
+    body.skin-pb.dark-mode .card {
+        background: #111726 !important;
+        border: 1px solid rgba(0, 210, 255, 0.22) !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(0, 210, 255, 0.08) !important;
+    }
+    html.skin-pb.dark-mode .card .header { border-bottom: 1px solid rgba(0, 210, 255, 0.16) !important; }
+    html.skin-pb.dark-mode .card .header h2 { color: #00d2ff !important; text-shadow: 0 0 10px rgba(0, 210, 255, 0.35) !important; }
+    html.skin-pb.dark-mode .card .header small { color: #78909c !important; }
+
     .card .header {
         border-top-left-radius: 16px !important;
         border-top-right-radius: 16px !important;
@@ -434,6 +656,61 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
         color: #94a3b8 !important;
         border-bottom: 1.5px solid #1e293b !important;
     }
+
+    /* Skin overrides for Table Leaderboard */
+    html.skin-cappuccino.dark-mode .table-leaderboard thead th {
+        background: #1b1411 !important;
+        color: #bfa594 !important;
+        border-bottom: 1.5px solid #382a22 !important;
+    }
+    html.skin-cappuccino.dark-mode .table-leaderboard tbody td {
+        border-top: 1px solid #382a22 !important;
+        color: #dfd4cb !important;
+    }
+    html.skin-cappuccino.dark-mode .petugas-name,
+    html.skin-cappuccino.dark-mode .total-val {
+        color: #faedcd !important;
+    }
+
+    html.skin-everforest.dark-mode .table-leaderboard thead th {
+        background: #1e2326 !important;
+        color: #9da9a0 !important;
+        border-bottom: 1.5px solid #343e44 !important;
+    }
+    html.skin-everforest.dark-mode .table-leaderboard tbody td {
+        border-top: 1px solid #343e44 !important;
+        color: #d3c6aa !important;
+    }
+    html.skin-everforest.dark-mode .petugas-name,
+    html.skin-everforest.dark-mode .total-val {
+        color: #d3c6aa !important;
+    }
+
+    html.skin-tokyo.dark-mode .table-leaderboard thead th {
+        background: #16161e !important;
+        color: #9aa5ce !important;
+        border-bottom: 1.5px solid #25283c !important;
+    }
+    html.skin-tokyo.dark-mode .table-leaderboard tbody td {
+        border-top: 1px solid #25283c !important;
+        color: #c0caf5 !important;
+    }
+    html.skin-tokyo.dark-mode .petugas-name,
+    html.skin-tokyo.dark-mode .total-val {
+        color: #c0caf5 !important;
+    }
+
+    html.skin-pb.dark-mode .table-leaderboard thead th {
+        background: #090d14 !important;
+        color: #78909c !important;
+        border-bottom: 1.5px solid rgba(0, 210, 255, 0.16) !important;
+    }
+    html.skin-pb.dark-mode .table-leaderboard tbody td {
+        border-top: 1px solid rgba(0, 210, 255, 0.12) !important;
+        color: #cbd5e1 !important;
+    }
+    html.skin-pb.dark-mode .petugas-name { color: #e2f1f8 !important; }
+    html.skin-pb.dark-mode .total-val { color: #00d2ff !important; }
 
     .table-leaderboard tbody td {
         padding: 13px 16px !important;
@@ -557,6 +834,27 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
         border-color: #1e293b !important;
     }
 
+    html.skin-cappuccino.dark-mode .rank-pill.rank-other {
+        background: #2b1e18 !important;
+        color: #dfd4cb !important;
+        border-color: #382a22 !important;
+    }
+    html.skin-everforest.dark-mode .rank-pill.rank-other {
+        background: #1e2326 !important;
+        color: #d3c6aa !important;
+        border-color: #343e44 !important;
+    }
+    html.skin-tokyo.dark-mode .rank-pill.rank-other {
+        background: #16161e !important;
+        color: #c0caf5 !important;
+        border-color: #25283c !important;
+    }
+    html.skin-pb.dark-mode .rank-pill.rank-other {
+        background: #0d141e !important;
+        color: #78909c !important;
+        border-color: #1b2838 !important;
+    }
+
     /* Mini Tag Pills for Trouble & Request */
     .mini-tag {
         display: inline-flex;
@@ -610,6 +908,10 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
     body.dark-mode .prog-header {
         color: #cbd5e1 !important;
     }
+    html.skin-cappuccino.dark-mode .prog-header { color: #dfd4cb !important; }
+    html.skin-everforest.dark-mode .prog-header { color: #d3c6aa !important; }
+    html.skin-tokyo.dark-mode .prog-header { color: #c0caf5 !important; }
+    html.skin-pb.dark-mode .prog-header { color: #cbd5e1 !important; }
 
     .prog-track {
         height: 6px;
@@ -622,6 +924,10 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
     body.dark-mode .prog-track {
         background: #1e293b !important;
     }
+    html.skin-cappuccino.dark-mode .prog-track { background: #1b1411 !important; }
+    html.skin-everforest.dark-mode .prog-track { background: #1e2326 !important; }
+    html.skin-tokyo.dark-mode .prog-track { background: #16161e !important; }
+    html.skin-pb.dark-mode .prog-track { background: #090d14 !important; }
 
     .prog-fill {
         height: 100%;
@@ -645,7 +951,7 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
         <div class="filter-card-body">
             <div class="title-area">
                 <h2>
-                    <i class="material-icons" style="color: #0284c7; font-size: 22px;">insert_chart</i>
+                    <i class="material-icons chart-header-icon" style="font-size: 22px;">insert_chart</i>
                     GRAFIK & STATISTIK MRT - IT
                 </h2>
                 <p>
@@ -897,18 +1203,63 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
             document.body.classList.contains('dark-mode');
     }
 
+    function getCurrentSkin() {
+        var html = document.documentElement;
+        var body = document.body;
+        if (html.classList.contains('skin-cappuccino') || body.classList.contains('skin-cappuccino')) return 'cappuccino';
+        if (html.classList.contains('skin-everforest') || body.classList.contains('skin-everforest')) return 'everforest';
+        if (html.classList.contains('skin-tokyo') || body.classList.contains('skin-tokyo')) return 'tokyo';
+        if (html.classList.contains('skin-pb') || body.classList.contains('skin-pb')) return 'pb';
+        var stored = localStorage.getItem('simit_skin');
+        if (stored) return stored;
+        var m = document.cookie.match(/(?:^|;\s*)simit_skin=([^;]*)/);
+        return m ? m[1] : 'default';
+    }
+
     function getThemePalette() {
         var isDark = isDarkModeActive();
+        var skin = getCurrentSkin();
+
+        var cardBg = '#111c38';
+        var textSec = '#94a3b8';
+        var legend = '#cbd5e1';
+        var tooltip = 'rgba(15, 23, 42, 0.95)';
+
+        if (isDark) {
+            if (skin === 'cappuccino') {
+                cardBg = '#241b16';
+                textSec = '#bfa594';
+                legend = '#dfd4cb';
+                tooltip = 'rgba(36, 27, 22, 0.96)';
+            } else if (skin === 'everforest') {
+                cardBg = '#272e33';
+                textSec = '#9da9a0';
+                legend = '#d3c6aa';
+                tooltip = 'rgba(39, 46, 51, 0.96)';
+            } else if (skin === 'tokyo') {
+                cardBg = '#1a1b26';
+                textSec = '#9aa5ce';
+                legend = '#c0caf5';
+                tooltip = 'rgba(26, 27, 38, 0.96)';
+            } else if (skin === 'pb') {
+                cardBg = '#111726';
+                textSec = '#78909c';
+                legend = '#cbd5e1';
+                tooltip = 'rgba(17, 23, 38, 0.96)';
+            }
+        }
+
         return {
             isDark: isDark,
-            textPrimary: isDark ? '#f8fafc' : '#1e293b',
-            textSecondary: isDark ? '#94a3b8' : '#64748b',
-            legendText: isDark ? '#cbd5e1' : '#475569',
+            skin: skin,
+            textPrimary: isDark ? (skin === 'cappuccino' ? '#faedcd' : skin === 'everforest' ? '#d3c6aa' : skin === 'tokyo' ? '#c0caf5' : '#f8fafc') : '#1e293b',
+            textSecondary: isDark ? textSec : '#64748b',
+            legendText: isDark ? legend : '#475569',
             gridLine: isDark ? 'rgba(255, 255, 255, 0.07)' : 'rgba(0, 0, 0, 0.05)',
             zeroLine: isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.12)',
-            doughnutBorder: isDark ? '#111c38' : '#ffffff',
-            pointBg: isDark ? '#111c38' : '#ffffff',
-            tooltipBg: 'rgba(15, 23, 42, 0.95)'
+            doughnutBorder: isDark ? cardBg : '#ffffff',
+            pointBg: isDark ? cardBg : '#ffffff',
+            tooltipBg: isDark ? tooltip : 'rgba(15, 23, 42, 0.95)'
         };
     }
 
@@ -952,6 +1303,9 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
             chartInstances.line.options.scales.xAxes[0].ticks.fontColor = theme.textSecondary;
             chartInstances.line.options.scales.yAxes[0].ticks.fontColor = theme.textSecondary;
             chartInstances.line.options.scales.yAxes[0].gridLines.color = theme.gridLine;
+            if (chartInstances.line.options.tooltips) {
+                chartInstances.line.options.tooltips.backgroundColor = theme.tooltipBg;
+            }
             chartInstances.line.data.datasets.forEach(function(ds) {
                 ds.pointBackgroundColor = theme.pointBg;
             });
@@ -963,6 +1317,9 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
             chartInstances.barKategori.options.scales.xAxes[0].ticks.fontColor = theme.textSecondary;
             chartInstances.barKategori.options.scales.yAxes[0].ticks.fontColor = theme.textSecondary;
             chartInstances.barKategori.options.scales.yAxes[0].gridLines.color = theme.gridLine;
+            if (chartInstances.barKategori.options.tooltips) {
+                chartInstances.barKategori.options.tooltips.backgroundColor = theme.tooltipBg;
+            }
             chartInstances.barKategori.update();
         }
 
@@ -972,12 +1329,18 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
             chartInstances.barPetugas.options.scales.xAxes[0].ticks.fontColor = theme.textSecondary;
             chartInstances.barPetugas.options.scales.yAxes[0].ticks.fontColor = theme.textSecondary;
             chartInstances.barPetugas.options.scales.yAxes[0].gridLines.color = theme.gridLine;
+            if (chartInstances.barPetugas.options.tooltips) {
+                chartInstances.barPetugas.options.tooltips.backgroundColor = theme.tooltipBg;
+            }
             chartInstances.barPetugas.update();
         }
 
         // Update Doughnut Petugas Chart
         if (chartInstances.doughnutPetugas) {
             chartInstances.doughnutPetugas.options.legend.labels.fontColor = theme.legendText;
+            if (chartInstances.doughnutPetugas.options.tooltips) {
+                chartInstances.doughnutPetugas.options.tooltips.backgroundColor = theme.tooltipBg;
+            }
             chartInstances.doughnutPetugas.data.datasets[0].borderColor = theme.doughnutBorder;
             chartInstances.doughnutPetugas.update();
         }
@@ -1319,7 +1682,7 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
         };
     }
 
-    // Observer untuk Real-time Dark Mode Toggle
+    // Observer untuk Real-time Dark Mode & Skin Toggle
     var themeObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if (mutation.attributeName === 'class') {
@@ -1332,6 +1695,9 @@ $avg_completion_rate = ($total_tiket_petugas > 0) ? round(($total_complete_all /
     });
     themeObserver.observe(document.body, {
         attributes: true
+    });
+    window.addEventListener('skinChanged', function() {
+        updateChartsTheme();
     });
 
     // Inisialisasi otomatis

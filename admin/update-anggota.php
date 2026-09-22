@@ -9,16 +9,31 @@ $remote     = $_POST['remote'];
 $feedback   = $_POST['feedback'];
 $jamselesai = $_POST['jamselesai'];
 $tglselesai = $_POST['tglselesai'];
-//$jampenyelesaian	= $_POST['jamselesai'];
-//$tglpenyelesaian	= $_POST['tglselesai'];
-
 
 $query = mysql_query("UPDATE pengunjung SET petugas='$petugas', status='$status', remote='$remote', feedback='$feedback', 
 	tglselesai='$tglselesai', jamselesai='$jamselesai' WHERE id='$id'");
+
 if ($query){
-	echo "<script>alert('Update Sukses.'); window.location = 'anggota.php'</script>";	
+    echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+    Swal.fire({
+        title: 'Berhasil',
+        text: 'Update Sukses.',
+        icon: 'success',
+        timer: 1500,
+        showConfirmButton: false
+    }).then(function() {
+        window.location.href = 'anggota.php';
+    });
+    </script></body></html>";
 } else {
-	echo "<script>alert('Update Sukses.'); window.location = 'anggota.php'</script>";	
+    echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+    Swal.fire({
+        title: 'Gagal',
+        text: 'Update Gagal.',
+        icon: 'error'
+    }).then(function() {
+        window.location.href = 'anggota.php';
+    });
+    </script></body></html>";
 }
-//$query4 = mysql_query("'UPDATE pengun'jung (remote, feedback) VALUES ('$remote', '$feedback')");
 ?>

@@ -76,6 +76,9 @@ $current_skin = (isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'
         themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
 
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <script>
         (function() {

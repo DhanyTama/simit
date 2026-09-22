@@ -69,11 +69,26 @@ $query = mysqli_query($connect,"UPDATE tb_grafik_jnstrouble SET OTHER=(SELECT CO
 }
 
 if ($query) {
-	 echo "<script>window.alert('Data Tersimpan!!!');
-            window.location=(href='index.php?page=data')</script>";
- }else{
-
-	 echo "<script>window.alert('Gagal Tersimpan!!!');
-            window.location=(href='index.php?page=accept&kd=$id')</script>";
+    echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+    Swal.fire({
+        title: 'Berhasil Tersimpan',
+        text: 'Data Tersimpan!!!',
+        icon: 'success',
+        timer: 1500,
+        showConfirmButton: false
+    }).then(function() {
+        window.location.href = 'index.php?page=data';
+    });
+    </script></body></html>";
+} else {
+    echo "<!DOCTYPE html><html><head><meta charset='utf-8'><script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script></head><body><script>
+    Swal.fire({
+        title: 'Gagal Tersimpan',
+        text: 'Gagal Tersimpan!!!',
+        icon: 'error'
+    }).then(function() {
+        window.location.href = 'index.php?page=accept&kd=$id';
+    });
+    </script></body></html>";
 }
 ?>

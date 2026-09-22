@@ -4,7 +4,8 @@
     // ✅ Sanitasi input untuk keamanan
     $kd = isset($_GET['kd']) ? intval($_GET['kd']) : 0;
     if ($kd <= 0) {
-        echo "<script>alert('Invalid ticket ID'); window.location='index.php?page=data';</script>";
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "<script>Swal.fire('Peringatan', 'Invalid ticket ID', 'warning').then(function() { window.location='index.php?page=data'; });</script>";
         exit;
     }
 
@@ -12,7 +13,8 @@
     $data  = mysqli_fetch_array($query);
     
     if (!$data) {
-        echo "<script>alert('Data tidak ditemukan'); window.location='index.php?page=data';</script>";
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "<script>Swal.fire('Peringatan', 'Data tidak ditemukan', 'warning').then(function() { window.location='index.php?page=data'; });</script>";
         exit;
     }
     

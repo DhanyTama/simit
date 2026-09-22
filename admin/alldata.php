@@ -163,15 +163,15 @@ $tampil = mysqli_query($connect, $query1) or die(mysqli_error($connect));
 </div>
 
 <script>
-// Fallback aman tanpa dependensi jQuery langsung di sini
-window.addEventListener('load', function () {
-    setTimeout(function () {
-        var l = document.getElementById('loading-alldata');
-        var w = document.getElementById('table-wrapper-alldata');
-        if (l) l.style.display = 'none';
-        if (w) w.style.display = 'block';
-    }, 600);
-});
+    // Fallback aman tanpa dependensi jQuery langsung di sini
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var l = document.getElementById('loading-alldata');
+            var w = document.getElementById('table-wrapper-alldata');
+            if (l) l.style.display = 'none';
+            if (w) w.style.display = 'block';
+        }, 600);
+    });
 </script>
 
 <!-- SweetAlert2 CDN untuk notifikasi profesional -->
@@ -200,14 +200,37 @@ window.addEventListener('load', function () {
             const nohp = btn.dataset.nohp;
 
             // Konfirmasi sebelum kirim via SweetAlert2
+            const isDark = document.documentElement.classList.contains('dark-mode') || 
+                           document.body.classList.contains('dark-mode') || 
+                           localStorage.getItem('simit_theme') === 'dark';
+
+            let currentSkin = localStorage.getItem('simit_skin') || 'default';
+            if (currentSkin === 'pointblank') currentSkin = 'pb';
+
+            ['cappuccino', 'everforest', 'tokyo', 'pb'].forEach(function(s) {
+                if (document.documentElement.classList.contains('skin-' + s) || document.body.classList.contains('skin-' + s)) {
+                    currentSkin = s;
+                }
+            });
+
+            const skinPopupBgs = {
+                default: '#1e293b',
+                cappuccino: '#231c17',
+                everforest: '#1e2522',
+                tokyo: '#1a1b26',
+                pb: '#0d141e'
+            };
+            const currentPopupBg = isDark ? (skinPopupBgs[currentSkin] || skinPopupBgs.default) : '#ffffff';
+
             Swal.fire({
                 title: '📱 Kirim WhatsApp?',
                 html: `Kirim notifikasi penyelesaian ke <b>${namaPelapor}</b>?<br>
                    <small>Nomor: ${nohp}<br>Pesan akan berisi link feedback profesional.</small>`,
                 icon: 'question',
                 showCancelButton: true,
+                background: currentPopupBg,
                 confirmButtonText: '✅ Kirim Sekarang',
-                cancelButtonText: '❌ Batal',
+                cancelButtonText: '<svg style="width:14px;height:14px;vertical-align:middle;margin-right:4px;display:inline-block;" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>Batal',
                 confirmButtonColor: '#25D366',
                 cancelButtonColor: '#f44336',
                 reverseButtons: true,
@@ -217,7 +240,7 @@ window.addEventListener('load', function () {
                     // Tampilkan loading state pada tombol
                     const originalIcon = btn.innerHTML;
                     btn.disabled = true;
-                    btn.innerHTML = '<i class="material-icons" style="font-size:18px;animation:spin 1s linear infinite;">refresh</i>';
+                    btn.innerHTML = '<svg style="width:18px;height:18px;animation:spin 0.8s linear infinite;vertical-align:middle;display:inline-block;" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.3)" stroke-width="3"></circle><path d="M12 2a10 10 0 0 1 10 10" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg>';
 
                     // Siapkan data untuk AJAX
                     const formData = new FormData();
@@ -271,10 +294,50 @@ window.addEventListener('load', function () {
                                 const messageText = data.message_text || '';
                                 const targetNohp = data.nohp || nohp;
 
-                                // Build error content dengan preview text + tombol copy
+                                // Deteksi Dark Mode & Skin saat ini agar tampilan modal mengikuti tema & skin
+                                const isDark = document.documentElement.classList.contains('dark-mode') || 
+                                               document.body.classList.contains('dark-mode') || 
+                                               localStorage.getItem('simit_theme') === 'dark';
+
+                                let currentSkin = localStorage.getItem('simit_skin') || 'default';
+                                if (currentSkin === 'pointblank') currentSkin = 'pb';
+
+                                ['cappuccino', 'everforest', 'tokyo', 'pb'].forEach(function(s) {
+                                    if (document.documentElement.classList.contains('skin-' + s) || document.body.classList.contains('skin-' + s)) {
+                                        currentSkin = s;
+                                    }
+                                });
+
+                                // Palet warna per tema & skin
+                                const skinPalettes = {
+                                    default: {
+                                        dark: { popupBg: '#1e293b', previewBg: '#0f172a', previewBorder: '#334155', previewText: '#f1f5f9', fallbackBg: 'rgba(15, 23, 42, 0.75)', fallbackBorder: '#334155', fallbackAccent: '#38bdf8', label: '#cbd5e1', sub: '#94a3b8', nohp: '#38bdf8' },
+                                        light: { popupBg: '#ffffff', previewBg: '#f8fafc', previewBorder: '#cbd5e1', previewText: '#1e293b', fallbackBg: '#f8fafc', fallbackBorder: '#e2e8f0', fallbackAccent: '#0284c7', label: '#475569', sub: '#64748b', nohp: '#0284c7' }
+                                    },
+                                    cappuccino: {
+                                        dark: { popupBg: '#231c17', previewBg: '#1b1411', previewBorder: '#382a22', previewText: '#faedcd', fallbackBg: 'rgba(27, 20, 17, 0.85)', fallbackBorder: '#382a22', fallbackAccent: '#d4a373', label: '#d4a373', sub: '#d4a373', nohp: '#e9c46a' },
+                                        light: { popupBg: '#fffdfa', previewBg: '#fdfaf6', previewBorder: '#ebdcd0', previewText: '#4a3427', fallbackBg: '#fbf5ee', fallbackBorder: '#ebdcd0', fallbackAccent: '#9c6742', label: '#6f4e37', sub: '#8c674b', nohp: '#6f4e37' }
+                                    },
+                                    everforest: {
+                                        dark: { popupBg: '#1e2522', previewBg: '#171d1b', previewBorder: '#2d3a34', previewText: '#d3c6aa', fallbackBg: 'rgba(23, 29, 27, 0.85)', fallbackBorder: '#2d3a34', fallbackAccent: '#a7c080', label: '#a7c080', sub: '#9da993', nohp: '#a7c080' },
+                                        light: { popupBg: '#fdfaf4', previewBg: '#f4edd9', previewBorder: '#d3c6aa', previewText: '#2d353b', fallbackBg: '#f7efe0', fallbackBorder: '#e2d9c6', fallbackAccent: '#4a7a40', label: '#4a7a40', sub: '#5c6a72', nohp: '#4a7a40' }
+                                    },
+                                    tokyo: {
+                                        dark: { popupBg: '#1a1b26', previewBg: '#16161e', previewBorder: '#292e42', previewText: '#c0caf5', fallbackBg: 'rgba(22, 22, 30, 0.85)', fallbackBorder: '#414868', fallbackAccent: '#7aa2f7', label: '#7aa2f7', sub: '#a9b1d6', nohp: '#7aa2f7' },
+                                        light: { popupBg: '#ffffff', previewBg: '#edf0f7', previewBorder: '#cfd5e5', previewText: '#24283b', fallbackBg: '#f0f2f9', fallbackBorder: '#e1e4ed', fallbackAccent: '#2e7de9', label: '#2e7de9', sub: '#617292', nohp: '#2e7de9' }
+                                    },
+                                    pb: {
+                                        dark: { popupBg: '#0d141e', previewBg: '#090e16', previewBorder: 'rgba(0, 210, 255, 0.3)', previewText: '#e2f1f8', fallbackBg: 'rgba(9, 14, 22, 0.85)', fallbackBorder: 'rgba(0, 210, 255, 0.3)', fallbackAccent: '#00d2ff', label: '#00d2ff', sub: '#88a4bc', nohp: '#00d2ff' },
+                                        light: { popupBg: '#0d141e', previewBg: '#090e16', previewBorder: 'rgba(0, 210, 255, 0.3)', previewText: '#e2f1f8', fallbackBg: 'rgba(9, 14, 22, 0.85)', fallbackBorder: 'rgba(0, 210, 255, 0.3)', fallbackAccent: '#00d2ff', label: '#00d2ff', sub: '#88a4bc', nohp: '#00d2ff' }
+                                    }
+                                };
+
+                                const pal = (skinPalettes[currentSkin] || skinPalettes.default)[isDark ? 'dark' : 'light'];
+
+                                // Build error content dengan tema & skin adaptif
                                 let errorContent = `<b>${data?.message || 'Gagal mengirim via API'}</b>`;
                                 if (data?.data?.error) {
-                                    errorContent += `<br><small style="color:#666">${data.data.error}</small>`;
+                                    errorContent += `<br><small style="color:${pal.sub};word-break:break-all;">${data.data.error}</small>`;
                                 }
 
                                 // Jika ada message_text, tampilkan preview + tombol copy
@@ -287,40 +350,40 @@ window.addEventListener('load', function () {
                                         .replace(/\n/g, '<br>');
 
                                     errorContent += `
-                                <div style="margin-top:15px">
+                                <div style="margin-top:15px;text-align:left;">
                                     <!-- Preview Box (Scrollable) -->
                                     <div style="margin-bottom:10px">
-                                        <small style="display:block;margin-bottom:5px;color:#555;font-weight:500">
+                                        <small style="display:block;margin-bottom:5px;color:${pal.label};font-weight:600">
                                             📝 Preview Pesan:
                                         </small>
                                         <div style="
                                             max-height:200px;
                                             overflow-y:auto;
-                                            background:#fff;
-                                            border:1px solid #ddd;
-                                            border-radius:4px;
+                                            background:${pal.previewBg};
+                                            border:1px solid ${pal.previewBorder};
+                                            border-radius:6px;
                                             padding:10px;
                                             font-size:12px;
                                             line-height:1.5;
                                             white-space:pre-wrap;
                                             font-family:monospace;
-                                            color:#333;
+                                            color:${pal.previewText};
                                         ">${escapedText}</div>
                                     </div>
                                     
                                     <!-- Copy Button Section -->
-                                    <div style="padding:12px;background:#f8f9fa;border-radius:6px;border-left:4px solid #ffc107">
-                                        <small style="display:block;margin-bottom:8px;color:#555;font-weight:500">
+                                    <div style="padding:12px;background:${pal.fallbackBg};border:1px solid ${pal.fallbackBorder};border-left:4px solid ${pal.fallbackAccent};border-radius:6px">
+                                        <small style="display:block;margin-bottom:8px;color:${pal.label};font-weight:600">
                                             📋 Fallback Manual:
                                         </small>
                                         <button id="swal-copy-btn" class="btn btn-primary" 
-                                                style="width:100%;background:#25D366;border-color:#25D366;color:#fff;font-weight:500">
-                                            <i class="material-icons" style="font-size:16px;vertical-align:middle;margin-right:4px">content_copy</i>
+                                                style="width:100%;background:#25D366;border-color:#25D366;color:#fff;font-weight:600">
+                                            <i class="material-icons" style="font-size:16px;vertical-align:middle;margin-right:4px;color:#fff;">content_copy</i>
                                             Copy Pesan untuk Kirim Manual
                                         </button>
-                                        <small style="display:block;margin-top:8px;color:#777;font-size:11px">
+                                        <small style="display:block;margin-top:8px;color:${pal.sub};font-size:11px;text-align:center;">
                                             Klik tombol di atas, lalu paste di WhatsApp Web/App ke nomor:<br>
-                                            <b style="color:#333">${targetNohp}</b>
+                                            <b style="color:${pal.nohp};font-size:12.5px;">${targetNohp}</b>
                                         </small>
                                     </div>
                                 </div>
@@ -333,9 +396,10 @@ window.addEventListener('load', function () {
 
                                 Swal.fire({
                                     icon: 'warning',
-                                    title: 'Gagal Mengirim ❌',
+                                    title: 'Gagal Mengirim',
                                     html: errorContent,
-                                    confirmButtonText: '❌ Tutup',
+                                    background: pal.popupBg,
+                                    confirmButtonText: '<svg style="width:16px;height:16px;vertical-align:middle;margin-right:6px;display:inline-block;" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>Tutup',
                                     confirmButtonColor: '#f44336',
                                     backdrop: true,
                                     width: '500px', // Lebar lebih besar untuk preview
@@ -450,7 +514,7 @@ window.addEventListener('load', function () {
     if (!document.querySelector('style#wa-spin-animation')) {
         const style = document.createElement('style');
         style.id = 'wa-spin-animation';
-        style.textContent = `@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`;
+        style.textContent = `@-webkit-keyframes spin { from { -webkit-transform: rotate(0deg); } to { -webkit-transform: rotate(360deg); } } @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`;
         document.head.appendChild(style);
     }
 </script>
