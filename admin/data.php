@@ -2157,21 +2157,21 @@ if (!function_exists('renderPbPriorityBadge')) {
                                         ?>
                                     </div>
                                     <?php if ($cek_status == 'In Progress') { ?>
-                                        <div class="pb-priority-clickable btn-ubah-prioritas"
+                                        <!-- <div class="pb-priority-clickable btn-ubah-prioritas"
                                             data-id="<?php echo $data['id']; ?>"
                                             data-nama="<?php echo htmlspecialchars((string)($data['nama'] ?? '')); ?>"
                                             data-kendala="<?php echo htmlspecialchars((string)($data['jnskendala'] ?? '')); ?>"
                                             data-prioritas="<?php echo htmlspecialchars((string)normalizePriorityName($data['nama_prioritas'] ?? '')); ?>"
                                             title="Klik untuk ubah prioritas">
-                                            <!-- <?php
-                                                    $pbBadgeHtml = renderPbPriorityBadge($data['nama_prioritas'] ?? '');
-                                                    if (!empty($pbBadgeHtml)) {
-                                                        echo $pbBadgeHtml;
-                                                    } else {
-                                                        echo '<span class="pb-badge pb-none" style="font-size:10px; cursor:pointer;" title="Klik untuk atur prioritas">+ Prioritas</span>';
-                                                    }
-                                                    ?> -->
-                                        </div>
+                                            <?php
+                                            $pbBadgeHtml = renderPbPriorityBadge($data['nama_prioritas'] ?? '');
+                                            if (!empty($pbBadgeHtml)) {
+                                                echo $pbBadgeHtml;
+                                            } else {
+                                                echo '<span class="pb-badge pb-none" style="font-size:10px; cursor:pointer;" title="Klik untuk atur prioritas">+ Prioritas</span>';
+                                            }
+                                            ?>
+                                        </div> -->
                                     <?php } elseif ($cek_status == 'Complete') { ?>
                                         <!-- <div style="display: inline-block;">
                                             <?php echo renderPbPriorityBadge($data['nama_prioritas'] ?? ''); ?>
