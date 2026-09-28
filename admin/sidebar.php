@@ -12,7 +12,7 @@ $currentPage = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : '
     <!-- User Info -->
     <div class="user-info">
         <div class="image">
-            <img src="../images/user.png" width="48" height="48" alt="User" />
+            <img src="../images/giphy.gif" width="48" height="48" alt="User" />
         </div>
         <div class="info-container">
             <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ADMIN IT RSAM</div>
