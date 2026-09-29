@@ -97,6 +97,10 @@
                 root.classList.remove('theme-transition');
             }, 300);
         }
+
+        try {
+            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: theme, isDark: isDark } }));
+        } catch (err) {}
     }
 
     /**
@@ -128,11 +132,30 @@
             }
         });
 
+        // Sync Public Sidebar Avatar Photo by Skin
+        var publicAvatar = document.querySelector('#leftsidebar .user-info .user-avatar-img, #leftsidebar .user-info .image a[href*="sign-in"] img');
+        if (publicAvatar) {
+            var ppMap = {
+                'default': 'images/pp-rs.jpeg',
+                'cappuccino': 'images/pp-cappuccino.jpeg',
+                'everforest': 'images/pp-everforest.jpeg',
+                'tokyo': 'images/pp-tokyo.jpeg',
+                'pb': 'images/pp-pb.jpeg'
+            };
+            if (ppMap[skin]) {
+                publicAvatar.src = ppMap[skin];
+            }
+        }
+
         if (animate) {
             setTimeout(function () {
                 root.classList.remove('theme-transition');
             }, 300);
         }
+
+        try {
+            window.dispatchEvent(new CustomEvent('skinChanged', { detail: { skin: skin } }));
+        } catch (err) {}
     }
 
     /**

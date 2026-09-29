@@ -6,19 +6,50 @@
  * Dynamically highlights active menu item based on $_GET['page'].
  */
 $currentPage = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : 'tutorial';
+
+// Determine profile picture based on active skin
+$current_skin = isset($current_skin) ? $current_skin : ((isset($_COOKIE['simit_skin']) && in_array($_COOKIE['simit_skin'], ['default', 'cappuccino', 'everforest', 'tokyo', 'pb', 'pointblank'])) ? ($_COOKIE['simit_skin'] === 'pointblank' ? 'pb' : $_COOKIE['simit_skin']) : 'default');
+
+$skin_pp_map = [
+    'default'    => 'images/pp-rs.jpeg',
+    'cappuccino' => 'images/pp-cappuccino.jpeg',
+    'everforest' => 'images/pp-everforest.jpeg',
+    'tokyo'      => 'images/pp-tokyo.jpeg',
+    'pb'         => 'images/pp-pb.jpeg'
+];
+$avatar_src = isset($skin_pp_map[$current_skin]) ? $skin_pp_map[$current_skin] : 'images/pp-rs.jpeg';
 ?>
 <!-- Left Sidebar -->
 <aside id="leftsidebar" class="sidebar">
     <!-- User Info -->
     <div class="user-info pb-5">
         <div class="image">
-            <a href="sign-in.php"><img src="images/user.png" width="48" height="48" alt="User" /></a>
+            <a href="sign-in.php"><img src="<?php echo htmlspecialchars($avatar_src); ?>" class="user-avatar-img" width="70" height="70" alt="User" /></a>
         </div>
         <div class="info-container">
-            <div class="name">IT RSAM</div>
-            <div class="email">itrsam@example.com</div>
+            <div class="name">IT HELPDESK</div>
+            <div class="email">Ext. 167 • it@rsanwarmedika.com</div>
         </div>
     </div>
+    <script>
+        (function() {
+            try {
+                var s = localStorage.getItem('simit_skin') || (document.cookie.match(/(?:^|;\s*)simit_skin=([^;]*)/) || [])[1] || 'default';
+                if (s === 'pointblank') s = 'pb';
+                var ppMap = {
+                    'default': 'images/pp-rs.jpeg',
+                    'cappuccino': 'images/pp-cappuccino.jpeg',
+                    'everforest': 'images/pp-everforest.jpeg',
+                    'tokyo': 'images/pp-tokyo.jpeg',
+                    'pb': 'images/pp-pb.jpeg'
+                };
+                var avatar = document.querySelector('#leftsidebar .user-info .user-avatar-img');
+                if (avatar && ppMap[s]) {
+                    avatar.src = ppMap[s];
+                }
+            } catch (e) {}
+        })();
+    </script>
     <!-- #User Info -->
     <!-- Menu -->
     <div class="menu">
@@ -51,7 +82,7 @@ $currentPage = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : '
                 </a>
             </li>
 
-            <li class="header">PENGATURAN TAMPILAN</li>
+            <!-- <li class="header">PENGATURAN TAMPILAN</li>
             <li class="sidebar-theme-item">
                 <a href="javascript:void(0);" class="theme-toggle-link sidebar-theme-toggle" id="sidebar-theme-toggle-btn">
                     <i class="material-icons sidebar-theme-icon" id="sidebar-theme-icon">brightness_2</i>
@@ -60,7 +91,7 @@ $currentPage = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : '
                         <div class="sidebar-switch-thumb"></div>
                     </div>
                 </a>
-            </li>
+            </li> -->
             <!-- <li class="sidebar-skin-item">
                 <div class="sidebar-skin-picker">
                     <div class="sidebar-skin-title">
