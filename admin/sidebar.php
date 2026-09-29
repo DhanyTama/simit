@@ -12,7 +12,9 @@ $currentPage = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : '
     <!-- User Info -->
     <div class="user-info">
         <div class="image">
-            <img src="../images/giphy.gif" width="48" height="48" alt="User" />
+            <a href="javascript:void(0);" data-toggle="modal" data-target="#profileImageModal">
+                <img src="../images/giphy.gif" width="70" height="70" alt="User" style="cursor: pointer;" title="Perbesar Gambar" />
+            </a>
         </div>
         <div class="info-container">
             <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ADMIN IT RSAM</div>
@@ -116,3 +118,19 @@ $currentPage = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : '
     <!-- #Footer -->
 </aside>
 <!-- #END# Left Sidebar -->
+
+<!-- Profile Image Modal -->
+<div class="modal fade" id="profileImageModal" tabindex="-1" role="dialog" aria-labelledby="profileImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: transparent; border: none; box-shadow: none;">
+            <div class="modal-header" style="border-bottom: none; padding-bottom: 0;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff; opacity: 1; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-size: 30px; outline: none;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center" style="padding-top: 0;">
+                <img src="../images/giphy.gif" alt="User" style="max-width: 100%; max-height: 80vh; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+            </div>
+        </div>
+    </div>
+</div>
